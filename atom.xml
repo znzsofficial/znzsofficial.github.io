@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://l8wxv8.coding-pages.com</id>
     <title>智商封印Official™</title>
-    <updated>2020-04-17T12:27:52.663Z</updated>
+    <updated>2020-04-17T12:28:23.912Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://l8wxv8.coding-pages.com"/>
     <link rel="self" href="http://l8wxv8.coding-pages.com/atom.xml"/>
@@ -11,12 +11,14 @@
     <icon>http://l8wxv8.coding-pages.com/favicon.ico</icon>
     <rights>All rights reserved 2020, 智商封印Official™</rights>
     <entry>
-        <title type="html"><![CDATA[>Hello World]]></title>
+        <title type="html"><![CDATA[Hello World]]></title>
         <id>http://l8wxv8.coding-pages.com/post/greaterhello-world/</id>
         <link href="http://l8wxv8.coding-pages.com/post/greaterhello-world/">
         </link>
         <updated>2020-04-17T12:26:31.000Z</updated>
-        <content type="html"><![CDATA[<p>#&gt;Hello World</p>
+        <content type="html"><![CDATA[<blockquote>
+<p>#Hello World</p>
+</blockquote>
 ]]></content>
     </entry>
     <entry>
