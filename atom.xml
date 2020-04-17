@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://l8wxv8.coding-pages.com</id>
     <title>智商封印Official™</title>
-    <updated>2020-04-17T12:13:26.060Z</updated>
+    <updated>2020-04-17T12:17:25.229Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://l8wxv8.coding-pages.com"/>
     <link rel="self" href="http://l8wxv8.coding-pages.com/atom.xml"/>
@@ -16,13 +16,10 @@
         <link href="http://l8wxv8.coding-pages.com/post/bei-wang-lu-2/">
         </link>
         <updated>2020-04-17T12:08:07.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>@echo off<br>
+        <content type="html"><![CDATA[<p>@echo off<br>
 color F0<br>
 title 常用工具箱v0.4.3<br>
 :choice</p>
-</blockquote>
-<blockquote>
 <p>echo 功能菜单:<br>
 echo.<br>
 echo    EM:打开邮箱<br>
@@ -41,24 +38,20 @@ echo    DL:清理桌面<br>
 echo.<br>
 echo    EX:退出<br>
 echo.</p>
-</blockquote>
-<blockquote>
-<p>set /P action=请输入选项:<br>
-if /I &quot;%action%&quot;<mark>&quot;Admin&quot; goto Admin<br>
-if /I &quot;%action%&quot;</mark>&quot;A&quot; goto ActionA<br>
-if /I &quot;%action%&quot;<mark>&quot;B&quot; goto ActionB<br>
-if /I &quot;%action%&quot;</mark>&quot;C&quot; goto ActionC<br>
-if /I &quot;%action%&quot;<mark>&quot;R&quot; goto RE<br>
-if /I &quot;%action%&quot;</mark>&quot;BD&quot; goto BD<br>
-if /I &quot;%action%&quot;<mark>&quot;EM&quot; goto EM<br>
-if /I &quot;%action%&quot;</mark>&quot;AD&quot; goto Aida<br>
-if /I &quot;%action%&quot;<mark>&quot;EX&quot; goto EX<br>
-if /I &quot;%action%&quot;</mark>&quot;DL&quot; goto DL<br>
-if /I &quot;%action%&quot;<mark>&quot;HS&quot; goto HS<br>
-if /I &quot;%action%&quot;</mark>&quot;TH&quot; goto TH<br>
-if /I &quot;%action%&quot;==&quot;KD&quot; goto KD</p>
-</blockquote>
-<blockquote>
+<p>set /P action=请输入选项:</p>
+<p>if /I &quot;%action%&quot;==&quot;Admin&quot; goto Admin</p>
+<p>if /I &quot;%action%&quot;==&quot;A&quot; goto ActionA</p>
+<p>if /I &quot;%action%&quot;==&quot;B&quot; goto ActionB</p>
+<p>if /I &quot;%action%&quot;==&quot;C&quot; goto ActionC</p>
+<p>if /I &quot;%action%&quot;==&quot;R&quot; goto RE</p>
+<p>if /I &quot;%action%&quot;==&quot;BD&quot; goto BD</p>
+<p>if /I &quot;%action%&quot;==&quot;EM&quot; goto EM</p>
+<p>if /I &quot;%action%&quot;==&quot;AD&quot; goto Aida</p>
+<p>if /I &quot;%action%&quot;==&quot;EX&quot; goto EX</p>
+<p>if /I &quot;%action%&quot;==&quot;DL&quot; goto DL</p>
+<p>if /I &quot;%action%&quot;==&quot;HS&quot; goto HS</p>
+<p>if /I &quot;%action%&quot;==&quot;TH&quot; goto TH</p>
+<p>if /I &quot;%action%&quot;==&quot;KD&quot; goto KD</p>
 <p>:Admin<br>
 cls<br>
 if exist &quot;%SystemRoot%\SysWOW64&quot; path %path%;%windir%\SysNative;%SystemRoot%\SysWOW64;%~dp0<br>
@@ -72,8 +65,6 @@ cd /d &quot;%~dp0&quot;<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:ActionC<br>
 cls<br>
 echo 当前运行路径为：%CD%<br>
@@ -82,56 +73,42 @@ net config work<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:TH<br>
 cls<br>
 start C:\th<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:ActionA<br>
 cls<br>
 ipconfig /all<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:ActionB<br>
 cls<br>
 systeminfo<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:RE<br>
 cls<br>
 taskkill /f /im explorer.exe &amp; start explorer.exe<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:BD<br>
 cls<br>
 start E:\Download\PanDownload.exe<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:EM<br>
 cls<br>
 start https://mail.qq.com/cgi-bin/frame_html?sid=iXNJgbUTi2r9ZlkH<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:DL<br>
 cls<br>
 del /f /s /q /a C:\Users\Administrator\Desktop*.jpg<br>
@@ -144,16 +121,12 @@ del /f /s /q /a C:\Users\Administrator\Desktop*.temp<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:Aida<br>
 cls<br>
 start E:\GKD\aida64extreme620\aida64.exe<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:KD<br>
 cls<br>
 echo 正在关闭钉钉...<br>
@@ -166,19 +139,14 @@ taskkill /im DingtalkLauncher.exe /f<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:HS<br>
 cls<br>
 start E:\GKD\HDS\HDSentinel.exe<br>
 pause<br>
 cls<br>
 goto choice</p>
-</blockquote>
-<blockquote>
 <p>:EX<br>
 exit</p>
-</blockquote>
 ]]></content>
     </entry>
     <entry>
