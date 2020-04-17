@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://1za8vx.coding-pages.com</id>
     <title>智商封印Official™</title>
-    <updated>2020-04-17T12:54:05.574Z</updated>
+    <updated>2020-04-17T12:55:57.462Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://1za8vx.coding-pages.com"/>
     <link rel="self" href="http://1za8vx.coding-pages.com/atom.xml"/>
@@ -10,6 +10,21 @@
     <logo>http://1za8vx.coding-pages.com/images/avatar.png</logo>
     <icon>http://1za8vx.coding-pages.com/favicon.ico</icon>
     <rights>All rights reserved 2020, 智商封印Official™</rights>
+    <entry>
+        <title type="html"><![CDATA[备忘录]]></title>
+        <id>http://1za8vx.coding-pages.com/post/bei-wang-lu/</id>
+        <link href="http://1za8vx.coding-pages.com/post/bei-wang-lu/">
+        </link>
+        <updated>2020-04-17T12:54:52.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>http://forum.sinkens.com/public/<br>
+https://cnusuufuin.coding.net/user<br>
+http://l8wxv8.coding-pages.com/</p>
+</blockquote>
+<p>#纯爱游戏：https://game.eroge.xyz/hhh.php?id=106<br>
+#有意思的网站：http://miku.yeshaocloud.top:429</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello World]]></title>
         <id>http://1za8vx.coding-pages.com/post/greaterhello-world/</id>
@@ -19,35 +34,6 @@
         <content type="html"><![CDATA[<blockquote>
 <p>Hello World</p>
 </blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[备忘录2]]></title>
-        <id>http://1za8vx.coding-pages.com/post/bei-wang-lu-2/</id>
-        <link href="http://1za8vx.coding-pages.com/post/bei-wang-lu-2/">
-        </link>
-        <updated>2020-04-17T12:08:07.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>@echo off<br>
-title 备忘录2<br>
-pause<br>
-exit</p>
-</blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[备忘录]]></title>
-        <id>http://1za8vx.coding-pages.com/post/zhe-ge-bo-ke-yao-bu-yao-dang-bei-wang-lu-yong-a/</id>
-        <link href="http://1za8vx.coding-pages.com/post/zhe-ge-bo-ke-yao-bu-yao-dang-bei-wang-lu-yong-a/">
-        </link>
-        <updated>2020-04-17T11:06:50.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>http://forum.sinkens.com/public/<br>
-https://cnusuufuin.coding.net/user<br>
-http://l8wxv8.coding-pages.com/</p>
-</blockquote>
-<p>#纯爱游戏：https://game.eroge.xyz/hhh.php?id=106<br>
-#有意思的网站：http://miku.yeshaocloud.top:429</p>
 ]]></content>
     </entry>
     <entry>
