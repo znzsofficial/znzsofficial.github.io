@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://1za8vx.coding-pages.com</id>
     <title>智商封印Official™</title>
-    <updated>2020-04-17T12:34:05.990Z</updated>
+    <updated>2020-04-17T12:40:12.392Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://1za8vx.coding-pages.com"/>
     <link rel="self" href="http://1za8vx.coding-pages.com/atom.xml"/>
@@ -27,137 +27,7 @@
         <link href="http://1za8vx.coding-pages.com/post/bei-wang-lu-2/">
         </link>
         <updated>2020-04-17T12:08:07.000Z</updated>
-        <content type="html"><![CDATA[<p>@echo off<br>
-color F0<br>
-title 常用工具箱v0.4.3<br>
-:choice</p>
-<p>echo 功能菜单:<br>
-echo.<br>
-echo    EM:打开邮箱<br>
-echo.<br>
-echo    AD:打开AIDA64<br>
-echo.<br>
-echo    BD:度盘<br>
-echo.<br>
-echo    KD:关闭钉钉<br>
-echo.<br>
-echo    HS:硬盘监控<br>
-echo.<br>
-echo    TH:东方<br>
-echo.<br>
-echo    DL:清理桌面<br>
-echo.<br>
-echo    EX:退出<br>
-echo.</p>
-<p>set /P action=请输入选项:</p>
-<p>if /I &quot;%action%&quot;==&quot;Admin&quot; goto Admin</p>
-<p>if /I &quot;%action%&quot;==&quot;A&quot; goto ActionA</p>
-<p>if /I &quot;%action%&quot;==&quot;B&quot; goto ActionB</p>
-<p>if /I &quot;%action%&quot;==&quot;C&quot; goto ActionC</p>
-<p>if /I &quot;%action%&quot;==&quot;R&quot; goto RE</p>
-<p>if /I &quot;%action%&quot;==&quot;BD&quot; goto BD</p>
-<p>if /I &quot;%action%&quot;==&quot;EM&quot; goto EM</p>
-<p>if /I &quot;%action%&quot;==&quot;AD&quot; goto Aida</p>
-<p>if /I &quot;%action%&quot;==&quot;EX&quot; goto EX</p>
-<p>if /I &quot;%action%&quot;==&quot;DL&quot; goto DL</p>
-<p>if /I &quot;%action%&quot;==&quot;HS&quot; goto HS</p>
-<p>if /I &quot;%action%&quot;==&quot;TH&quot; goto TH</p>
-<p>if /I &quot;%action%&quot;==&quot;KD&quot; goto KD</p>
-<p>:Admin<br>
-cls<br>
-if exist &quot;%SystemRoot%\SysWOW64&quot; path %path%;%windir%\SysNative;%SystemRoot%\SysWOW64;%~dp0<br>
-bcdedit &gt;nul<br>
-if '%errorlevel%' NEQ '0' (goto UACPrompt) else (goto UACAdmin)<br>
-:UACPrompt<br>
-%1 start &quot;&quot; mshta vbscript:createobject(&quot;shell.application&quot;).shellexecute(&quot;&quot;&quot;%~0&quot;&quot;&quot;,&quot;::&quot;,,&quot;runas&quot;,1)(window.close)&amp;exit<br>
-exit /B<br>
-:UACAdmin<br>
-cd /d &quot;%~dp0&quot;<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:ActionC<br>
-cls<br>
-echo 当前运行路径为：%CD%<br>
-echo 当前时间为：%date%<br>
-net config work<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:TH<br>
-cls<br>
-start C:\th<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:ActionA<br>
-cls<br>
-ipconfig /all<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:ActionB<br>
-cls<br>
-systeminfo<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:RE<br>
-cls<br>
-taskkill /f /im explorer.exe &amp; start explorer.exe<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:BD<br>
-cls<br>
-start E:\Download\PanDownload.exe<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:EM<br>
-cls<br>
-start https://mail.qq.com/cgi-bin/frame_html?sid=iXNJgbUTi2r9ZlkH<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:DL<br>
-cls<br>
-del /f /s /q /a C:\Users\Administrator\Desktop*.jpg<br>
-del /f /s /q /a C:\Users\Administrator\Desktop*.jpeg<br>
-del /f /s /q /a C:\Users\Administrator\Desktop*.bmp<br>
-del /f /s /q /a C:\Users\Administrator\Desktop*.webp<br>
-del /f /s /q /a C:\Users\Administrator\Desktop*.png<br>
-del /f /s /q /a C:\Users\Administrator\Desktop*.tmp<br>
-del /f /s /q /a C:\Users\Administrator\Desktop*.temp<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:Aida<br>
-cls<br>
-start E:\GKD\aida64extreme620\aida64.exe<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:KD<br>
-cls<br>
-echo 正在关闭钉钉...<br>
-taskkill /im tblive.exe /f<br>
-taskkill /im Dingtalk.exe /f<br>
-taskkill /im DingtalkElevate.exe /f<br>
-taskkill /im DingtalkScheme.exe /f<br>
-taskkill /im DingTalkUpdater.exe /f<br>
-taskkill /im DingtalkLauncher.exe /f<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:HS<br>
-cls<br>
-start E:\GKD\HDS\HDSentinel.exe<br>
-pause<br>
-cls<br>
-goto choice</p>
-<p>:EX<br>
-exit</p>
+        <content type="html"><![CDATA[<p>这里没有东西</p>
 ]]></content>
     </entry>
     <entry>
