@@ -181,7 +181,70 @@
 
 
 <footer id="fh5co-footer">
-  <p><html><body><p><font size="14" color="#969696">Powered by Coding Pages</font></p></body></html>
+  <p><!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<b> 
+			本站已存活：
+			<span id="year"></span>年 
+			<span id="day"></span>日
+			<span id="hour"></span>时 
+			<span id="minute"></span>分
+			<span id="second"></span>秒
+		</b>
+	</div>
+	<script>
+		var StarTime = 0;
+		function getTime(){
+			var jsonData = {
+					"id" : 1
+				};
+			$.ajax({
+				type : "POST",
+				contentType : "application/json",
+				url : "/time",
+				data : JSON.stringify(jsonData),
+				dataType : "json",
+				processData : false,
+				success : function(parm) {
+					StarTime = parm.message;
+				},
+			});
+		}
+		getTime();
+		setInterval(function() {
+			NotRetain();
+		}, 500)
+		function NotRetain() {
+			//不保留小数点
+			var NowTime = parseInt(new Date().getTime() );
+			//秒
+			var time = parseInt((NowTime - StarTime) / 1000)
+			var second = parseInt(time%60);
+			var minute = parseInt((time/60)%60);
+			var hour = parseInt((time/(60*60))%24);
+			var day = parseInt((time/(60*60*24))%365);
+			var year = parseInt(day/365);
+			
+			document.getElementById("second").innerHTML = second;
+			//分
+			document.getElementById("minute").innerHTML = minute;
+			//时
+			document.getElementById("hour").innerHTML = hour;
+			//天
+			document.getElementById("day").innerHTML = day;
+			//年
+			document.getElementById("year").innerHTML = year;
+		}
+	</script>
+</body>
+</html>
+<html><body><p><font size="14" color="#969696">Powered by Coding Pages</font></p></body></html>
 <html><body><p><font size="10" color="#C0C0C0">Made with Gridea</font></p></body></html></p>
 </footer>
 
