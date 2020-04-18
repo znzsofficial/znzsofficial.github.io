@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://1za8vx.coding-pages.com</id>
+    <id>http://ny9jnd.coding-pages.com</id>
     <title>智商封印Official™</title>
-    <updated>2020-04-17T14:09:01.534Z</updated>
+    <updated>2020-04-18T00:12:30.390Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://1za8vx.coding-pages.com"/>
-    <link rel="self" href="http://1za8vx.coding-pages.com/atom.xml"/>
+    <link rel="alternate" href="http://ny9jnd.coding-pages.com"/>
+    <link rel="self" href="http://ny9jnd.coding-pages.com/atom.xml"/>
     <subtitle>夢符「ご先祖様が見ているぞ」</subtitle>
-    <logo>http://1za8vx.coding-pages.com/images/avatar.png</logo>
-    <icon>http://1za8vx.coding-pages.com/favicon.ico</icon>
+    <logo>http://ny9jnd.coding-pages.com/images/avatar.png</logo>
+    <icon>http://ny9jnd.coding-pages.com/favicon.ico</icon>
     <rights>All rights reserved 2020, 智商封印Official™</rights>
     <entry>
         <title type="html"><![CDATA[备忘录]]></title>
-        <id>http://1za8vx.coding-pages.com/post/bei-wang-lu/</id>
-        <link href="http://1za8vx.coding-pages.com/post/bei-wang-lu/">
+        <id>http://ny9jnd.coding-pages.com/post/bei-wang-lu/</id>
+        <link href="http://ny9jnd.coding-pages.com/post/bei-wang-lu/">
         </link>
         <updated>2020-04-17T12:54:52.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -27,8 +27,8 @@ http://l8wxv8.coding-pages.com/</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello World]]></title>
-        <id>http://1za8vx.coding-pages.com/post/greaterhello-world/</id>
-        <link href="http://1za8vx.coding-pages.com/post/greaterhello-world/">
+        <id>http://ny9jnd.coding-pages.com/post/greaterhello-world/</id>
+        <link href="http://ny9jnd.coding-pages.com/post/greaterhello-world/">
         </link>
         <updated>2020-04-17T12:26:31.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -38,8 +38,8 @@ http://l8wxv8.coding-pages.com/</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[关于酷安避难处]]></title>
-        <id>http://1za8vx.coding-pages.com/post/guan-yu-ku-an-bi-nan-chu/</id>
-        <link href="http://1za8vx.coding-pages.com/post/guan-yu-ku-an-bi-nan-chu/">
+        <id>http://ny9jnd.coding-pages.com/post/guan-yu-ku-an-bi-nan-chu/</id>
+        <link href="http://ny9jnd.coding-pages.com/post/guan-yu-ku-an-bi-nan-chu/">
         </link>
         <updated>2020-04-17T05:50:31.000Z</updated>
         <content type="html"><![CDATA[<p>酷安避难处：http://forum.sinkens.com/<br>
@@ -50,8 +50,8 @@ Bilibili:@智商封印officical</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>http://1za8vx.coding-pages.com/post/hello-gridea/</id>
-        <link href="http://1za8vx.coding-pages.com/post/hello-gridea/">
+        <id>http://ny9jnd.coding-pages.com/post/hello-gridea/</id>
+        <link href="http://ny9jnd.coding-pages.com/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
