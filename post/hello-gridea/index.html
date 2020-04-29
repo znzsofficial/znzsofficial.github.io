@@ -261,13 +261,13 @@
 <script language=JavaScript>
 <!--
 var caution = false
-function setCookie(name, value, expires, path, domain, secure){
+function setCookie(name, value, expires, path, domain, secure) {
 var curCookie = name + "=" + escape(value) +
 ((expires) ? "; expires=" + expires.toGMTString() : "") +
 ((path) ? "; path=" + path : "") +
 ((domain) ? "; domain=" + domain : "") +
 ((secure) ? "; secure" : "")
-if (!caution || (name + "=" + escape(value)).length<= 4000)
+if (!caution || (name + "=" + escape(value)).length <= 4000)
 document.cookie = curCookie
 else
 if (confirm("Cookie exceeds 4KB and will be cut!"))
@@ -278,10 +278,10 @@ var prefix = name + "="
 var cookieStartIndex = document.cookie.indexOf(prefix)
 if (cookieStartIndex == -1)
 return null
-var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex+ prefix.length)
+var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length)
 if (cookieEndIndex == -1)
 cookieEndIndex = document.cookie.length
-return unescape(document.cookie.substring(cookieStartIndex +prefix.length, cookieEndIndex))
+return unescape(document.cookie.substring(cookieStartIndex + prefix.length, cookieEndIndex))
 }
 function deleteCookie(name, path, domain) {
 if (getCookie(name)) {
@@ -306,7 +306,7 @@ visits = 1
 else
 visits = parseInt(visits) + 1
 setCookie("counter", visits, now)
-document.write("网站第" + visits + "次加载")
+document.write("网页" + visits + "次加载")
 // -->
 </script></p>
 </footer>
