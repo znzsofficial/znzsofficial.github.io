@@ -2,11 +2,62 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ny9jnd.coding-pages.com</id>
     <title>智商封印Official™</title>
-    <updated>2020-04-29T13:17:56.095Z</updated>
+    <updated>2020-04-29T13:21:23.995Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ny9jnd.coding-pages.com"/>
     <link rel="self" href="https://ny9jnd.coding-pages.com/atom.xml"/>
-    <subtitle>夢符「ご先祖様が見ているぞ」</subtitle>
+    <subtitle>夢符「ご先祖様が見ているぞ」
+&lt;script language=JavaScript&gt;
+&lt;!--
+var caution = false
+function setCookie(name, value, expires, path, domain, secure){
+var curCookie = name + &quot;=&quot; + escape(value) +
+((expires) ? &quot;; expires=&quot; + expires.toGMTString() : &quot;&quot;) +
+((path) ? &quot;; path=&quot; + path : &quot;&quot;) +
+((domain) ? &quot;; domain=&quot; + domain : &quot;&quot;) +
+((secure) ? &quot;; secure&quot; : &quot;&quot;)
+if (!caution || (name + &quot;=&quot; + escape(value)).length&lt;= 4000)
+document.cookie = curCookie
+else
+if (confirm(&quot;Cookie exceeds 4KB and will be cut!&quot;))
+document.cookie = curCookie
+}
+function getCookie(name) {
+var prefix = name + &quot;=&quot;
+var cookieStartIndex = document.cookie.indexOf(prefix)
+if (cookieStartIndex == -1)
+return null
+var cookieEndIndex = document.cookie.indexOf(&quot;;&quot;, cookieStartIndex+ prefix.length)
+if (cookieEndIndex == -1)
+cookieEndIndex = document.cookie.length
+return unescape(document.cookie.substring(cookieStartIndex +prefix.length, cookieEndIndex))
+}
+function deleteCookie(name, path, domain) {
+if (getCookie(name)) {
+document.cookie = name + &quot;=&quot; +
+((path) ? &quot;; path=&quot; + path : &quot;&quot;) +
+((domain) ? &quot;; domain=&quot; + domain : &quot;&quot;) +
+&quot;; expires=Thu, 01-Jan-70 00:00:01 GMT&quot;
+}
+}
+function fixDate(date) {
+var base = new Date(0)
+var skew = base.getTime()
+if (skew &gt; 0)
+date.setTime(date.getTime() - skew)
+}
+var now = new Date()
+fixDate(now)
+now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000)
+var visits = getCookie(&quot;counter&quot;)
+if (!visits)
+visits = 1
+else
+visits = parseInt(visits) + 1
+setCookie(&quot;counter&quot;, visits, now)
+document.write(&lt;label style=&apos;color:#ff0000;&apos;&quot;网站第&quot; + visits + &quot;次加载&quot;&lt;/label&gt;);)
+// --&gt;
+&lt;/script&gt;</subtitle>
     <logo>https://ny9jnd.coding-pages.com/images/avatar.png</logo>
     <icon>https://ny9jnd.coding-pages.com/favicon.ico</icon>
     <rights>All rights reserved 2020, 智商封印Official™</rights>
