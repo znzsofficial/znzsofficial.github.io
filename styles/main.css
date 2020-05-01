@@ -12741,3 +12741,8 @@ html[xmlns] .flexslider .slides {
 .hljs-strong {
   font-weight: bold;
 }
+
+      #live2dcanvas {
+    border: 0 !important;
+}
+    
