@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://znzsofficial.github.io</id>
     <title>智商封印Official™</title>
-    <updated>2020-12-11T12:21:42.634Z</updated>
+    <updated>2020-12-11T12:23:04.303Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://znzsofficial.github.io"/>
     <link rel="self" href="https://znzsofficial.github.io/atom.xml"/>
@@ -11,12 +11,16 @@
     <icon>https://znzsofficial.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 智商封印Official™</rights>
     <entry>
-        <title type="html"><![CDATA[消失两周]]></title>
-        <id>https://znzsofficial.github.io/O6NqK3tdc/</id>
-        <link href="https://znzsofficial.github.io/O6NqK3tdc/">
+        <title type="html"><![CDATA[我觉得我真的需要写点干货了]]></title>
+        <id>https://znzsofficial.github.io/vhl_ppuUF/</id>
+        <link href="https://znzsofficial.github.io/vhl_ppuUF/">
         </link>
-        <updated>2020-09-06T23:39:43.000Z</updated>
-        <content type="html"><![CDATA[<p>开学</p>
+        <updated>2020-12-11T12:22:10.000Z</updated>
+        <content type="html"><![CDATA[<p>比如整理一下cortex架构<br>
+聊聊HIFI或者机械键盘<br>
+分享点安卓基础知识<br>
+之类的<br>
+吧</p>
 ]]></content>
     </entry>
     <entry>
@@ -1746,30 +1750,6 @@ hi</p>
 </blockquote>
 <p>懒得更新了<br>
 没意思</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[活了活了]]></title>
-        <id>https://znzsofficial.github.io/ctmauB8QM/</id>
-        <link href="https://znzsofficial.github.io/ctmauB8QM/">
-        </link>
-        <updated>2020-08-11T12:39:27.000Z</updated>
-        <content type="html"><![CDATA[<p>更新一下这个页面</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[说一下我可能会鄙视的人]]></title>
-        <id>https://znzsofficial.github.io/shuo-yi-xia-wo-bi-jiao-bi-shi-de-ren/</id>
-        <link href="https://znzsofficial.github.io/shuo-yi-xia-wo-bi-jiao-bi-shi-de-ren/">
-        </link>
-        <updated>2020-04-27T05:47:12.000Z</updated>
-        <content type="html"><![CDATA[<p>狂三雷姆挂在id，头像上的人<br>
-自称木耳的<br>
-把“1w以下听个响”挂在嘴边的人<br>
-瞎jb批判人的<br>
-刚学会fan就当谷歌儿子的<br>
-啥都不懂还要口出狂言的云烧<br>
-装逼装到别人恶心的</p>
 ]]></content>
     </entry>
     <entry>
