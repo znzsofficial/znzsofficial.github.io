@@ -1,65 +1,215 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://znzsofficial.github.io/media/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
-    <link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
 
-    <!-- pjax 加载valine文件 -->
-    <script src="https://znzsofficial.github.io/media/js/valine.min.js"></script>
-    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-    <meta name="description" content="我以为那个时代已过去，殊不知当你歌唱时，属于那个时代的一切都在归来。" />
-    <meta http-equiv="x-pjax-version" content="v123">
-    <title>智商封印Official™</title>
-</head>
+<title>智商封印Official™</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://znzsofficial.github.io/favicon.ico?v=1610698684725">
+<link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
 
 
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                
-                 
-                </div>
-            </div>
-            <div id="bg">
-            </div>
-            <div id="bgchoice" style="display: none">
-            </div>
-            
-            <div id="bgurl" style="display:none"></div>
-             
-        <div id="landlord">
-            <div class="message" style="opacity:0"></div>
-            <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
-        </div>
-    </div>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="我以为那个时代已过去，殊不知当你歌唱时，属于那个时代的一切都在归来。">
     
-    <div id="domainname" style="display:none">https://znzsofficial.github.io
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://znzsofficial.github.io">
+        <img src="https://znzsofficial.github.io/images/avatar.png?v=1610698684725" class="site-logo">
+        <h1 class="site-title">智商封印Official™</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://znzsofficial.github.io/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      我以为那个时代已过去，殊不知当你歌唱时，属于那个时代的一切都在归来。
+    </div>
+    <div class="site-footer">
+      <html><body><p><font size="6" color="#969696">Based on Github Pages</font></p></body></html>
+<html><body><p><font size="5" color="#C0C0C0">Powered by Gridea</font></p></body></html> | <a class="rss" href="https://znzsofficial.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://znzsofficial.github.io/-H9bta3MK/">
+                  <h2 class="post-title">蜜 蜂 俱 乐 部</h2>
+                </a>
+                <div class="post-date">
+                  2020-08-22
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://znzsofficial.github.io/gridea/">
+                  <h2 class="post-title">Gridea</h2>
+                </a>
+                <div class="post-date">
+                  2020-04-22
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://znzsofficial.github.io/bei-wang-lu/">
+                  <h2 class="post-title">备忘录</h2>
+                </a>
+                <div class="post-date">
+                  2020-04-17
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://znzsofficial.github.io/bei-wang-lu/">
+                  <div class="feature-container" style="background-image: url('https://znzsofficial.github.io/post-images/bei-wang-lu.jpeg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://znzsofficial.github.io/guan-yu-ku-an-bi-nan-chu/">
+                  <h2 class="post-title">关于避难处</h2>
+                </a>
+                <div class="post-date">
+                  2020-04-17
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://znzsofficial.github.io/guan-yu-ku-an-bi-nan-chu/">
+                  <div class="feature-container" style="background-image: url('https://znzsofficial.github.io/post-images/guan-yu-ku-an-bi-nan-chu.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://znzsofficial.github.io/hello-gridea/">
+                  <h2 class="post-title">Hello Gridea</h2>
+                </a>
+                <div class="post-date">
+                  2018-12-12
+                </div>
+                <div class="post-abstract">
+                  <p>✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://znzsofficial.github.io/hello-gridea/">
+                  <div class="feature-container" style="background-image: url('https://znzsofficial.github.io/post-images/hello-gridea.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
         </div>
-        
+      </div>
+    </div>
 
-<script>
-    var bgchoice = $('#bgchoice').html();
-    var bg = $('#bg');
-    var bgurl = document.getElementById("bgurl").innerHTML;
-    if (bgchoice == 'default')
-        for (var i = 0; i < 3; i++)
-            bgurl = bgurl.replace("\\", "/");
-    bg.css("background", "url('" + bgurl + "')");
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-    window.onload = function () {
-        aplayerbtnInit();
-    }
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
-<!-- 页内pjax刷新 -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
 
-        
-</body>
+
+
+
+
+
+  </body>
 </html>

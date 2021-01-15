@@ -1,922 +1,139 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="https://znzsofficial.github.io/media/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Touhou Project | 智商封印Official™</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://znzsofficial.github.io/favicon.ico?v=1610698684725">
 <link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
-<link rel="stylesheet" href="https://znzsofficial.github.io/media/css/font-awesome.css">
-<title>智商封印Official™</title>
 
 
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                
-                    <div class="side"><head>
-    <link rel="stylesheet" href="https://znzsofficial.github.io/media/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
-    
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/dracula.min.css">
-    
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/clipboard.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
-    <!-- 数学公式 -->
-    
-    
-</head>
-<style>
-    body{
-    cursor: url("https://znzsofficial.github.io/media/images/mouse_cursor.png"),auto
-    }
-    </style>
 
-<body>
-    
-    <script>
-        let menupos = 'left'
-    </script>
-    
-    
-    <script>
-        let shareChoice = false
-    </script>
-    
-    
-    <script>
-        let donateChoice = false
-    </script>
-    
-    
-    <script>
-        let searchChoice = false
-    </script>
-    
-    <script>let postsnum = 0;</script>
-    <div id="side-posttitle" style="display: none;">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="我以为那个时代已过去，殊不知当你歌唱时，属于那个时代的一切都在归来。">
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://znzsofficial.github.io">
+        <img src="https://znzsofficial.github.io/images/avatar.png?v=1610698684725" class="site-logo">
+        <h1 class="site-title">智商封印Official™</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
         
-    
-    蜜 蜂 俱 乐 部
-    <script>postsnum += 1</script>
-    
-    
-    
-    Gridea
-    <script>postsnum += 1</script>
-    
-    
-    
-    备忘录
-    <script>postsnum += 1</script>
-    
-    
-    
-    关于避难处
-    <script>postsnum += 1</script>
-    
-    
-    
-    
-    
-    Hello Gridea
-    <script>postsnum += 1</script>
-    
-    
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://znzsofficial.github.io/about" class="site-nav">
+            关于
+          </a>
+        
+      
     </div>
-    <div class="pjaxloading" onclick="pjaxloadingClose()">
-        <div class="loadingbackground"></div>
-        <div id="loading">
-            <div class="loading">
-            </div>
-        </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     </div>
-    
-    
-</body>
-<script>
-    function showqq() {
-        var qq = document.getElementById("qq").innerHTML;
-        if (qq != '')
-            window.location.href = "tencent://message/?uin=" + qq + "&Site=&Menu=yes";
-        else
-            alert("博主暂未设置QQ联系方式");
-    }
-
-    //音乐播放器的显示
-    function showAaplayer() {
-        var aplayer = $(".aplayer-body");
-        if (aplayer.css("display") == 'block')
-            aplayer.fadeOut(200)
-        else
-            aplayer.fadeIn(200)
-    }
-</script>
-<script>
-    function getHotnum() {
-        //文章阅读热度（重构，利用leancloud原生api）
-        var pl = window.location.pathname;
-        if (pl.search("post") == -1)
-            return false;
-        if (pl[pl.length - 1] != '/')
-            pl += '/'
-        var ptitle = $("#ptitle").html();
-        var rootaddr = $("#rootaddr").html();
-        pl = pl.replace(rootaddr, "");
-        var appid = '';
-        var appkey = '';
-        console.log(appid, appkey)
-        if (AV == undefined)
-            AV.init({
-                appId: appid,
-                appKey: appkey
-            });
-        const query = new AV.Query('Counter');
-        query.equalTo('url', pl);
-        var time = 'Loading...';
-        query.find().then(function (results) {
-            console.log(results)
-            if (results.length == 0) {
-                console.log("0")
-                var NewCounter = AV.Object.extend('Counter');
-                var nc = new NewCounter();
-                nc.save({
-                    time: 1,
-                    title: ptitle,
-                    url: pl,
-                    xid: pl,
-                }).then(function (object) {
-                    $(".hotnum").eq(0).html(1);
-                    $(".hotnum").eq(1).html(1);
-                });
-            } else {
-                id = results[0].id;
-                var todo = AV.Object.createWithoutData('Counter', id);
-                time = results[0].attributes.time + 1;
-                todo.set("time", time);
-                todo.save();
-                console.log(todo);
-                $(".hotnum").eq(0).html(time);
-                $(".hotnum").eq(1).html(time);
-            }
-
-        }, function (error) {
-            console.log(error)
-        });
-    }
-</script>
-    <script src="https://znzsofficial.github.io/media/share/dist/Share.js"></script>
-    <!-- 页面pjax测试 -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
-    <!--确保jQuery已经在此之前加载-->
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="https://znzsofficial.github.io/media/js/all-pjax.js"></script>
-    <script>
-        //loading加载关闭
-        function pjaxloadingClose() {
-            var pjaxloading = $(".pjaxloading");
-            pjaxloading.hide();
-        }
-
-
-
-        function imglazyloadinit() {
-            var img = $("img");
-            for (var i = 0; i < img.length; i++) {
-                if (img.eq(i).attr("class") == undefined) {
-                    img.eq(i).attr("class", "lazyload");
-                    var imgsrc = img.eq(i).attr("src");
-                    img.eq(i).attr("data-original", imgsrc);
-                    img.eq(i).attr("src", "");
-                    img.eq(i).hide();
-                }
-            }
-        }
-
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
-
-        async function codebtncolorinit(e) {
-            await sleep(2000);
-            e.trigger.innerHTML = "复制代码"
-            e.trigger.style.background = "cornflowerblue"
-        }
-
-        function codeinit() {
-            //寻找所有code标签，加复制按钮鸭！(行内代码除外)
-            var codes = document.getElementsByTagName('code');
-            if (codes.length) {
-                for (var i = 0; i < codes.length; i++) {
-                    //高度/行高=文本行数
-                    // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
-                    // console.log("当前有"+rowNum+"行");
-                    var code_id = "code_id_" + i;
-                    codes[i].setAttribute("id", code_id);
-                    var ci = "#" + code_id;
-                    var codedot = $(ci);
-                    var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
-                    if (rowNum <= 1) continue;
-                    var btn = document.createElement("button");
-                    btn.setAttribute("class", "copybt");
-                    btn.setAttribute("data-clipboard-target", "#" + code_id);
-                    btn.innerHTML = '复制代码';
-                    codes[i].parentNode.insertBefore(btn, codes[i]);
-                }
-            };
-            var cop = new ClipboardJS('.copybt');
-            cop.on('success', function (e) {
-                e.trigger.innerHTML = "复制成功~"
-                e.trigger.style.background = "#894e54"
-                codebtncolorinit(e)
-                e.clearSelection();
-            });
-            cop.on('error', function (e) {
-                alert("矮油，复制失败了...手动复制吧勇士！");
-                e.clearSelection();
-            });
-        }
-
-        function lazyload() {
-            var oLazyload = $("img.lazyload"),
-                fLazyload = function (hLazyload) {
-                    var nLazyload = $(window).height() + $(document).scrollTop();
-                    oLazyload.each(function () {
-                        $(this).offset().top < nLazyload && ($(this).trigger("appear"), oLazyload =
-                            oLazyload.not(this));
-                    }), 0 == oLazyload.length && $(window).unbind("scroll", fLazyload);
-                };
-            oLazyload.each(function () {
-                $(this).one("appear", function () {
-                    $(this).attr("src", $(this).attr("data-original"));
-                    $(this).fadeIn(500);
-                });
-            }), $(window).bind("scroll", fLazyload), fLazyload();
-        }
-
-        let talksall = [];
-        let talks = [];
-        let talkindex = 0;
-        get();
-        function get() {
-            var t = JSON.parse('');
-            talkindex = t.length - 1;
-            for (var i = 0; i <= t.length - 1; i++) {
-                var d = {};
-                d["time"] = t[i].time;
-                d["author"] = t[i].author;
-                d["text"] = t[i].text;
-                d["img"] = t[i].img;
-                talksall.push(d);
-            }
-        }
-
-        function add() {
-            for (var i = talkindex; i >= 0 && i > talkindex - 3; i--) {
-                talks.push(talksall[i]);
-            }
-            talkindex = (talkindex - 3) >= 0 ? (talkindex - 3) : -1;
-            if (talkindex < 0) $("#getmorebt").hide();
-            show();
-            refreshImg("talkimg");
-        }
-
-        function show() {
-            var talkT = document.getElementById("talkContainer");
-            talkT.innerHTML = "";
-            for (var i = 0; i < talks.length; i++) {
-                if (talks[i].img != '') {
-                    talkT.innerHTML += '\
-            <div class="talk" v-for="t in talks"> \
-                <img src="' + talks[i].img + '" class="talkimg"> \
-                <div class="ainfo">\
-                    <div class="ainfo-intro">\
-                        <img class="intro1" src="https://znzsofficial.github.io/images/avatar.png?v=1610697439284">\
-                        <div class="author">' + talks[i].author + '</div>·\
-                        <div class="time">' + talks[i].time + '</div>\
-                    </div>\
-                </div>\
-                <div class="talkcontent">' + talks[i].text + '\
-                </div\>\
-            ';
-                } else {
-                    talkT.innerHTML += '\
-            <div class="talk" v-for="t in talks"> \
-                <div class="ainfo">\
-                    <div class="ainfo-intro">\
-                        <img class="intro1" src="https://znzsofficial.github.io/images/avatar.png?v=1610697439284">\
-                        <div class="author">' + talks[i].author + '</div>·\
-                        <div class="time">' + talks[i].time + '</div>\
-                    </div>\
-                </div>\
-                <div class="talkcontent">' + talks[i].text + '\
-                </div\>\
-            ';
-                }
-            }
-        }
-
-        function refreshImg(imgclass) {
-            // 获取弹窗
-            var modal = document.getElementById('myModal');
-
-            // 获取图片插入到弹窗 - 使用 "alt" 属性作为文本部分的内容
-            var img = document.getElementsByClassName(imgclass);
-            var modalImg = document.getElementById("img01");
-            var captionText = document.getElementById("caption");
-            for (var i in img) {
-                img[i].onclick = function () {
-                    modal.style.display = "block";
-                    modalImg.src = this.src;
-                }
-            }
-
-            // 图片关闭
-            var modalImg = document.getElementById('img01');
-            // 鼠标点击模型外区域关闭登录框
-            window.onclick = function (event) {
-                console.log(event.target);
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-                if (menupos == 'left')
-                    return true;
-                if (event.target == social) {
-                    social.style.display = "none";
-                }
-            }
-        }
-
-        function shareInit() {
-            var title = document.getElementById("texttitle").getElementsByTagName("h2");
-            if (menupos == 'top') {
-                var avatarSrc = $(".menutopavatar").attr("src");
-                var dp = document.getElementsByClassName("navbar-brand")[1].innerHTML;
-            }
-            else {
-                var avatarSrc = $(".avatar").attr("src");
-                var dp = document.getElementsByClassName("describtion")[0].innerHTML;
-            }
-            var share = new Share('.share', {
-                title: title[0].innerHTML,
-                initialized: true,
-                //默认获取网站描述
-                description: dp,
-                //网站图片默认获取的是设置的用户头像
-                image: avatarSrc,
-                //激活的分享网站
-                sites: ["weibo", "qq", "wechat", "douban", "qzone", "facebook", "twitter", "google"],
-                //微信分享PC端会生成二维码分享,移动端如果可以唤起微信最好
-                wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
-                wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>',
-                //关闭的网站分享
-                disabled: ['google', 'linkedin'],
-                wechatQrcodePosition: 'bottom'
-            });
-            //点击分享按钮展现出分享icons
-            var sharebtnTag = false;
-            $(".sharebtn").click(function () {
-                if (!sharebtnTag) {
-                    $(".share").show();
-                    sharebtnTag = true;
-                }
-                else {
-                    $(".share").hide();
-                    sharebtnTag = false;
-                }
-            })
-        }
-
-        function donateInit() {
-            var donatebtnTag = false;
-            $(".donateImg").click(function () {
-                if (!donatebtnTag) {
-                    $(".donate").show();
-                    donatebtnTag = true;
-                }
-                else {
-                    $(".donate").hide();
-                    donatebtnTag = false;
-                }
-            })
-        }
-
-
-        let talkinit = false;
-        $(document).pjax('a[data-pjax]', '#main', {
-            fragment: '#main',
-            timeout: 8000
-        }).on('pjax:complete', function () {
-            //hljs.initHighlightingOnLoad();
-            document.querySelectorAll('pre code').forEach((block) => {
-                hljs.highlightBlock(block);
-            });
-            //文章热度
-            getHotnum();
-            //文章索引
-            toginit();
-            //清空搜索栏
-            if (searchChoice) {
-                searchInit();
-                searchInput.value = "";
-            }
-            var pl = window.location.pathname;
-            //说说更新
-            if (pl.search("talk") != -1 && !talkinit) {
-                add();
-                talkinit = true;
-            }
-            else if (pl.search("talk") != -1) {
-                show();
-                refreshImg("talkimg");
-            }
-            //分享按钮更新
-            if (pl.search("post") != -1) {
-                if (shareChoice)
-                    shareInit();
-                if (donateChoice)
-                    donateInit();
-                imglazyloadinit();
-                lazyload();
-                refreshImg("lazyload");
-                codeinit();
-            }
-            if (btstate == true)
-                dropdown();
-        }).on('pjax:start', function () {
-            $(".pjaxloading").fadeIn(50);
-        }).on('pjax:end', function () {
-            $(".pjaxloading").fadeOut(50);
-        });
-    </script>
-
-    <script>
-        /**
-         * https://github.com/tangkaichuan/gridea-search
-         */
-        (function () {
-            var CACHES = checkCache()
-            if (!CACHES) {
-                var NOW = Date.now()
-                var API_CONTENT = '../api-content/index.html' + '?_=' + NOW
-                preload(API_CONTENT);
-                getContents(show_getContentresult);
-            }
-
-            function show_getContentresult(data) {
-                console.log("获取成功");
-                var postslen = data["posts"].length;
-                localStorage.setItem('postsnum', postslen);
-                var poststitlelen = 0;
-                var pt = document.getElementById("side-posttitle").innerHTML;
-                pt = pt.replace(/\s+/g, '').replace(/<script>.*?<\/script>/gi, "");
-                localStorage.setItem('poststitlelen', pt.length);
-            }
-
-
-
-            // preload
-            function preload(url) {
-                var preloadLink = document.createElement('link')
-                preloadLink.href = url
-                preloadLink.rel = 'preload'
-                preloadLink.as = 'fetch'
-                preloadLink.crossOrigin = 'anonymous'
-                document.head.appendChild(preloadLink)
-            }
-
-            // 异步 GET 请求
-            function get(obj) {
-                var xhr = new XMLHttpRequest()
-                xhr.open('get', obj.url, true)
-                xhr.send(null)
-                xhr.onreadystatechange = function () {
-                    // 异步请求：响应状态为4，数据加载完毕
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200) {
-                            obj.success(xhr.responseText)
-                        } else {
-                            obj.error(xhr.status)
-                        }
-                    }
-                }
-            }
-
-
-            // 检查缓存是否最新
-            function checkCache() {
-                var caches_postsnum = localStorage.getItem("postsnum");
-                var pt = document.getElementById("side-posttitle").innerHTML;
-                pt = pt.replace(/\s+/g, '').replace(/<script>.*?<\/script>/gi, "")
-                var ptlen = pt.length;
-                var ptlen_storage = localStorage.getItem("poststitlelen");
-                console.log(parseInt(postsnum));
-                if (caches_postsnum != postsnum || ptlen != ptlen_storage) {
-                    console.log("更新缓存");
-                    return false
-                }
-                return true;
-            }
-
-            // 获取博客全文 api
-            function getContents(callback) {
-                if (CACHES) {
-                    callback(CACHES.contents)
-                } else {
-                    get({
-                        url: API_CONTENT,
-                        success: function (data) {
-                            callback(JSON.parse(data));
-                            localStorage.setItem('ContentsCache', data);
-                        }
-                    })
-                }
-            }
-        })()
-
-        //-------------------------------------------------搜索
-        // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
-        if (searchChoice) {
-            var searchInput = document.querySelector('.search-input');
-            var searchResults = document.querySelector('.search-results');
-        }
-        // 申明保存文章的标题、链接、内容的数组变量
-        var searchValue = '',
-            arrItems = [],
-            arrLinks = [],
-            arrTitles = [],
-            arrContents = [],
-            arrResults = [],
-            indexItem = [],
-            itemLength = 0;
-        var tmpDiv = document.createElement('div');
-        tmpDiv.className = 'result-item';
-
-
-        function getStorageContent() {
-            var data = localStorage.getItem('ContentsCache');
-            data = JSON.parse(data);
-            posts = data["posts"];
-            for (var i = 0; i < posts.length; i++) {
-                arrLinks[i] = posts[i].link;
-                arrTitles[i] = posts[i].title;
-                arrContents[i] = posts[i].content;
-                itemLength++;
-            }
-        }
-        getStorageContent();
-        // 输入框内容变化后就开始匹配，可以不用点按钮
-        // 经测试，onkeydown, onchange 等方法效果不太理想，
-        // 存在输入延迟等问题，最后发现触发 input 事件最理想，
-        // 并且可以处理中文输入法拼写的变化
-        searchInput.oninput = function () {
-            setTimeout(searchConfirm, 0);
-        }
-        searchInput.onfocus = function () {
-            searchResults.style.display = 'block';
-        }
-
-        function searchConfirm() {
-            if (searchInput.value == '') {
-                searchResults.style.display = 'none';
-            } else if (searchInput.value.search(/^\s+$/) >= 0) {
-                // 检测输入值全是空白的情况
-                searchInit();
-                var itemDiv = tmpDiv.cloneNode(true);
-                itemDiv.innerText = '请输入有效内容...';
-                searchResults.appendChild(itemDiv);
-            } else {
-                // 合法输入值的情况
-                searchInit();
-                searchValue = searchInput.value;
-                // 在标题、内容中查找
-                searchMatching(arrTitles, arrContents, searchValue);
-            }
-        }
-
-        // 每次搜索完成后的初始化
-        function searchInit() {
-            arrResults = [];
-            indexItem = [];
-            searchResults.innerHTML = '';
-            searchResults.style.display = 'block';
-        }
-
-        function searchMatching(arr1, arr2, input) {
-            // 忽略输入大小写
-            input = new RegExp(input, 'i');
-            var step = 10;
-            // 在所有文章标题、内容中匹配查询值
-            for (i = 0; i < itemLength; i++) {
-                var indexContent = arr2[i].search(input);
-                //标题匹配
-                if (arr1[i].search(input) != -1) {
-                    indexItem.push(i); // 保存匹配值的索引
-                    if (indexContent != -1) {
-                        startindex = (indexContent - step) >= 0 ? (indexContent - step) : 0;
-                        var searchcontent = arr2[i].slice(indexContent - step, indexContent + 5)
-                        arrResults.push("....." + searchcontent + ".....");
-                    }
-                    else
-                        arrResults.push("");
-                }
-                //内容匹配
-                else if (indexContent != -1) {
-                    indexItem.push(i); // 保存匹配值的索引
-
-                    startindex = (indexContent - step) >= 0 ? (indexContent - step) : 0;
-                    var searchcontent = arr2[i].slice(indexContent - step, indexContent + 5)
-                    arrResults.push("....." + searchcontent + ".....");
-                }
-            }
-
-            // 输出总共匹配到的数目
-            var totalDiv = tmpDiv.cloneNode(true);
-            totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
-            searchResults.appendChild(totalDiv);
-
-            // 未匹配到内容的情况
-            if (indexItem.length == 0) {
-                var itemDiv = tmpDiv.cloneNode(true);
-                itemDiv.innerText = '未匹配到内容...';
-                searchResults.appendChild(itemDiv);
-            }
-
-            // 将所有匹配内容进行组合
-            for (i = 0; i < arrResults.length; i++) {
-                var itemDiv = tmpDiv.cloneNode(true);
-                itemDiv.innerHTML = '<a data-pjax class="searchresults" href="' + arrLinks[indexItem[i]] + '"><b>[' + arrTitles[indexItem[i]] +
-                    ']</b><p>' + arrResults[i] + '</p></a><hr />';
-                searchResults.appendChild(itemDiv);
-            }
-        }
-    </script>
+    <div class="site-description">
+      我以为那个时代已过去，殊不知当你歌唱时，属于那个时代的一切都在归来。
     </div>
-                    <div class="mobilebar"><head>
-  <!-- 引入Bootstrap核心样式文件 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/bootstrap.min.css">
-</head>
-<style>
-  .navmobile {
-    z-index: 15;
-    max-height: 40vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
-  @media screen and (max-width: 1200px) {
-    .navbar {
-      max-width: 100vw;
-    }
-  }
-
-  @media screen and (max-width:1200px) and (min-width: 768px) {
-    @media (min-width: 768px) {
-      .navbar-nav {
-        float: right;
-        margin: 0;
-      }
-    }
-  }
-
-  @media screen and (max-width:768px) {
-    .mbapspan {
-      padding: 0;
-    }
-  }
-</style>
-<div class="pjaxloading"  onclick="pjaxloadingClose()">
-  <div class="loadingbackground"></div>
-  <div id="loading">
-    <div class="loading">
+    <div class="site-footer">
+      <html><body><p><font size="6" color="#969696">Based on Github Pages</font></p></body></html>
+<html><body><p><font size="5" color="#C0C0C0">Powered by Gridea</font></p></body></html> | <a class="rss" href="https://znzsofficial.github.io/atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
-<nav class="navbar navbar-inverse navbar-fixed-top navmobile">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barmenu"
-        aria-expanded="false" id="barbutton">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a data-pjax class="navbar-brand" href="https://znzsofficial.github.io">智商封印Official™&nbsp;&nbsp;|</a>
-      <span class="navbar-brand mbapspan"><i id="mbaplayer" class="fa fa-play-circle-o" aria-hidden="true"
-          style="font-size: 28px;top: 12px;position: absolute;" onclick="aplayerPlay();"></i></span>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="barmenu">
-      <ul class="nav navbar-nav">
-        
-        
-        <li>
-          <a data-pjax href="/">
-            首页
-          </a>
-        </li>
-        
-        
-        
-        <li>
-          <a data-pjax href="/archives">
-            归档
-          </a>
-        </li>
-        
-        
-        
-        <li>
-          <a data-pjax href="/tags">
-            标签
-          </a>
-        </li>
-        
-        
-        
-        <li>
-          <a data-pjax href="https://znzsofficial.github.io/about">
-            关于
-          </a>
-        </li>
-        
-        
-        
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: Touhou Project</h2>
           
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- 引入jQuery核心js文件 -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-  <script>
-    let btstate = false;
-    var bt = $("#barbutton");
-    var bm = $("#barmenu");
-    bt.click(function () {
-      dropdown();
-    })
-    function dropdown() {
-      console.log(btstate);
-      //下拉
-      if (btstate == false) {
-        bt.removeClass("collapsed");
-        bt.attr("aria-expanded", "true");
-        bm.attr("aria-expanded", "true")
-        bm.fadeIn(700);
-        btstate = true;
-      }
-      else {
-        bt.addClass("collapsed");
-        bt.attr("aria-expanded", "false");
-        bm.removeClass("in");
-        bm.hide();
-        bm.attr("aria-expanded", "false");
-        btstate = false;
-      }
-    }
-  </script> </div>
-                        <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-6 topindex">
-                            <link rel="stylesheet" href="https://znzsofficial.github.io/media/css/font-awesome.css">
-<div class="tag-container">
-    
-    <div class="postshow">
-        
-        <a data-pjax href="https://znzsofficial.github.io/gridea/">
-            <div id="post" style="width:100%">
-                
-                <img src="" class="postimage">
-                
-        <div class="posttitlebox">
-            <div class="posttitle">
-                Gridea
-            </div>
-    </div>
-</div>
-</a>
-<div class="postinfo">
-    <div class="postdate"><i class="fa fa-calendar"></i>2020-04-22</div>
-    <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
-    <div class="posttag">
-        
-        <a data-pjax href="https://znzsofficial.github.io/ODVEX6ogD/" class="postlink">
-            <i class="fa fa-tag"></i> Touhou Project
-        </a>
-        
-        <a data-pjax href="https://znzsofficial.github.io/7-r0qcoCf/" class="postlink">
-            <i class="fa fa-tag"></i> Nothing
-        </a>
-        
-    </div>
-</div>
-
-</div>
-
-</div>
-                            <div>
-                                <div class="pcpagi">
-    <div class="pagi">
-        <ul>
-            
-            <li><a style="width:100px">&nbsp;</a></li>
-            
-                    <li><a id="page1">1</a></li>
-                    <li><a id="page2" class="active">2</a></li>
-                    <li><a id="page3">3</a></li>
-                    
-            <li><a style="width:100px">&nbsp;</a></li>
-            
-                </ul>
-    </div>
-</div>
-
-<div id="pagination-prev" style="display:none"> 
-</div>
-<div id="pagination-next" style="display:none"> </div>
-
-<div class="pagination-container">
-      
-    
-</div>
-
-<script>
-    var prevstr = document.getElementById("pagination-prev").innerHTML;
-    var nextstr = document.getElementById("pagination-next").innerHTML;
-    var page1 = document.getElementById("page1");
-    var page2 = document.getElementById("page2");
-    var page3 = document.getElementById("page3");
-    page1.innerHTML = '-';
-    page2.innerHTML = '1';
-    page3.innerHTML = '-';
-    if (prevstr.length > 5) {
-        if (prevstr.indexOf("page/") != -1) {
-            var prevnum = parseInt(prevstr.split("page/")[1]);
-            page1.innerHTML = prevnum;
-            page2.innerHTML = prevnum + 1;
-        } else {
-            page1.innerHTML = 1;
-            page2.innerHTML = 2;
-        }
-    }
-    if (nextstr.indexOf("page/") != -1) {
-        var nextnum = parseInt(nextstr.split("page/")[1]);
-        page3.innerHTML = nextnum;
-        page2.innerHTML = nextnum - 1;
-    }
-</script>
-                                <div style="padding-bottom:10%"></div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-xs-6"></div>
-                        
-            </div>
-            
-        </div>
-        <div id="bg">
-        </div>
-        <div id="bgchoice" style="display: none">
-                    </div>
-                    
-                    <div id="bgurl" style="display:none"></div>
-                       
-            </div>
-</div>
-</div>
-
-        <div id="landlord">
-            <div class="message" style="opacity:0"></div>
-            <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
-        </div>
-        <div id="domainname" style="display:none">https://znzsofficial.github.io
+            <article class="post-item">
+              <div class="left">
+                <a href="https://znzsofficial.github.io/gridea/">
+                  <h2 class="post-title">Gridea</h2>
+                </a>
+                <div class="post-date">
+                  2020-04-22
                 </div>
-</body>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
 
-</html>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+          <div class="pagination-container">
+  
+  
+</div>
 
+        </div>
+      </div>
+    </div>
 
-<script>
-    var bgchoice = $('#bgchoice').html();
-    var bg = $('#bg');
-    var bgurl = document.getElementById("bgurl").innerHTML;
-    if (bgchoice == 'default')
-        for (var i = 0; i < 3; i++)
-            bgurl = bgurl.replace("\\", "/");
-    bg.css("background", "url('" + bgurl + "')");
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-    window.onload = function () {
-        aplayerbtnInit();
-    }
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
+
+
+
+
+
+
+  </body>
+</html>
