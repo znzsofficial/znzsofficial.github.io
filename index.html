@@ -1,65 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://znzsofficial.github.io/media/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
-    <link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
-
-    <!-- pjax 加载valine文件 -->
-    <script src="https://znzsofficial.github.io/media/js/valine.min.js"></script>
-    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-    <meta name="description" content="我以为那个时代已过去，殊不知当你歌唱时，属于那个时代的一切都在归来。" />
-    <meta http-equiv="x-pjax-version" content="v123">
-    <title>智商封印Official™</title>
+<!-- 必要参数 -->
+<meta charset="utf-8"/>
+<title>智商封印Official™</title>
+<meta name="keywords" content="关键词"/>
+<meta name="description" content="简述"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable:no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<link rel="shortcut icon" href="favicon.ico">
+<!-- CSS -->
+<link rel="stylesheet" href="https://znzsofficial.github.io/media/css/mdui.min.css">
+<link rel="stylesheet" href="https://znzsofficial.github.io/media/css/modify.css">
 </head>
-
-
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                
-                 
-                </div>
-            </div>
-            <div id="bg">
-            </div>
-            <div id="bgchoice" style="display: none">
-            </div>
-            
-            <div id="bgurl" style="display:none"></div>
-             
-        <div id="landlord">
-            <div class="message" style="opacity:0"></div>
-            <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+<body id="index" class="mdui-appbar-with-toolbar mdui-theme-primary-blue-grey mdui-theme-accent-blue mdui-theme-layout-dark">
+<header role="banner">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-shadow-0">
+        <div class="mdui-toolbar">
+            <button class="mdui-btn mdui-btn-icon" id="menu" mdui-drawer="{target:'#drawer',overlay:true,swipe:true}"><i class="mdui-icon material-icons">menu</i></button>
+            <a href="https://znzsofficial.github.io" class="mdui-typo-headline">智商封印Official™</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '深色样式切换', position: 'left'}" id="DarkStyle"><i class="mdui-icon material-icons">brightness_4</i></button>
         </div>
     </div>
+</header>
+
+<nav id="drawer" class="mdui-drawer mdui-drawer-full-height mdui-drawer-close">
+    <ul class="mdui-list">
+        <a href="/" class="menu"><li class="mdui-list-item mdui-ripple">首页</li></a>
+        <a href="/archives" class="menu"><li class="mdui-list-item mdui-ripple">归档</li></a>
+        <a href="/tags" class="menu"><li class="mdui-list-item mdui-ripple">标签</li></a>
+        <a href="https://znzsofficial.github.io/about" class="menu"><li class="mdui-list-item mdui-ripple">关于</li></a>
+        
+        <a href="https://github.com/CPlayer-CN/gridea-theme-cplayer-material" class="spread"><li class="mdui-list-item mdui-ripple">主题主页</li></a>
+    </ul>
+</nav>
+
+
+<main class="mdui-m-a-2 mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-xl-4 mdui-typo mdui-m-t-2">
     
-    <div id="domainname" style="display:none">https://znzsofficial.github.io
+    <section class="mdui-col mdui-m-b-2">
+        <div class="mdui-card">
+            
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title"><a href="https://znzsofficial.github.io/-H9bta3MK/">蜜 蜂 俱 乐 部</a></div>
+                <div class="mdui-card-primary-subtitle">2020-08-22</div>
+            </div>
+            <div class="mdui-card-content">2020/8/22 约8:00PM
+爷不写了
+
+
+绿色22娘翠绿33娘 2020/8/22 19:43:06
+整个mc生存服？
+
+
+
+
+绿色22娘翠绿33娘 2020/8/22 19:43:12
+
+
+
+
+魔法小黄书目录 2020/8/22 ...</div>
         </div>
-        
+    </section>
 
+    <section class="mdui-col mdui-m-b-2">
+        <div class="mdui-card">
+            
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title"><a href="https://znzsofficial.github.io/gridea/">Gridea</a></div>
+                <div class="mdui-card-primary-subtitle">2020-04-22</div>
+            </div>
+            <div class="mdui-card-content">你穿的鞋子也好、衣服也好、食物也好
+都是你以外的某个人靠着“意识”制作出来的对吧？
+你是要无视那个人的心情吗？
+明明自己一个人的话什么都办不到！！
+你所享受的自由也总是要依靠别的某个人对吧！！
+在你逃避于妄想的时候大家也在拼命活着！思考着！...</div>
+        </div>
+    </section>
+
+    <section class="mdui-col mdui-m-b-2">
+        <div class="mdui-card">
+            
+            <div class="mdui-card-media">
+                <img src="https://znzsofficial.github.io/post-images/bei-wang-lu.jpeg" onerror="this.src='https://znzsofficial.github.io/post-images/bei-wang-lu.jpeg';">
+                
+            </div>
+            
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title"><a href="https://znzsofficial.github.io/bei-wang-lu/">备忘录</a></div>
+                <div class="mdui-card-primary-subtitle">2020-04-17</div>
+            </div>
+            <div class="mdui-card-content">
+http://forum.sinkens.com/public/
+https://github.com/znzsofficial/znzsofficial.github.io
+https://znzsofficial.github.io
+...</div>
+        </div>
+    </section>
+
+    <section class="mdui-col mdui-m-b-2">
+        <div class="mdui-card">
+            
+            <div class="mdui-card-media">
+                <img src="https://znzsofficial.github.io/post-images/guan-yu-ku-an-bi-nan-chu.png" onerror="this.src='https://znzsofficial.github.io/post-images/guan-yu-ku-an-bi-nan-chu.png';">
+                
+            </div>
+            
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title"><a href="https://znzsofficial.github.io/guan-yu-ku-an-bi-nan-chu/">关于避难处</a></div>
+                <div class="mdui-card-primary-subtitle">2020-04-17</div>
+            </div>
+            <div class="mdui-card-content">链接：http://forum.sinkens.com/
+酷安@魔法小黄书目录
+Bilibili:@智商封印officical
+</div>
+        </div>
+    </section>
+
+    <section class="mdui-col mdui-m-b-2">
+        <div class="mdui-card">
+            
+            <div class="mdui-card-media">
+                <img src="https://znzsofficial.github.io/post-images/hello-gridea.png" onerror="this.src='https://znzsofficial.github.io/post-images/hello-gridea.png';">
+                
+            </div>
+            
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title"><a href="https://znzsofficial.github.io/hello-gridea/">Hello Gridea</a></div>
+                <div class="mdui-card-primary-subtitle">2018-12-12</div>
+            </div>
+            <div class="mdui-card-content">✍️  Gridea 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...
+
+Github
+Gridea 主页
+示例网站
+特性👇
+📝  你可以使用最酷的 Markdown 语法，进行快速创作
+🌉  你...</div>
+        </div>
+    </section>
+
+</main>
+
+<nav class="mdui-container mdui-m-t-2 mdui-m-b-2">
+    
+    
+</nav>
+
+<div class="mdui-m-t-2 mdui-text-center mdui-typo">
+    <html><body><p><font size="6" color="#969696">Based on Github Pages</font></p></body></html>
+<html><body><p><font size="5" color="#C0C0C0">Powered by Gridea</font></p></body></html>
+</div>
+
+<script src="https://znzsofficial.github.io/media/js/jquery.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/mdui.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/modify.js"></script>
+<script src="https://znzsofficial.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/imagesloaded.pkgd.min.js"></script>
 <script>
-    var bgchoice = $('#bgchoice').html();
-    var bg = $('#bg');
-    var bgurl = document.getElementById("bgurl").innerHTML;
-    if (bgchoice == 'default')
-        for (var i = 0; i < 3; i++)
-            bgurl = bgurl.replace("\\", "/");
-    bg.css("background", "url('" + bgurl + "')");
-
-    window.onload = function () {
-        aplayerbtnInit();
-    }
+// 初始化-文章列表页面瀑布流。
+function masonry() {
+    // 初始化 masonry
+    $('.mdui-row-xs-1').masonry({
+        itemSelector: '.mdui-col',
+        horizontalOrder: true
+    });
+}
+masonry()
+$('.mdui-col').imagesLoaded( function() {
+    masonry()
+});
 </script>
-<!-- 页内pjax刷新 -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
 
-        
 </body>
 </html>
