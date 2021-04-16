@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://znzsofficial.github.io</id>
     <title>智商封印Official™</title>
-    <updated>2021-04-16T12:39:54.377Z</updated>
+    <updated>2021-04-16T12:51:05.323Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://znzsofficial.github.io"/>
     <link rel="self" href="https://znzsofficial.github.io/atom.xml"/>
@@ -10,6 +10,153 @@
     <logo>https://znzsofficial.github.io/images/avatar.png</logo>
     <icon>https://znzsofficial.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 智商封印Official™</rights>
+    <entry>
+        <title type="html"><![CDATA[Lua动画]]></title>
+        <id>https://znzsofficial.github.io/ac-KbZlUi/</id>
+        <link href="https://znzsofficial.github.io/ac-KbZlUi/">
+        </link>
+        <updated>2021-04-16T12:47:12.000Z</updated>
+        <content type="html"><![CDATA[<p>function 晃动动画(控件,效果)<br>
+if 效果==&quot;单&quot; then<br>
+ObjectAnimator().ofFloat(控件,&quot;scaleX&quot;,{1,.9,1.1,1.2,.8,1.1,.9,1}).start()<br>
+.setDuration(600)<br>
+elseif 效果==&quot;双&quot; then<br>
+ObjectAnimator().ofFloat(控件,&quot;scaleX&quot;,{1,.9,1.1,1.2,.8,1.1,.9,1}).start()<br>
+ObjectAnimator().ofFloat(控件,&quot;scaleY&quot;,{1,.9,1.1,1.2,.8,1.1,.9,1}).start()<br>
+.setDuration(1800)<br>
+end<br>
+end<br>
+--调用方法<br>
+晃动动画(填写控件ID,&quot;双&quot;)--单--双</p>
+<p>function 单次旋转(控件,频率)<br>
+import &quot;android.view.animation.Animation&quot;<br>
+import &quot;android.view.animation.RotateAnimation&quot;<br>
+rotate = RotateAnimation(0,360,Animation.RELATIVE_TO_SELF,0.5,Animation.RELATIVE_TO_SELF,0.5)<br>
+rotate.setDuration(频率)<br>
+rotate.setRepeatCount(0.5)<br>
+控件.startAnimation(rotate)<br>
+end</p>
+<p>function 缓冲旋转(控件,频率)<br>
+import &quot;android.view.animation.Animation&quot;<br>
+import &quot;android.view.animation.RotateAnimation&quot;<br>
+rotate = RotateAnimation(0,360,Animation.RELATIVE_TO_SELF,0.5,Animation.RELATIVE_TO_SELF,0.5)<br>
+rotate.setDuration(频率)<br>
+rotate.setRepeatCount(频率)<br>
+控件.startAnimation(rotate)<br>
+end</p>
+<p>function 流畅旋转(控件,频率,顺时针,逆时针)<br>
+import &quot;android.view.animation.LinearInterpolator&quot;<br>
+c = ObjectAnimator()<br>
+c.setTarget(控件)<br>
+c.setDuration(频率)<br>
+c.setRepeatCount(ValueAnimator.INFINITE)<br>
+c.setPropertyName(&quot;rotation&quot;)<br>
+c.setFloatValues({顺时针,逆时针})<br>
+c.setRepeatMode(ValueAnimator.INFINITE)<br>
+c.setInterpolator(LinearInterpolator())<br>
+c.start()<br>
+end</p>
+<p>function 揭露动画(view,a,b,c,d,e)<br>
+translationUp = ViewAnimationUtils.createCircularReveal(view,a,b,c,d)<br>
+translationUp.setInterpolator(DecelerateInterpolator())<br>
+translationUp.setDuration(e)<br>
+translationUp.start()<br>
+end<br>
+--调用方法<br>
+--task(1,function()<br>
+--揭露动画(填写控件ID,0,0,0,activity.Height,2000)<br>
+--end)</p>
+<p>function 缩放动画(控件)<br>
+import &quot;android.view.animation.*&quot;<br>
+控件.startAnimation(ScaleAnimation(0.0,1.0,0.0,1.0,1,0.5,1,0.5).setDuration(200))<br>
+end</p>
+<p>function 水珠动画(控件,时间)<br>
+import &quot;android.animation.ObjectAnimator&quot;<br>
+ObjectAnimator().ofFloat(控件,&quot;scaleX&quot;,{1,.8,1.3,.9,1}).setDuration(时间).start()<br>
+ObjectAnimator().ofFloat(控件,&quot;scaleY&quot;,{1,.8,1.3,.9,1}).setDuration(时间).start()<br>
+end</p>
+<p>--[[单击缩放={<br>
+onTouch=function (v,e)<br>
+if e.action==0 then<br>
+设置缩放(v,1,0.95,250)<br>
+else<br>
+设置缩放(v,0.90,1,250)<br>
+end<br>
+end}<br>
+function 设置缩放(view,startscale,endscale,time)<br>
+local animatorSetsuofang = AnimatorSet()<br>
+local scaleX=ObjectAnimator.ofFloat(view,&quot;scaleX&quot;,{startscale,endscale})<br>
+local scaleY=ObjectAnimator.ofFloat(view,&quot;scaleY&quot;,{startscale,endscale})<br>
+animatorSetsuofang.setDuration(time)<br>
+animatorSetsuofang.setInterpolator(DecelerateInterpolator())<br>
+animatorSetsuofang.play(scaleX).with(scaleY);<br>
+animatorSetsuofang.start()<br>
+end<br>
+--调用方法<br>
+填写控件ID.onTouchListener=单击缩放;<br>
+]]</p>
+<p>--[[点击监听={<br>
+onTouch=function (v,e)<br>
+if e.action==2 then<br>
+缩放动画(v, 0,0.95,250)<br>
+else<br>
+缩放动画(v,0.95,1,250)<br>
+end<br>
+end}<br>
+function 缩放动画(view,startscale,endscale,time)<br>
+local animatorSetsuofang = AnimatorSet()<br>
+local scaleX=ObjectAnimator.ofFloat(view,&quot;scaleX&quot;,{startscale,endscale})<br>
+local scaleY=ObjectAnimator.ofFloat(view,&quot;scaleY&quot;,{startscale,endscale})<br>
+animatorSetsuofang.setDuration(time)<br>
+animatorSetsuofang.setInterpolator(DecelerateInterpolator())<br>
+animatorSetsuofang.play(scaleX).with(scaleY);<br>
+animatorSetsuofang.start()<br>
+end</p>
+<p>--调用方法<br>
+--点击监听放到布局控件里<br>
+onTouchListener=点击监听,--动画效果<br>
+]]</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Lua集合]]></title>
+        <id>https://znzsofficial.github.io/0rl9q4UQ-/</id>
+        <link href="https://znzsofficial.github.io/0rl9q4UQ-/">
+        </link>
+        <updated>2021-04-16T12:45:42.000Z</updated>
+        <content type="html"><![CDATA[<p>--震动<br>
+import &quot;android.content.Context&quot;<br>
+--导入包<br>
+vibrator = activity.getSystemService(Context.VIBRATOR_SERVICE)<br>
+vibrator.vibrate( long{100,800} ,-1)<br>
+--{等待时间,振动时间,等待时间,振动时间,…}<br>
+--{0,1000,500,1000,500,1000}<br>
+--别忘了申明权限</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Lua控件背景渐变]]></title>
+        <id>https://znzsofficial.github.io/RODvESYCy/</id>
+        <link href="https://znzsofficial.github.io/RODvESYCy/">
+        </link>
+        <updated>2021-04-16T12:40:58.000Z</updated>
+        <content type="html"><![CDATA[<p>view=控件id<br>
+color1 = 0xffFF8080;<br>
+color2 = 0xff8080FF;<br>
+color3 = 0xff80ffff;<br>
+color4 = 0xff80ff80;<br>
+import &quot;android.animation.ObjectAnimator&quot;<br>
+import &quot;android.animation.ArgbEvaluator&quot;<br>
+import &quot;android.animation.ValueAnimator&quot;<br>
+import &quot;android.graphics.Color&quot;<br>
+colorAnim = ObjectAnimator.ofInt(view,&quot;backgroundColor&quot;,{color1, color2, color3,color4})<br>
+colorAnim.setDuration(3000)<br>
+colorAnim.setEvaluator(ArgbEvaluator())<br>
+colorAnim.setRepeatCount(ValueAnimator.INFINITE)<br>
+colorAnim.setRepeatMode(ValueAnimator.REVERSE)<br>
+colorAnim.start()</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Lua文件I/O]]></title>
         <id>https://znzsofficial.github.io/AgfevEFUk/</id>
@@ -926,1250 +1073,6 @@ end</p>
 &quot;布洛妮娅姐姐，我也很想你哦。&quot;萝莎莉娅也说道：&quot;我和莉莉娅姐姐刚刚来这里，还不熟悉呢。&quot;<br>
 &quot;莉莉娅、萝莎莉娅，那我就陪你们逛逛休伯利安吧。&quot;<br>
 2021年02月17日 23:16:19</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[批帝国和元首陈睿的毁灭(一)]]></title>
-        <id>https://znzsofficial.github.io/E4lf-OcHA/</id>
-        <link href="https://znzsofficial.github.io/E4lf-OcHA/">
-        </link>
-        <updated>2021-02-17T12:42:38.000Z</updated>
-        <content type="html"><![CDATA[<p>公元2077年，陈睿已经99岁了。在他的统治下批卫军以最初的批帝国为中心，向周围的领域进行了大规模的侵略。陈睿的目标非常明确，那就是把整片区域变成战乱的土地，让卫军和平民永远处于水深火热之中。<br>
-陈睿的计划并没有失败。在这段时间里，他用铁血手段，把附近的国家全部收复，让原本属于二刺螈的土地，归入自己的管辖范围。</p>
-<p>得益于批站最初对二刺螈的大量原始积累，以及2016年在大版权时代后的改革，对各类人群极大的进行包容以及吞并。可以说现在的批帝国，已经无所不能了，从小鬼到粪坑，从批小将到批卫军，从徐逸到陈睿，从卖肉到卖傻，从卖艺到卖身。各路形形色色的人群汇聚在这里，打着学习的旗号，推出青少年模式，背后缺一直在广告里面添油加醋，向未成年人一步又一步的伸出魔爪。</p>
-<p>批帝国内有一条规矩，就是在未满十八岁的少男少女，一律免费学习，不过只限制于学习知识，其他的一律禁止。这一点让很多学生怨声载道。但是批帝国里面提供了一项特殊政策，如果未满18岁，但是只要我不说，谁知道我到底多少岁。所以陈睿对这种睁一只眼闭一只眼的行为也是默许的。</p>
-<p>批评帝国的人，是绝对不允许的。批评帝国的人，大多数都被批小将处以极刑，批小将可以说就像杀鸡儆猴一般，把那些胆敢违反批评规矩的人，全部抓起来处死。</p>
-<p>不过只要说好话就不会被开除出帝国国籍，都会有优厚待遇，比如可以随意挑选一部分自己的爱好和兴趣，在批站学习期间，不需要缴纳任何费用。</p>
-<p>陈睿在这里建立的批帝国，也正是为了培养更多的钢筋和nt来增添批小将的人数，因为他认为批小将的数量越多，他才可以拥有更多的人员，来扩张自己的势力，以及培养更多的批小将。批帝国也正是因为有批小将这么强大的力量支撑，才能够在短短的三四年时间内发展壮大，并且取得了如此辉煌的战绩。</p>
-<p>陈睿统治时期，各类人口大概有3亿左右，其中有一些人口还处于幼生期，但是由于批帝国和批将军的大力发展，以及批落基士兵的强制性管理，使得这部分的人口逐渐形成了战斗力。</p>
-<p>批落基是二刺王室和他手底下的一支部队，这是一支由建国初就成立的一支最早的部队。批落基的前世就是批小将，可惜由于元首陈睿认为小将这个名字过于小气，便从异世界借来一个批落基的名号，给它取名为批落基。</p>
-<p>批落基部队由近3000万人组成，其中主将批哩，副将哩批，以及几十个将领，这批落基军团在陈睿的统治下，一直在与敌人做战争斗争，并且获胜不少，所以陈睿的统治非常稳固，没有丝毫的松懈。批落基的战斗力也非常强，而且批落基士兵的素质很高，可以说是全宇宙最顶尖的军团，在批落基军团的保护下，陈睿的统治更加稳固，甚至在陈睿的带领下，批落基军团已经打到了字节跳动门前，并且击溃了字节跳动的主帅——罗永浩。</p>
-<p>在陈睿统治时期，罗永浩也曾经率领着部队进攻过一次批将军府。当时罗永浩的部队遭到批将军府的阻击，损失惨重，不过在最后关头，罗永浩还是逃出了批将军府。罗永浩逃走后，陈睿并没有追击，因为他知道追击的下场只有和其附属国一战。可其附属国好巧不巧偏偏就是其不可或缺的两大军备供应国之一苹果。</p>
-<p>就如《半泽直树》里面的东京中央银行一样，子公司和母公司内部并不和谐，苹果作为字节跳动在2015年建立的附属国，主营数码硬件行业。附属国的元首库克，是个有野心的人，他崇尚科学，崇尚技术和产品的发展，认为科技才是决定生活质量的根本。他认为只有拥有了科技，他才能掌握更好的社会资源，让自己更富足。苦于字节跳动久久不下放新技术，库克下定决心，附属国只有自己靠自己不断创新 才有活路。</p>
-<p>于是库克在自己的研究上进行了巨大投资，在他的鼓励下，他的国家发展很快，很快就超越了字节跳动，成为了世界上最先进的电子科技国家。<br>
-库克的科技国计划成功了，但是字节跳动却没有得到发展。于是库克便决定反吞并字节跳动。</p>
-<p>这样做是非常危险的，因为吞并字节跳动后，库克必须得交出一部分权利，分给字节跳动的旧贵族——头条系家族。这样一来，苹果帝国的利润就会减弱，不过库克可是个狠角色，不会顾忌什么利益关系。这一点字节跳动的人也清楚，但是字节跳动的人也没有别的办法。只能任由其附属国宰割。</p>
-<p>就在这一个非常尴尬的吞并时期，陈睿对字节跳动的猛攻，可谓是引起了这两国的注意，这两国虽然也有钱，但是在陈睿的攻击下，这两国损失严重。</p>
-<p>库克可不是吃素的，堂堂世界科技之光的国家怎么由这种鼠辈来欺负？库克在吞并字节跳动之后，就开始疯狂的反扑陈睿，试图通过各种渠道来削弱陈睿的实力，<br>
-同时想方设法拉拢批小将。库克认为陈睿不可能是自己的对手，因为陈睿的实力太低微，自己只需要几天的工夫，就能轻易摧毁陈睿建立的批国，让其灰飞烟灭，自己成为这个世界上最伟大的帝国。</p>
-<p>在库克的疯狂压迫之下，陈睿的批小将被逼的走投无路，前有陈睿的不断压迫，后有库克的先斩后奏。在没有退路的情况下，他们被迫选择效忠于陈睿，并且愿意为了陈睿的统治献上自己的忠诚。<br>
-为了表示对陈睿的尊敬和对批落基军团的信仰，陈睿的批小将选择服役一百多年。</p>
-<p>当时的批小将已经接近六十多岁，已经不适合再担任小将了。但陈睿并没有答应，只是命令批小将继续服役。这一百多年的劳碌让批小将的身心疲惫。他们缺少的并不是衣食住行，而是精神上的安慰和放松。</p>
-<p>此时<br>
-2077年 10月10日<br>
-又是一年萌节。<br>
-一场大战一触即发。<br>
-这场战争，将会改变世界的格局，也许会让整个世界彻底陷入混乱。<br>
-&quot;陛下，请您下达命令吧！&quot;在一栋豪华的别墅里面，一名身穿黑西装，一头白色短发，看起来英武潇洒，但是脸上布满胡渣的中年男人，单膝跪地，双目炯炯有神的盯着陈睿，恳切地请求陈睿下达命令。<br>
-这名中年男子名叫蕾丝，是陈睿的心腹。蕾丝是陈睿培养多年的人才，他和陈睿一起打天下，经历了许多艰难困苦，两人的感情已经深入骨髓，蕾丝早在十多年前，就已经把陈睿视为了她的主人，现在，陈睿的生活就是她的一切，陈睿的一句话就是命令。</p>
-<p>“是啊，我们批帝国经历了这么多风雨，这么大阵仗的我还是第一次见”陈睿淡淡的说道：&quot;我们是该反击了。这次的战事，就由你亲自指挥吧！你是我的心腹之臣，我希望你能够亲自指挥。我希望你能够为我完成一次大捷，为我扫除掉库克，将字节跳动消灭。&quot;<br>
-蕾丝激动地浑身颤抖起来，他不敢置信的看着陈睿：&quot;陛下，您，您真的相信我吗？我真的可以为你完成大败库克的战事吗？&quot;<br>
-陈睿笑着拍了拍蕾丝的肩膀，语重心长的说道：&quot;我相信你，你不但是一名聪明的智者，而且还是一名勇敢、坚毅和睿智的将领。带上批帝国的下层人民和批落基吧。那些下层人民就当做是给你们一行人行军的奴仆吧，他们会为你们的行军提供必要的帮助的，而且这批奴隶都是我的私有财产，不受外界的干扰，他们会为你提供最优秀的装备。&quot;<br>
-听了陈睿的这些话，蕾丝感觉眼睛湿润了，他紧咬牙齿，努力控制自己的情绪，不让泪水流淌。&quot;陛下，我一定不辜负你的期待。&quot;蕾丝向陈睿深深鞠躬：&quot;我会让批落基的士兵们都记得您给予他们的荣耀和荣誉，并且永远铭记您的恩德。&quot;<br>
-&quot;好，好。&quot;陈睿连连点头：&quot;批落基的军队都是勇敢的战士，我期待着你的凯旋。&quot;<br>
-&quot;是，我一定不辱使命。&quot;蕾丝站了起来，转身离去。<br>
-陈睿看着蕾丝的背影，喃喃自语道：&quot;陈睿，你等着吧，我会让你的子民知道，谁是最伟大的国王。我会用我手里的剑，把你们一刀两段，把这个肮脏的国度给清洗干净!</p>
-<p>库克这边边开始琢磨用他们最擅长的地方来攻击批帝国的主力，并且采取了一些阴谋诡计，想要在陈睿的主力部队还没有赶来之前，断掉批帝国在苹果帝国的所有资金链，以及信息流，使得批帝国只能在谷歌共和国这一条渠道求生，苹果帝国拥有批帝国过半的信息流，以此就能把批帝国彻底打垮。不过这一计最大的隐患就是那软弱的谷歌共和国，从来就没想过对批帝国有任何的约束和规定如果批帝国强行侵略谷歌共和国，那么这个软柿子一样的国家肯定会被批帝国占领。</p>
-<p>不过这个问题并不是很大，我们苹果帝国有足够的军事实力，而谷歌帝国则是一群乌合之众，我相信只要我们苹果帝国的军队强悍一点，我们肯定能抢先一步先吞并掉谷歌共和国。到那个时候，就算是批帝国有三头六臂也休想抵挡我们的攻势。</p>
-<p>库克笑了，他决定亲自上阵，去会一会这软弱的谷歌共和国，看看那个被称为'世界最软弱的国家'的国家，到底能支撑多久！<br>
-一个月，两个月，三个月......十天，二十天。<br>
-在这一周内，整个苹果帝国都处于紧张而忙碌的状态，所有的军官，包括元首阁下和一些高级将领都有点慌乱。</p>
-<p>“为什么我们打了20天谷歌共和国还有援军在不断到来？”<br>
-在议事大厅里面，库克焦急的询问手下的情报人员。<br>
-手下的人摇摇头。<br>
-&quot;难道我们的敌人已经知道了我们准备进攻批帝国了吗？我们的情报网络已经完全封锁了啊&quot;库克疑惑的问道。<br>
-&quot;我们没有收到任何谷歌共和国援军的消息。&quot;一名副手回答”</p>
-<p>&quot;难道谷歌共和国是在故弄玄虚?他们是怕我们打败他们的军队?&quot;另外一名将军说。</p>
-<p>&quot;这不可能吧!&quot;-名将军说: &quot;谷歌共和国仅仅只是个小国啊。他手中的基础设施非常差，甚至比不上他任何一个附属国。唯一就是一个靠卖技术活着的一个国家啊。<br>
-我们在这个小国上花费了如此巨大的代价，他们的底气是什么？&quot;<br>
-&quot;这个小国的军事实力很强，但是这并不妨碍我们打败他们。&quot;库克信誓旦旦的说道,他非常自信，自信他能够打败陈睿的大军，谷歌共和国更不在话下。&quot;</p>
-<p>第一章完</p>
-<p>作者-绿色22娘翠绿33娘/彩云小梦</p>
-<blockquote>
-<p>作者后续:这文章就tm不是我写的啊，彩云小梦真tm好用，只要自己慢慢梳理清楚大概故事走向，小梦会自动写作相对应的合适内容，我也就相当于充当一个指挥和润色的人吧。估计下一章会详细描写谷歌和苹果两大移动端阵营的对抗吧，不过想想这么多年苹果是怎么找架得住华为小米这么多如狼似虎的公司。还是不得不佩服的。好像没陈睿什么事儿了？对只是因为标题和陈睿有关才把陈瑞放进来了。陈睿在现实中算个锤子，好了不说了，真的累了。笑）</p>
-</blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[一段很傻逼的建群经历]]></title>
-        <id>https://znzsofficial.github.io/-H9bta3MK/</id>
-        <link href="https://znzsofficial.github.io/-H9bta3MK/">
-        </link>
-        <updated>2020-08-22T13:22:10.000Z</updated>
-        <content type="html"><![CDATA[<p>2020/8/22 约8:00PM</p>
-<p>爷不写了</p>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 19:43:06<br>
-整个mc生存服？</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 19:43:12</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 19:47:24<br>
-谁出服务器</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 19:49:38<br>
-我们中午虽说没搞服务器不过也网易开房玩了一中午</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:00:21<br>
-我 不 玩 网 易</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:00:49<br>
-网易代理的mc的确lj，不过联机方便很多</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:00:54<br>
-特别是朋友一起玩</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:02:25<br>
-想办法搞最新基岩版服务器吧</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:10:23<br>
-要不就网易……</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:10:33</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:10:59<br>
-毕竟莫得服务器</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:11:14<br>
-要不找人嫖个？</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:11:27<br>
-你能找到？</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:11:30<br>
-找不到</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:12:09<br>
-那就网易</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:12:11<br>
-你说找sinken蹭有没有可能</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:12:11<br>
-吧</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:12:15<br>
-我下客户端了</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:12:15<br>
-那就网易吧</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:12:15<br>
-……</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:12:41<br>
-魔法小黄书目录<br>
-我 不 玩 网 易<br>
-@&gt;魔法小黄书目录<br>
-《  我  不  玩  网  易  》</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:12:58<br>
-只是一只咸鱼酱<br>
-@&gt;魔法小黄书目录<br>
-《  我  不  玩  网  易  》<br>
-@&gt;只是一只咸鱼酱 草你别这样</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:13:00</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:13:59</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:14:03<br>
-迪卡侬网速不错</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:14:26<br>
-我问问谁知道那些会做东方同人stg的大佬(</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:14:42<br>
-80m/s<br>
-哼唧</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:14:53<br>
-我好像意yin出了什么（</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:14:57<br>
-cocoChino<br>
-我问问谁知道那些会做东方同人stg的大佬(<br>
-@&gt;cocoChino 我们群里可能有人知道</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:15:01<br>
-帮你问问？</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:15:08</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:15:48</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:15:56<br>
-我快下好了</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:15:59<br>
-那就网易？</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:16:03<br>
-想用车万stg引擎做个点兔同人stg（</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:16:07<br>
-？？？</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:16:09</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:16:10<br>
-太君哈哈哈</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:16:58<br>
-网易更新到哪个版本了</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:17:06<br>
-希腊奶</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:17:45<br>
-话说要叫一个生存大佬？</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:17:46<br>
-另外心智组跟车万主角组有得一拼(</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:17:50<br>
-cocoChino<br>
-另外心智组跟车万主角组有得一拼(<br>
-@&gt;cocoChino 确实</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:18:01<br>
-就是前几天我说的那个有借有还的魔理沙</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:18:04<br>
-算了，反正地狱更新感知不强</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:18:28<br>
-有多佬</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:18:37<br>
-绿色22娘翠绿33娘<br>
-@&gt;cocoChino 确实<br>
-那就让心智组当自机（@&gt;绿色22娘翠绿33娘</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:18:42<br>
-反正比我懂的多</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:19:00<br>
-extra boss就是摩卡姐</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:19:32</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:19:43</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:21:11<br>
-想象下cocoa穿着巫女服的场景</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:22:46</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:22:47<br>
-迷惑</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:23:11<br>
-《网   易   易   盾》</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:23:15<br>
-网易版应该更新到1.15了吧</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:23:18<br>
-cocoChino</p>
-</blockquote>
-<p>@&gt;cocoChino 你也是灵魂ps的friends</p>
-<blockquote>
-<p>cocoChino 2020/8/22 20:23:42<br>
-另外krr里的阳法智乃</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:23:55<br>
-四舍五入不就是魔理沙了么</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:24:14<br>
-这群原来不是聊mc的啊，好的</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:24:29</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:24:39<br>
-魔法小黄书目录<br>
-这群原来不是聊mc的啊，好的<br>
-车 万 众 入 侵</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:24:47<br>
-这群聊啥都行</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:24:53</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:25:21<br>
-我还是快下网易版吧</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:25:23<br>
-不过这群貌似只有@&gt;只是一只咸鱼酱 不是车车人？</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:25:26<br>
-魔法小黄书目录<br>
-我还是快下网易版吧<br>
-@&gt;魔法小黄书目录 我下好了</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:25:31<br>
-你gkd</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:25:39<br>
-是的哦<br>
-我不是车车人</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:25:47<br>
-@&gt;只是一只咸鱼酱 你id是啥</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:25:47<br>
-版本号都1.18了</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:25:51<br>
-我正式注册了</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:25:55<br>
-这是要干翻基岩版</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:26:00<br>
-重新加好友</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:26:13<br>
-魔法小黄书目录<br>
-这是要干翻基岩版<br>
-@&gt;魔法小黄书目录 那好像是网易自己的版本号（？）</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:26:24<br>
-是的</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:27:10<br>
-蜜蜂啊</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:27:15<br>
-蜜蜂我记得是1.15？</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:27:27<br>
-蜜 蜂 俱 乐 部</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:27:44<br>
-得咱们群名就叫蜜蜂俱乐部吧</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:27:52<br>
-绿色22娘翠绿33娘<br>
-@&gt;cocoChino 你也是灵魂ps的friends<br>
-《请问您今天要来点幻想乡吗？》</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:28:12</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:28:15</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:28:33</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:28:42<br>
-精通ps.jpg</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:28:59<br>
-@&gt;只是一只咸鱼酱 你 人 呢？</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:29:26<br>
-cocoChino</p>
-</blockquote>
-<p>这图估计太大了，酷安那处男审核肯定过不去（</p>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:29:39<br>
-1.61还行</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:29:52<br>
-做成gif就能塞进去了</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:29:55</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:30:19<br>
-我弟还在这玩1.1.3+多玩</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:30:24<br>
-还有icpe</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:30:32<br>
-多玩也不错（？）</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:30:46<br>
-可惜网易代理了mc</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:30:54<br>
-多玩死了一半</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:31:00<br>
-只是一只咸鱼酱<br>
-多玩死了一半<br>
-@&gt;只是一只咸鱼酱 你id多少</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:31:02<br>
-!!!</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:31:08<br>
-多玩资源基本都没了</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:31:23<br>
-就还剩个2%的样子</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:31:35<br>
-想我也是多玩开服用户</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:31:37</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:32:05</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:32:20<br>
-（请不要在意这个名字）</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:32:39<br>
-这还是网易mc内测的时候我乱想的</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:32:41<br>
-榨干迪卡侬</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:32:54<br>
-我开了128*5=640个线程</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:32:57<br>
-继续套娃</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:33:06<br>
-当年我还是网易mc的第一批内测用户</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:33:33<br>
-网易版玩一次注册一次账户</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:33:34</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:33:55<br>
-绿色22娘翠绿33娘<br>
-[图片]<br>
-闪存爆炸警告</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:34:30<br>
-我去找个小米版去</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:34:39<br>
-对方好像锁我ip了？</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:34:42<br>
-说不定小米账号还能登上</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:34:45<br>
-强制限速</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:34:55<br>
-魔法小黄书目录<br>
-说不定小米账号还能登上<br>
-@&gt;魔法小黄书目录 服务器不互通吧</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:35:01<br>
-是的</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:35:02<br>
-不清楚</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:35:05<br>
-那好吧</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:38:33<br>
-名称咋都注册了</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:38:38<br>
-是啊</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:39:23<br>
-nekopara一集400多mb</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:39:33<br>
-我搞完了</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:39:40<br>
-那来搞？</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:39:47<br>
-@&gt;cocoChino 你ID多少</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:40:24<br>
-你们先玩吧，我今天时间不多了，今天中午玩了好久，未成年每天只能玩1.5小时</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:40:32<br>
-？</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:40:37<br>
-为啥不用家长身份证？</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:40:52<br>
-遵纪守法好公民</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:40:58</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:41:05<br>
-你要不重新注册个号？</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 20:41:19<br>
-不了<br>
-情怀</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:41:47<br>
-我id lv2cui3</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:41:53<br>
-加我开服？</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:42:55<br>
-还得实名认证？</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:43:04<br>
-网易</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:43:06<br>
-没办法</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:43:07<br>
-只填身份证和姓名的话</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:43:14<br>
-我这里好几百万个</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:43:18<br>
-魔法小黄书目录<br>
-我这里好几百万个<br>
-@&gt;魔法小黄书目录 ……</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:43:30</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:43:31<br>
-人 肉 社 工 大 师</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:49:10<br>
-都搞好了？</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:49:22<br>
-稍等</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:49:27<br>
-吼的</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:50:21<br>
-我搞一下实名认证</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:50:28<br>
-好的</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:50:50<br>
-顺便整理一下我这里有的---</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:51:10</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:52:15</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:52:15</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:52:27<br>
-还是txt!</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:52:55<br>
-这只是游戏的预先设想（</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:53:11<br>
-可以适配arm吗</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:53:12</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:53:24<br>
-要DirectX的（</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:53:35<br>
-arm平台估计很难跑</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:54:05<br>
-cocoChino<br>
-arm平台估计很难跑<br>
-@&gt;cocoChino 是的</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:54:11<br>
-模拟器效率太低了</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:54:49<br>
-而且这游戏我本身设想是要向下兼容WinXP的（</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:55:04<br>
-WinXP的DX版本最高支持9.0c</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:55:10<br>
-我实名认证完了</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:55:13<br>
-成年人</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:55:16<br>
-好的</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:55:17<br>
-我也是</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:55:24<br>
-cocoChino<br>
-WinXP的DX版本最高支持9.0c<br>
-@&gt;cocoChino 你账户成年人的？</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:55:51<br>
-DX→DirectX（</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:55:52<br>
-迪卡侬的快乐下载时光还剩5分钟</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:56:05<br>
-cocoChino<br>
-DX→DirectX（<br>
-@&gt;cocoChino direct 3d</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:56:44<br>
-想想都0202年了，神主还在用D3D9引擎写游戏</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:56:54<br>
-即为落后</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:57:01<br>
-下次上光追</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:57:02<br>
-dlss</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:57:09<br>
-dssl？</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:57:40<br>
-2D卷轴stg用不着光追和dlss吧（</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:57:48<br>
-我加你了@&gt;绿色22娘翠绿33娘</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:57:50<br>
-好的</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:57:53<br>
-cocoChino<br>
-2D卷轴stg用不着光追和dlss吧（<br>
-@&gt;cocoChino 就差你了</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:58:21<br>
-绿色22娘翠绿33娘<br>
-@&gt;cocoChino 就差你了<br>
-@&gt;绿色22娘翠绿33娘 ？</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:58:35<br>
-cocoChino<br>
-@&gt;绿色22娘翠绿33娘 ？<br>
-你账号搞好没？@&gt;cocoChino</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:58:38<br>
-他是不是连干啥都不知道</p>
-</blockquote>
-<p>你和&gt;cocoChino有1个共同好友，点击添加好友。</p>
-<blockquote>
-<p>cocoChino 2020/8/22 20:58:48<br>
-我很菜的</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:58:55<br>
-我们都是萌新</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:58:59<br>
-几年没碰mc了（</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:59:04<br>
-只要知道会撸树就行</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:59:05</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:59:07<br>
-信你的鬼话</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 20:59:27<br>
-magisk 还真没人注册</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 20:59:37</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 20:59:38<br>
-我这机器玩MC只要CPU温度一到七八十度就会花屏（</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:00:04<br>
-冰袋</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:00:11<br>
-冰袋</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:00:21<br>
-8890 基岩版1.16帧率感人</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:00:46<br>
-我810玩的时候也帧率感人</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:01:17<br>
-我855感知不强</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:01:21</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:01:38</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:01:42<br>
-看看我那台下单了的nexus7怎么样（</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:01:52<br>
-一代的，处理器Tegra3</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:01:53<br>
-cocoChino<br>
-看看我那台下单了的nexus7怎么样（<br>
-@&gt;cocoChino 你注册好没？</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:02:12<br>
-绿色22娘翠绿33娘<br>
-@&gt;cocoChino 你注册好没？<br>
-@&gt;绿色22娘翠绿33娘 我本来就不想玩网易的啊（</p>
-</blockquote>
-<blockquote>
-<p>cocoChino撤回了一条消息</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:02:40<br>
-我本来也不想</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:02:44<br>
-而且网易版的优化甚至还不比原版（</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:04:35<br>
-搞快点</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:04:45<br>
-没办法</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:04:46<br>
-gkd</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:05:05</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:05:25<br>
-现在老妈还在家 我不敢轻易去玩（</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:06:11<br>
-⑨这？</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:06:31<br>
-我倒是还有台机子</p>
-</blockquote>
-<blockquote>
-<p>cocoChino撤回了一条消息</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:06:40<br>
-骁龙660的</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:07:37<br>
-另外不是有网传网易的代理期快到了么<br>
-难道续费了</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:08:01<br>
-反正就玩几天</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:08:09<br>
-网易没了我更开心</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:08:11</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:08:21<br>
-安装包380多M</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:08:23</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:11:36<br>
-慢慢来</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:11:41<br>
-我现在回家</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:12:34</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:13:46<br>
-你们认为cocoa有节操没</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:14:05<br>
-不咋熟（</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:16:34<br>
-草</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:16:49<br>
-网易版mc不能用outlook邮箱绑定</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:17:52<br>
-我直接临时账号</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:17:57<br>
-反正下一次注册一次</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:19:27<br>
-直接手机号？</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:19:41<br>
-cocoChino</p>
-</blockquote>
-<p>@&gt;cocoChino 冇</p>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:20:16<br>
-我那个注册网易账号的手机号没了</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:20:39<br>
-绿色22娘翠绿33娘<br>
-@&gt;cocoChino 冇<br>
-@&gt;绿色22娘翠绿33娘</p>
-</blockquote>
-<p>保 登 心 爱 灵 梦 说</p>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:21:23<br>
-回家看  猫娘乐园</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:21:44<br>
-干 点 正 事</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:22:36<br>
-关于我在五环上找不到共享单车 回不了家这件事</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:22:55</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:25:29<br>
-网易版甚至还不能导入自定义皮肤（</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:25:37<br>
-草</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:25:43<br>
-能用就行</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:25:58<br>
-cocoChino<br>
-网易版甚至还不能导入自定义皮肤（<br>
-@&gt;cocoChino 要恰饭的</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:26:05<br>
-魔法小黄书目录<br>
-能用就行<br>
-@&gt;魔法小黄书目录 那样没内味了</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:26:05<br>
-可以啊</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:26:12<br>
-可以改</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:26:16<br>
-只是一只咸鱼酱<br>
-可以啊<br>
-@&gt;只是一只咸鱼酱 来老玩家告诉我们怎么改</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:26:47<br>
-单机模式可以自定义，但上传云端限制三个还是五个</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:26:49</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:26:49<br>
-然后</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:27:02</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:27:09<br>
-联机模式只能用商店的皮肤，免费的也挺多</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:27:24<br>
-当然</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:27:27<br>
-真的找不到一个共享单车</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:27:36<br>
-我多玩帖子都被删没了</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:27:41<br>
-不然还能找到几个皮肤</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:27:42<br>
-氪金就是网易的本质嘛，氪金皮肤更多</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:28:00<br>
-还是krr好啊（</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:28:15<br>
-还是krr好啊（</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:28:17<br>
-白嫖星彩石甚香</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:28:31<br>
-krr是啥</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:29:14<br>
-基于核方法的岭回归(KRR)</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:30:17<br>
-基于核岭回归方法的恒星大气物理参数的自动测量</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:30:20<br>
-Automatic Measurement of Stellar Atmospheric Physical Parameters Based on Kernel Ridge Regression Method</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:30:26<br>
-简称Krr</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:30:32<br>
-魔法小黄书目录<br>
-krr是啥<br>
-@&gt;魔法小黄书目录 kirara fantastic</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:31:05<br>
-Kernel Ridge Regression（krr）</p>
-</blockquote>
-<blockquote>
-<p>绿色22娘翠绿33娘 2020/8/22 21:32:20<br>
-好像拼错了</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:32:36<br>
-Kirara Fantasia（指正</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:33:29</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:33:57<br>
-草</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:33:58</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:34:05<br>
-https://znzsofficial.github.io/post/-H9bta3MK/</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:34:09<br>
-我大芳文社有牌面</p>
-</blockquote>
-<p>你撤回了一条消息</p>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:34:27<br>
-草</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:35:32</p>
-</blockquote>
-<blockquote>
-<p>cocoChino 2020/8/22 21:35:32</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:36:28<br>
-拉个朋友不介意吧</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:36:34<br>
-他执意要来</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:36:38</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱邀请&gt;カスガノ ソラ加入了本群。</p>
-</blockquote>
-<blockquote>
-<p>カスガノ ソラ与群里其他人都不是好友关系，请注意隐私安全。</p>
-</blockquote>
-<blockquote>
-<p>魔法小黄书目录 2020/8/22 21:37:11<br>
-随意</p>
-</blockquote>
-<blockquote>
-<p>カスガノ ソラ 2020/8/22 21:37:18</p>
-</blockquote>
-<blockquote>
-<p>カスガノ ソラ 2020/8/22 21:37:20<br>
-hi</p>
-</blockquote>
-<blockquote>
-<p>只是一只咸鱼酱 2020/8/22 21:37:28<br>
-你好<br>
-缘之空</p>
-</blockquote>
-<p>懒得更新了<br>
-没意思</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Nothing]]></title>
-        <id>https://znzsofficial.github.io/gridea/</id>
-        <link href="https://znzsofficial.github.io/gridea/">
-        </link>
-        <updated>2020-04-22T10:31:15.000Z</updated>
-        <content type="html"><![CDATA[<p>你穿的鞋子也好、衣服也好、食物也好</p>
-<p>都是你以外的某个人靠着“意识”制作出来的对吧？</p>
-<p>你是要无视那个人的心情吗？</p>
-<p>明明自己一个人的话什么都办不到！！</p>
-<p>你所享受的自由也总是要依靠别的某个人对吧！！</p>
-<p>在你逃避于妄想的时候大家也在拼命活着！思考着！</p>
-<p>——八云紫《恋恋的心跳大冒险》</p>
-<p>这段话，让我从一个整天臆想幻想乡的废宅变回了努力生活的正常人。</p>
-<blockquote>
-<p>每个人都有幻想的时候，但幻想不应该成为生活的常态，更不是漠视感情，拒绝交流的理由。内心世界固然无比精彩，但是没有现实世界的存在，什么也不是。死是容易的，逃避生活的一种手段罢了，然而，若是想不明白活着的真相，便不会拥有死后的宁静。</p>
-</blockquote>
 ]]></content>
     </entry>
 </feed>

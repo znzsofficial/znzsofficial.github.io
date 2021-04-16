@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lua数据加密存储 | 智商封印Official™</title>
+<title>Lua控件背景渐变 | 智商封印Official™</title>
 <meta name="description" content="我以为那个时代已过去，殊不知当你歌唱时，属于那个时代的一切都在归来。" />
 <link rel="shortcut icon" href="https://znzsofficial.github.io/favicon.ico">
 <link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
@@ -15,8 +15,12 @@
 <script src="https://znzsofficial.github.io/media/js/jquery.magnific-popup.min.js"></script>
 <script src="https://znzsofficial.github.io/media/js/functions.js"></script>
     <meta name="referrer" content="never">
-    <meta name="description" content="对账号密码等重要关键的存储需要注意，加密至关重要，因此照着网络上Android的AES实例，在 Fusion App 中简单实现了一个数据存储的加密，不保证安全（毕竟微信的加密都能被破解）
-不会数据存储的也可以直接使用，非常方便，不愿加密也..." />
+    <meta name="description" content="view=控件id
+color1 = 0xffFF8080;
+color2 = 0xff8080FF;
+color3 = 0xff80ffff;
+color4 = 0xff80ff80;
+import &quot;android.anima..." />
     <meta name="keywords" content="Lua" />
     <script src="https://znzsofficial.github.io/media/js/waterfall.min.js"></script>
     <script src="https://znzsofficial.github.io/media/js/prism.min.js"></script>
@@ -93,12 +97,12 @@
         <div class="center content">
           <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
             <div class="meta top"> 
-              <time class="meta-info" style="float:left;" datetime="2021-04-16"><i class="fa fa-calendar"></i><span class="lately">19 分钟前</span></time>
+              <time class="meta-info" style="float:left;" datetime="2021-04-16"><i class="fa fa-calendar"></i><span class="lately">10 分钟前</span></time>
               
-              <a href="https://znzsofficial.github.io/wsKO23FNA/#comments" class="comments meta-info" title="">
-                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/wsKO23FNA/"> </span>
+              <a href="https://znzsofficial.github.io/RODvESYCy/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/RODvESYCy/"> </span>
               </a>
-              <span id="/wsKO23FNA/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              <span id="/RODvESYCy/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
               
             </div>
             <div class="info">
@@ -107,7 +111,7 @@
                       <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
                     
               </div>
-              <h1 class="title ularge white bold">Lua数据加密存储</h1>
+              <h1 class="title ularge white bold">Lua控件背景渐变</h1>
             </div>
           </div>
         </div>  
@@ -117,94 +121,21 @@
             <article class="main-article post">
               <section class="post-content">
                 <div class="text">
-                  <p>对账号密码等重要关键的存储需要注意，加密至关重要，因此照着网络上Android的AES实例，在 Fusion App 中简单实现了一个数据存储的加密，不保证安全（毕竟微信的加密都能被破解）<br>
-不会数据存储的也可以直接使用，非常方便，不愿加密也可以用 activity.setSharedData(数据项名称,数据) 和 activity.getSharedData(数据项名称) 直接存取数据<br>
-只需要加解密功能，可以使用 encrypt(文本,密码) 进行加密，decrypt(文本,密码) 进行解密</p>
-<p>加解密函数我嫌长，直接压缩成一行了，可读性较差<br>
-然后发现存取数据的函数更长（好多if），本来也应该缩短下，不过...就...懒得搞了</p>
-<p>使用方法（类似于activity.setSharedData()）：<br>
-存储数据：setData(数据项名称,数据)<br>
-获取数据：getData(数据项名称)<br>
-删除数据：setData(数据项名称)</p>
-<p>--数据加密密码，字符串类型，可随意填写，不建议固定，建议配合使用设备及应用信息，设备不同密码不同，更加安全（其实修改一下下面的“[Pwd233_”即可投入使用了）<br>
-local DataPassword=&quot;[Pwd233_&quot;..this.packageName..Build.SERIAL..Build.FINGERPRINT</p>
-<p>import&quot;android.util.Base64&quot;<br>
-import&quot;javax.crypto.spec.SecretKeySpec&quot;<br>
-import&quot;javax.crypto.Cipher&quot;<br>
-import&quot;javax.crypto.spec.PBEKeySpec&quot;<br>
-import&quot;javax.crypto.SecretKeyFactory&quot;<br>
-function encrypt(content,password)</p>
-<p>local jdpuk=Cipher.getInstance(&quot;AES&quot;)<br>
-jdpuk.init(Cipher.ENCRYPT_MODE,SecretKeySpec(SecretKeyFactory.getInstance(&quot;PBKDF2WithHmacSHA1&quot;)<br>
-.generateSecret(PBEKeySpec(String(password).toCharArray(),byte[1],1,128)<br>
-).getEncoded()<br>
-,&quot;AES&quot;))<br>
-return Base64.encodeToString(jdpuk.doFinal(String(content).getBytes(&quot;UTF-8&quot;))<br>
-,Base64.NO_WRAP)<br>
-end<br>
-function decrypt(content,password)<br>
-local jdpuk=Cipher.getInstance(&quot;AES&quot;)<br>
-jdpuk.init(Cipher.DECRYPT_MODE,SecretKeySpec(SecretKeyFactory.getInstance(&quot;PBKDF2WithHmacSHA1&quot;)<br>
-.generateSecret(PBEKeySpec(String(password).toCharArray(),byte[1],1,128)<br>
-).getEncoded()<br>
-,&quot;AES&quot;))<br>
-return String(jdpuk.doFinal(Base64.decode(content,Base64.NO_WRAP))<br>
-),<br>
-end</p>
-<p>function setData(key,value)<br>
---数据存储<br>
-if key<mark>nil or key</mark>&quot;&quot; then<br>
---数据键值为空<br>
-return false<br>
-end<br>
-local data=value<br>
-if data~=nil and data~=&quot;&quot; then<br>
-local status,data=pcall(encrypt,data,DataPassword)<br>
-if status and data~=nil and data~=&quot;&quot; then<br>
-if this.setSharedData(key,data) then<br>
-return true<br>
-else<br>
---存储失败<br>
-print(&quot;数据存储失败&quot;)<br>
-return false<br>
-end<br>
-else<br>
---加密失败<br>
-print(&quot;数据加密失败&quot;)<br>
-return false<br>
-end<br>
-else<br>
---传入数据为空，删除数据<br>
-if this.setSharedData(key,nil) then<br>
-return true<br>
-else<br>
---删除失败<br>
-print(&quot;数据删除失败&quot;)<br>
-return false<br>
-end<br>
-end<br>
-end<br>
-function getData(key,def)<br>
---数据读取<br>
-if key<mark>nil or key</mark>&quot;&quot; then<br>
---数据键值为空<br>
-return def<br>
-end<br>
-local data=this.getSharedData(key,&quot;&quot;)<br>
-if data~=nil and data~=&quot;&quot; then<br>
-local status,data=pcall(decrypt,data,DataPassword)<br>
-if status and data~=nil and data~=&quot;&quot; then<br>
-return tostring(data)<br>
-else<br>
---解密失败<br>
-print(&quot;数据解密失败&quot;)<br>
-return def<br>
-end<br>
-else<br>
---数据为空<br>
-return def<br>
-end<br>
-end</p>
+                  <p>view=控件id<br>
+color1 = 0xffFF8080;<br>
+color2 = 0xff8080FF;<br>
+color3 = 0xff80ffff;<br>
+color4 = 0xff80ff80;<br>
+import &quot;android.animation.ObjectAnimator&quot;<br>
+import &quot;android.animation.ArgbEvaluator&quot;<br>
+import &quot;android.animation.ValueAnimator&quot;<br>
+import &quot;android.graphics.Color&quot;<br>
+colorAnim = ObjectAnimator.ofInt(view,&quot;backgroundColor&quot;,{color1, color2, color3,color4})<br>
+colorAnim.setDuration(3000)<br>
+colorAnim.setEvaluator(ArgbEvaluator())<br>
+colorAnim.setRepeatCount(ValueAnimator.INFINITE)<br>
+colorAnim.setRepeatMode(ValueAnimator.REVERSE)<br>
+colorAnim.start()</p>
 
                 </div>
                 <div class="clear"></div>
@@ -215,11 +146,11 @@ end</p>
             <section class="related section">
               
               <article class="prev grid-50 tablet-grid-50 grid-parent">
-                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/KmpHfbHko.jpg');"></div>
-                 <a href="https://znzsofficial.github.io/XLz1N6FYi/" class="full-link"></a>
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/0rl9q4UQ-/" class="full-link"></a>
                  <div class="info">
                   <time datetime="2021-04-16">2021-04-16</time>
-                  <h4 class="title white no-margin">Lua读写数据（二）-SQlite数据库</h4>
+                  <h4 class="title white no-margin">Lua集合</h4>
                 </div>
                  <span class="epcl-button red">
                   <img src="https://znzsofficial.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
@@ -230,10 +161,10 @@ end</p>
               
               <article class="next grid-50 tablet-grid-50 grid-parent">
                 <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/KmpHfbHko.jpg');"></div>
-                 <a href="https://znzsofficial.github.io/KumA8sIWj/" class="full-link"></a>
+                 <a href="https://znzsofficial.github.io/AgfevEFUk/" class="full-link"></a>
                  <div class="info">
                   <time datetime="2021-04-16">2021-04-16</time>
-                  <h4 class="title white no-margin">Lua-OS库相关</h4>
+                  <h4 class="title white no-margin">Lua文件I/O</h4>
                 </div>
                  <span class="epcl-button red">
                   <img src="https://znzsofficial.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
