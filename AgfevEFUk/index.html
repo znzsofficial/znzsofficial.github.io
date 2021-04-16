@@ -1,9 +1,8 @@
-<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>我的阅读 | 智商封印Official™</title>
+<title>Lua文件I/O | 智商封印Official™</title>
 <meta name="description" content="我以为那个时代已过去，殊不知当你歌唱时，属于那个时代的一切都在归来。" />
 <link rel="shortcut icon" href="https://znzsofficial.github.io/favicon.ico">
 <link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
@@ -16,13 +15,15 @@
 <script src="https://znzsofficial.github.io/media/js/jquery.magnific-popup.min.js"></script>
 <script src="https://znzsofficial.github.io/media/js/functions.js"></script>
     <meta name="referrer" content="never">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iMuFeng/bmdb@1.8.0/dist/Bmdb.min.css">
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/iMuFeng/bmdb@1.8.0/dist/Bmdb.min.js'></script>
+    <meta name="description" content="Lua I/O 库用于读取和处理文件。分为简单模式（和C一样）、完全模式。
+简单模式（simple model）拥有一个当前输入文件和一个当前输出文件，
+并且提供针对这些文件相关的操作。
+完全模式（complete model） 使用外部的..." />
+    <meta name="keywords" content="Lua" />
+    <script src="https://znzsofficial.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://znzsofficial.github.io/media/js/prism.min.js"></script>
   </head>
   <body>
-    <!-- start: #wrapper -->
-    <div class="wrapper">
-      
             <header id="header" class="grid-container">
         <!-- start: .menu-wrapper -->
         <div class="menu-mobile"> 
@@ -89,14 +90,183 @@
         </div>
       </div>
 
-      <main id="friends" class="main fullcover no-sidebar content">
-        <div class="grid-container module-wrapper enable-masonry aos-init aos-animate" data-aos="fade-up">
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2021-04-16"><i class="fa fa-calendar"></i><span class="lately">2 分钟前</span></time>
+              
+              <a href="https://znzsofficial.github.io/AgfevEFUk/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/AgfevEFUk/"> </span>
+              </a>
+              <span id="/AgfevEFUk/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Lua文件I/O</h1>
+            </div>
+          </div>
+        </div>  
+
         <div class="epcl-page-wrapper">
-          <div class="section-content" style="margin-top:3em;"></div>
-        </div>
-        </div>
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>Lua I/O 库用于读取和处理文件。分为简单模式（和C一样）、完全模式。</p>
+<p>简单模式（simple model）拥有一个当前输入文件和一个当前输出文件，<br>
+并且提供针对这些文件相关的操作。<br>
+完全模式（complete model） 使用外部的文件句柄来实现。<br>
+它以一种面对对象的形式，将所有的文件操作定义为文件句柄的方法<br>
+简单模式在做一些简单的文件操作时较为合适。但是在进行一些高级的文件操作的时候，<br>
+简单模式就显得力不从心。例如同时读取多个文件这样的操作，使用完全模式则较为合适。</p>
+<p>打开文件操作语句如下：</p>
+<p>file = io.open (filename , mode)<br>
+mode 的值有：</p>
+<p>&quot;r&quot;	以只读方式打开文件，该文件必须存在。<br>
+&quot;w&quot;	打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。<br>
+&quot;a&quot;	以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾，即文件原先的内容会被保留。（EOF符保留）<br>
+&quot;r+&quot;	以可读写方式打开文件，该文件必须存在。<br>
+&quot;w+&quot;	打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。<br>
+&quot;a+&quot;	与a类似，但此文件可读可写<br>
+&quot;b&quot;	二进制模式，如果文件是二进制文件，可以加上b</p>
+<p>简单模式使用标准的 I/O 或使用一个当前输入文件和一个当前输出文件。</p>
+<p>以下为 file.lua 文件代码，操作的文件为test.lua(如果没有你需要创建该文件)，代码如下：</p>
+<p>-- 以只读方式打开文件<br>
+file = io.open(&quot;test.lua&quot;, &quot;r&quot;)</p>
+<p>-- 设置默认输入文件为 test.lua<br>
+io.input(file)</p>
+<p>-- 输出文件第一行<br>
+print(io.read())</p>
+<p>-- 关闭打开的文件<br>
+io.close(file)</p>
+<p>-- 以附加的方式打开只写文件<br>
+file = io.open(&quot;test.lua&quot;, &quot;a&quot;)</p>
+<p>-- 设置默认输出文件为 test.lua<br>
+io.output(file)</p>
+<p>-- 在文件最后一行添加 Lua 注释<br>
+io.write(&quot;--  test.lua 文件末尾注释&quot;)</p>
+<p>-- 关闭打开的文件<br>
+io.close(file)<br>
+执行以上代码，你会发现，输出了 test.ua 文件的第一行信息，并在该文件最后一行添加了 lua 的注释。如我这边输出的是：</p>
+<p>-- test.lua 文件<br>
+在以上实例中我们使用了 io.&quot;x&quot; 方法，其中 io.read() 中我们没有带参数，参数可以是下表中的一个：</p>
+<p>&quot;*n&quot;	读取一个数字并返回它。例：file.read(&quot;*n&quot;)<br>
+&quot;*a&quot;	从当前位置读取整个文件。例：file.read(&quot;*a&quot;)<br>
+&quot;*l&quot;（默认）	读取下一行，在文件尾 (EOF) 处返回 nil。例：file.read(&quot;*l&quot;)<br>
+number	返回一个指定字符个数的字符串，或在 EOF 时返回 nil。例：file.read(5)<br>
+其他的 io 方法有：</p>
+<p>io.tmpfile():返回一个临时文件句柄，该文件以更新模式打开，程序结束时自动删除</p>
+<p>io.type(file): 检测obj是否一个可用的文件句柄</p>
+<p>io.flush(): 向文件写入缓冲中的所有数据</p>
+<p>io.lines(optional file name): 返回一个迭代函数,每次调用将获得文件中的一行内容,当到文件尾时，将返回nil,但不关闭文件</p>
+<p>通常我们需要在同一时间处理多个文件。我们需要使用 file:function_name 来代替 io.function_name 方法。以下实例演示了如同同时处理同一个文件:</p>
+<p>-- 以只读方式打开文件<br>
+file = io.open(&quot;test.lua&quot;, &quot;r&quot;)</p>
+<p>-- 输出文件第一行<br>
+print(file:read())</p>
+<p>-- 关闭打开的文件<br>
+file:close()</p>
+<p>-- 以附加的方式打开只写文件<br>
+file = io.open(&quot;test.lua&quot;, &quot;a&quot;)</p>
+<p>-- 在文件最后一行添加 Lua 注释<br>
+file:write(&quot;--test&quot;)</p>
+<p>-- 关闭打开的文件<br>
+file:close()<br>
+执行以上代码，你会发现，输出了 test.ua 文件的第一行信息，并在该文件最后一行添加了 lua 的注释。如我这边输出的是：</p>
+<p>-- test.lua 文件<br>
+read 的参数与简单模式一致。</p>
+<p>file:seek(optional whence, optional offset): 设置和获取当前文件位置,<br>
+成功则返回最终的文件位置(按字节),失败则返回nil加错误信息。参数 whence 值可以是:</p>
+<p>&quot;set&quot;: 从文件头开始<br>
+&quot;cur&quot;: 从当前位置开始[默认]<br>
+&quot;end&quot;: 从文件尾开始<br>
+offset:默认为0<br>
+不带参数file:seek()则返回当前位置,file:seek(&quot;set&quot;)则定位到文件头,file:seek(&quot;end&quot;)则定位到文件尾并返回文件大小<br>
+file:flush(): 向文件写入缓冲中的所有数据</p>
+<p>io.lines(optional file name): 打开指定的文件filename为读模式并返回一个迭代函数,<br>
+每次调用将获得文件中的一行内容,当到文件尾时，将返回nil,并自动关闭文件。<br>
+若不带参数时io.lines() &lt;=&gt; io.input():lines(); 读取默认输入设备的内容，但结束时不关闭文件,如</p>
+<p>for line in io.lines(&quot;main.lua&quot;) do</p>
+<p>print(line)</p>
+<p>end</p>
+<p>以下实例使用了 seek 方法，定位到文件倒数第 25 个位置并使用 read 方法的 *a 参数，即从当期位置(倒数第 25 个位置)读取整个文件。</p>
+<p>-- 以只读方式打开文件<br>
+file = io.open(&quot;test.lua&quot;, &quot;r&quot;)</p>
+<p>file:seek(&quot;end&quot;,-25)<br>
+print(file:read(&quot;*a&quot;))</p>
+<p>-- 关闭打开的文件<br>
+file:close()<br>
+我这边输出的结果是：</p>
+<p>st.lua 文件末尾--test</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/KmpHfbHko.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/XLz1N6FYi/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2021-04-16">2021-04-16</time>
+                  <h4 class="title white no-margin">Lua读写数据（二）-SQlite数据库</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+<div class="clear"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'f32ec5e72402be6fcb56',
+    clientSecret: '9a7fa90f843b8a3b0ff45112cad1b55178064f92',
+    repo: 'repo.github.io',
+    owner: 'znzsofficial',
+    admin: ['znzsofficial'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+                
+                
+              </div>
+            
+
+            </div>
+          </div>
       </main>
-        <footer id="footer" class="grid-container">
+
+          <footer id="footer" class="grid-container">
         <div class="widgets row gradient-effect">
             <div class="default-sidebar border-effect">
               <div class="grid-33 tablet-grid-50 mobile-grid-100">
@@ -247,15 +417,9 @@
 
         
 
-    <script>
-    new Bmdb({
-      type: 'books',
-      selector: '.section-content',
-      secret: '',
-      noMoreText: '没有更多数据了',
-      limit: 30
-    })
-    </script>
+      
+    <script src="https://znzsofficial.github.io/media/js/functions-post.js"></script>
+
     </div>
     <!-- end: #wrapper -->
   </body>

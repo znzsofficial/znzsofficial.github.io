@@ -1,9 +1,8 @@
-<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>我的阅读 | 智商封印Official™</title>
+<title>Lua读写数据（一）-SP | 智商封印Official™</title>
 <meta name="description" content="我以为那个时代已过去，殊不知当你歌唱时，属于那个时代的一切都在归来。" />
 <link rel="shortcut icon" href="https://znzsofficial.github.io/favicon.ico">
 <link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
@@ -16,13 +15,16 @@
 <script src="https://znzsofficial.github.io/media/js/jquery.magnific-popup.min.js"></script>
 <script src="https://znzsofficial.github.io/media/js/functions.js"></script>
     <meta name="referrer" content="never">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iMuFeng/bmdb@1.8.0/dist/Bmdb.min.css">
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/iMuFeng/bmdb@1.8.0/dist/Bmdb.min.js'></script>
+    <meta name="description" content="--[[
+SharedPreferences简称Sp，
+是一种轻量级的数据存储方式,采用Key/value的方式进行映射，
+最终会在手机的/data/data/package_name/shared_prefs/目录下以xml的格式存在。
+..." />
+    <meta name="keywords" content="Lua" />
+    <script src="https://znzsofficial.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://znzsofficial.github.io/media/js/prism.min.js"></script>
   </head>
   <body>
-    <!-- start: #wrapper -->
-    <div class="wrapper">
-      
             <header id="header" class="grid-container">
         <!-- start: .menu-wrapper -->
         <div class="menu-mobile"> 
@@ -89,14 +91,189 @@
         </div>
       </div>
 
-      <main id="friends" class="main fullcover no-sidebar content">
-        <div class="grid-container module-wrapper enable-masonry aos-init aos-animate" data-aos="fade-up">
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2021-04-16"><i class="fa fa-calendar"></i><span class="lately">11 分钟前</span></time>
+              
+              <a href="https://znzsofficial.github.io/DoC0AVnEy/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/DoC0AVnEy/"> </span>
+              </a>
+              <span id="/DoC0AVnEy/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Lua读写数据（一）-SP</h1>
+            </div>
+          </div>
+        </div>  
+
         <div class="epcl-page-wrapper">
-          <div class="section-content" style="margin-top:3em;"></div>
-        </div>
-        </div>
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>--[<mark>[<br>
+SharedPreferences简称Sp，<br>
+是一种轻量级的数据存储方式,采用Key/value的方式进行映射，<br>
+最终会在手机的/data/data/package_name/shared_prefs/目录下以xml的格式存在。<br>
+Sp通常用于记录一些参数配置、行为标记等！<br>
+因为其使用简单，所以大多数开发者用起来很爽！但是<br>
+请注意：千万不要使用Sp去存储量大的数据，<br>
+也千万不要去让你的Sp文件超级大，<br>
+否则会大大影响应用性能<br>
+]</mark>]<br>
+SorrowClover=<br>
+{<br>
+LinearLayout;--线性布局<br>
+Orientation='vertical';--布局方向<br>
+layout_width='fill';--布局宽度<br>
+layout_height='fill';--布局高度<br>
+background='#ffffff';--布局背景颜色(或图片路径)<br>
+gravity=&quot;center&quot;;<br>
+{<br>
+EditText;--编辑框控件<br>
+id=&quot;edit&quot;;<br>
+singleLine=true;--设置单行输入<br>
+layout_width='80%w';--编辑框宽度<br>
+layout_height='50dp';--编辑框高度<br>
+textSize='18sp';--文本大小<br>
+textColor='#000000';--输入文本的颜色<br>
+Hint='请输入需要储存的数据';--编辑框为空时提示的文本<br>
+HintTextColor='#333333';--编辑框内容为空的时候显示文本的颜色<br>
+};<br>
+{<br>
+Button;--按钮控件<br>
+id=&quot;save_btn&quot;;<br>
+text='储存数据';--显示的文本<br>
+textSize='18sp';--文本大小<br>
+textColor='#000000';--文本颜色<br>
+layout_width='100dp';--按钮宽度<br>
+layout_height='50dp';--按钮高度<br>
+BackgroundColor='#ffffff';--按钮背景颜色<br>
+};<br>
+{<br>
+Button;--按钮控件<br>
+text='读取数据';--显示的文本<br>
+id=&quot;read_btn&quot;;<br>
+textSize='18sp';--文本大小<br>
+textColor='#000000';--文本颜色<br>
+layout_width='100dp';--按钮宽度<br>
+layout_height='50dp';--按钮高度<br>
+BackgroundColor='#ffffff';--按钮背景颜色<br>
+};<br>
+};<br>
+activity.setContentView(loadlayout(SorrowClover))</p>
+<p>import 'android.content.Context'<br>
+save_btn.onClick=function()<br>
+if (edit.text == &quot;&quot;) then<br>
+print(&quot;我才不存储空数据呢!&quot;)<br>
+else<br>
+储存数据(edit.text)<br>
+end<br>
+end</p>
+<p>read_btn.onClick=function()<br>
+读取数据()<br>
+end</p>
+<p>function 储存数据(str)<br>
+--获取SharedPreferences文件，后面的第一个参数就是文件名，没有会自己创建，有就读取<br>
+sp = activity.getSharedPreferences(&quot;mysp&quot;, Context.MODE_PRIVATE)<br>
+--设置编辑<br>
+sped = sp.edit()<br>
+--设置键值对<br>
+sped.putString(&quot;user&quot;,str)<br>
+--提交保存数据<br>
+sped.commit()<br>
+print(&quot;储存成功&quot;)<br>
+end</p>
+<p>function 读取数据()<br>
+--获取SharedPreferences文件<br>
+sp = activity.getSharedPreferences(&quot;mysp&quot;, Context.MODE_PRIVATE)<br>
+--打印对应的值<br>
+print(sp.getString(&quot;user&quot;,&quot;&quot;))<br>
+end</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/KmpHfbHko.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/KumA8sIWj/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2021-04-16">2021-04-16</time>
+                  <h4 class="title white no-margin">Lua-OS库相关</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/KmpHfbHko.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/Hr6SN0bdK/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2021-04-16">2021-04-16</time>
+                  <h4 class="title white no-margin">FileUtils-文件操作</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+<div class="clear"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'f32ec5e72402be6fcb56',
+    clientSecret: '9a7fa90f843b8a3b0ff45112cad1b55178064f92',
+    repo: 'repo.github.io',
+    owner: 'znzsofficial',
+    admin: ['znzsofficial'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+                
+                
+              </div>
+            
+
+            </div>
+          </div>
       </main>
-        <footer id="footer" class="grid-container">
+
+          <footer id="footer" class="grid-container">
         <div class="widgets row gradient-effect">
             <div class="default-sidebar border-effect">
               <div class="grid-33 tablet-grid-50 mobile-grid-100">
@@ -247,15 +424,9 @@
 
         
 
-    <script>
-    new Bmdb({
-      type: 'books',
-      selector: '.section-content',
-      secret: '',
-      noMoreText: '没有更多数据了',
-      limit: 30
-    })
-    </script>
+      
+    <script src="https://znzsofficial.github.io/media/js/functions-post.js"></script>
+
     </div>
     <!-- end: #wrapper -->
   </body>

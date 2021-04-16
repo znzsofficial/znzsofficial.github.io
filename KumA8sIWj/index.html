@@ -1,9 +1,8 @@
-<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>我的阅读 | 智商封印Official™</title>
+<title>Lua-OS库相关 | 智商封印Official™</title>
 <meta name="description" content="我以为那个时代已过去，殊不知当你歌唱时，属于那个时代的一切都在归来。" />
 <link rel="shortcut icon" href="https://znzsofficial.github.io/favicon.ico">
 <link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
@@ -16,13 +15,20 @@
 <script src="https://znzsofficial.github.io/media/js/jquery.magnific-popup.min.js"></script>
 <script src="https://znzsofficial.github.io/media/js/functions.js"></script>
     <meta name="referrer" content="never">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iMuFeng/bmdb@1.8.0/dist/Bmdb.min.css">
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/iMuFeng/bmdb@1.8.0/dist/Bmdb.min.js'></script>
+    <meta name="description" content="os.rename(old,new)
+--重命名文件，old旧，new新。
+os.remove(path)
+--删除文件，path路径。
+os.exit()
+--中止当前程序的执行
+os.getenv(var)
+--返回环境变量
+os.ti..." />
+    <meta name="keywords" content="Lua" />
+    <script src="https://znzsofficial.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://znzsofficial.github.io/media/js/prism.min.js"></script>
   </head>
   <body>
-    <!-- start: #wrapper -->
-    <div class="wrapper">
-      
             <header id="header" class="grid-container">
         <!-- start: .menu-wrapper -->
         <div class="menu-mobile"> 
@@ -89,14 +95,156 @@
         </div>
       </div>
 
-      <main id="friends" class="main fullcover no-sidebar content">
-        <div class="grid-container module-wrapper enable-masonry aos-init aos-animate" data-aos="fade-up">
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2021-04-16"><i class="fa fa-calendar"></i><span class="lately">8 分钟前</span></time>
+              
+              <a href="https://znzsofficial.github.io/KumA8sIWj/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/KumA8sIWj/"> </span>
+              </a>
+              <span id="/KumA8sIWj/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Lua-OS库相关</h1>
+            </div>
+          </div>
+        </div>  
+
         <div class="epcl-page-wrapper">
-          <div class="section-content" style="margin-top:3em;"></div>
-        </div>
-        </div>
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>os.rename(old,new)<br>
+--重命名文件，old旧，new新。</p>
+<p>os.remove(path)<br>
+--删除文件，path路径。</p>
+<p>os.exit()<br>
+--中止当前程序的执行</p>
+<p>os.getenv(var)<br>
+--返回环境变量</p>
+<p>os.time()<br>
+--[[返回一个指定时间点的UNIX时间戳，如不带参数调用的话，就返回当前时间点的UNIX时间戳。<br>
+参数table字段包括{<br>
+year  年份<br>
+month  月份(01-12)<br>
+day  天(01-31)<br>
+hour  时(00-23)<br>
+min  分(00-59)<br>
+sec  秒(00-59)<br>
+isdst  布尔值，true表示夏令时<br>
+其中，year、month、day 三个字段是必须的，其它字段默认取 12:00:00<br>
+}]]<br>
+os.data(format,sec)<br>
+--os.data 是os.time 的反函数，它将一个UNIX时间戳转换成可读的字符串形式。<br>
+--如果省略第2个参数，默认返回当前时间点的日期。</p>
+<p>--为了生成一个日期table，可以使用格式字符串&quot;*t&quot;，例如：</p>
+<p>tb = os.date(&quot;*t&quot;)</p>
+<p>for k,v in pairs(tb) do<br>
+print(k,v)<br>
+end</p>
+<p>输出:<br>
+year 	2019<br>
+sec 	46<br>
+isdst 	false<br>
+yday 	173<br>
+wday 	7<br>
+month 	6<br>
+hour 	23<br>
+min 	52<br>
+day 	22<br>
+os.difftime(t2, t1)<br>
+--返回从t1到t2的时间跨度值。</p>
+<p>os.clock()<br>
+--函数os.clock 返回当前CPU时间的秒数，一般可用于计算一段代码的执行时间</p>
+<p>--[[· LUA string库详解<br>
+· python 标准库之os<br>
+· Lua中os库的使用(execute,date,clock,time)<br>
+· 『Golang』—— 标准库之 os]]</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/KmpHfbHko.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/wsKO23FNA/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2021-04-16">2021-04-16</time>
+                  <h4 class="title white no-margin">Lua数据加密存储</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/KmpHfbHko.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/DoC0AVnEy/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2021-04-16">2021-04-16</time>
+                  <h4 class="title white no-margin">Lua读写数据（一）-SP</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+<div class="clear"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'f32ec5e72402be6fcb56',
+    clientSecret: '9a7fa90f843b8a3b0ff45112cad1b55178064f92',
+    repo: 'repo.github.io',
+    owner: 'znzsofficial',
+    admin: ['znzsofficial'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+                
+                
+              </div>
+            
+
+            </div>
+          </div>
       </main>
-        <footer id="footer" class="grid-container">
+
+          <footer id="footer" class="grid-container">
         <div class="widgets row gradient-effect">
             <div class="default-sidebar border-effect">
               <div class="grid-33 tablet-grid-50 mobile-grid-100">
@@ -247,15 +395,9 @@
 
         
 
-    <script>
-    new Bmdb({
-      type: 'books',
-      selector: '.section-content',
-      secret: '',
-      noMoreText: '没有更多数据了',
-      limit: 30
-    })
-    </script>
+      
+    <script src="https://znzsofficial.github.io/media/js/functions-post.js"></script>
+
     </div>
     <!-- end: #wrapper -->
   </body>
