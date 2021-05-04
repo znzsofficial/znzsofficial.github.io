@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://znzsofficial.github.io</id>
     <title>智商封印Official™</title>
-    <updated>2021-04-16T13:36:23.842Z</updated>
+    <updated>2021-05-04T10:55:38.634Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://znzsofficial.github.io"/>
     <link rel="self" href="https://znzsofficial.github.io/atom.xml"/>
@@ -696,7 +696,7 @@ return String(jdpuk.doFinal(Base64.decode(content,Base64.NO_WRAP))<br>
 end</p>
 <p>function setData(key,value)<br>
 --数据存储<br>
-if key<mark>nil or key</mark>&quot;&quot; then<br>
+if key == nil or key == &quot;&quot; then<br>
 --数据键值为空<br>
 return false<br>
 end<br>
@@ -729,7 +729,7 @@ end<br>
 end<br>
 function getData(key,def)<br>
 --数据读取<br>
-if key<mark>nil or key</mark>&quot;&quot; then<br>
+if key == nil or key == &quot;&quot; then<br>
 --数据键值为空<br>
 return def<br>
 end<br>
