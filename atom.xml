@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://znzsofficial.github.io</id>
     <title>智商封印Official™</title>
-    <updated>2021-06-11T06:34:53.299Z</updated>
+    <updated>2021-06-26T04:24:07.952Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://znzsofficial.github.io"/>
     <link rel="self" href="https://znzsofficial.github.io/atom.xml"/>
@@ -10,6 +10,34 @@
     <logo>https://znzsofficial.github.io/images/avatar.png</logo>
     <icon>https://znzsofficial.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 智商封印Official™</rights>
+    <entry>
+        <title type="html"><![CDATA[序数前缀？]]></title>
+        <id>https://znzsofficial.github.io/ObzcCPrNa/</id>
+        <link href="https://znzsofficial.github.io/ObzcCPrNa/">
+        </link>
+        <updated>2021-06-26T04:22:52.000Z</updated>
+        <content type="html"><![CDATA[<p>1= single<br>
+2= dual<br>
+3= tri<br>
+4= quad<br>
+5 = penta<br>
+6 = hexa<br>
+7 = hepta<br>
+8 = octa<br>
+9 = nona<br>
+10 = deca<br>
+11 = hendeca<br>
+12 = dodeca<br>
+13 = trideca<br>
+14 = tetradeca<br>
+15 = pentadeca<br>
+16 = hexadeca<br>
+17 = heptadeca<br>
+18 = octadeca<br>
+19 = enneadeca<br>
+20 = icosa</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Inner Core相关]]></title>
         <id>https://znzsofficial.github.io/1DWUx_fCg/</id>
@@ -758,60 +786,6 @@ else<br>
 return def<br>
 end<br>
 end</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Lua-OS库相关]]></title>
-        <id>https://znzsofficial.github.io/KumA8sIWj/</id>
-        <link href="https://znzsofficial.github.io/KumA8sIWj/">
-        </link>
-        <updated>2021-04-16T12:31:59.000Z</updated>
-        <content type="html"><![CDATA[<p>os.rename(old,new)<br>
---重命名文件，old旧，new新。</p>
-<p>os.remove(path)<br>
---删除文件，path路径。</p>
-<p>os.exit()<br>
---中止当前程序的执行</p>
-<p>os.getenv(var)<br>
---返回环境变量</p>
-<p>os.time()<br>
---[[返回一个指定时间点的UNIX时间戳，如不带参数调用的话，就返回当前时间点的UNIX时间戳。<br>
-参数table字段包括{<br>
-year  年份<br>
-month  月份(01-12)<br>
-day  天(01-31)<br>
-hour  时(00-23)<br>
-min  分(00-59)<br>
-sec  秒(00-59)<br>
-isdst  布尔值，true表示夏令时<br>
-其中，year、month、day 三个字段是必须的，其它字段默认取 12:00:00<br>
-}]]<br>
-os.data(format,sec)<br>
---os.data 是os.time 的反函数，它将一个UNIX时间戳转换成可读的字符串形式。<br>
---如果省略第2个参数，默认返回当前时间点的日期。</p>
-<p>--为了生成一个日期table，可以使用格式字符串&quot;*t&quot;，例如：</p>
-<p>tb = os.date(&quot;*t&quot;)</p>
-<p>for k,v in pairs(tb) do<br>
-print(k,v)<br>
-end</p>
-<p>输出:<br>
-year 	2019<br>
-sec 	46<br>
-isdst 	false<br>
-yday 	173<br>
-wday 	7<br>
-month 	6<br>
-hour 	23<br>
-min 	52<br>
-day 	22<br>
-os.difftime(t2, t1)<br>
---返回从t1到t2的时间跨度值。</p>
-<p>os.clock()<br>
---函数os.clock 返回当前CPU时间的秒数，一般可用于计算一段代码的执行时间</p>
-<p>--[[· LUA string库详解<br>
-· python 标准库之os<br>
-· Lua中os库的使用(execute,date,clock,time)<br>
-· 『Golang』—— 标准库之 os]]</p>
 ]]></content>
     </entry>
 </feed>
