@@ -1,0 +1,562 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lua-String基础论述 | 智商封印Official™</title>
+<meta name="description" content="一个普普通通的学生..." />
+<link rel="shortcut icon" href="https://znzsofficial.github.io/favicon.ico">
+<link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
+
+<script src="https://znzsofficial.github.io/media/js/jquery.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/aos.js"></script>
+<script src="https://znzsofficial.github.io/media/js/pace.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/view-image.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="爬虫，这是一个大学问，厉害的爬虫可以用同一个网站的相同数据，
+做出更突出的效果，可以将杂乱无章的数据，处理成系统的，分类好的数据来进行复用。
+当然，这些都是厉害的，工程量十分大的，而我们只需要简单的处理页面数据就可以了。
+首先熟悉下Lua的..." />
+    <meta name="keywords" content="Lua" />
+    <script src="https://znzsofficial.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://znzsofficial.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://znzsofficial.github.io"><img src="\media\images\custom-headerLogo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://znzsofficial.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1673319284687" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2021-08-24"><i class="fa fa-calendar"></i><span class="lately">1 年前</span></time>
+              
+              <a href="https://znzsofficial.github.io/post/vJZyekv4K/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/vJZyekv4K/"> </span>
+              </a>
+              <span id="/vJZyekv4K/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Lua-String基础论述</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>爬虫，这是一个大学问，厉害的爬虫可以用同一个网站的相同数据，<br>
+做出更突出的效果，可以将杂乱无章的数据，处理成系统的，分类好的数据来进行复用。<br>
+当然，这些都是厉害的，工程量十分大的，而我们只需要简单的处理页面数据就可以了。<br>
+首先熟悉下Lua的字符串操作<br>
+字符串由一对双引号或单引号来表示。</p>
+<p>string1 = &quot;this is string1&quot;<br>
+string2 = 'this is string2'</p>
+<p>在对一个数字字符串上进行算术操作时，Lua 会尝试将这个数字字符串转成一个数字，字符串连接使用的是 ..如：</p>
+<p>print(&quot;a&quot; .. 'b')<br>
+--输出(ab)<br>
+print(157 .. 428)<br>
+--输出(157428)</p>
+<p>使用 # 来计算字符串的长度，放在字符串前面，如下实例：</p>
+<p>len = &quot;www.androlua.com&quot;<br>
+print(#len)<br>
+--输出(16)</p>
+<p>字符串的截取操作：<br>
+strings=&quot;左中右&quot;</p>
+<p>--取字符串左边<br>
+左=strings:match(&quot;(.+)中&quot;)</p>
+<p>--取字符串中间<br>
+中=strings:match(&quot;左(.-)右&quot;)</p>
+<p>--取字符串右边<br>
+右=strings:match(&quot;中(.+)&quot;)</p>
+<p>--替换<br>
+string.gsub(原字符串,替换的字符串,替换成的字符串)</p>
+<p>--匹配子串位置<br>
+起始位置,结束位置=string.find(字符串,子串)</p>
+<p>--按位置捕获字符串<br>
+string.sub(字符串,子串起始位置,子串结束位置)</p>
+<p>需要一提得是，Lua中使用\来进行转义，例如：<br>
+\n 换行(LF) ，将当前位置移到下一行开头<br>
+\r 回车(CR) ，将当前位置移到本行开头<br>
+\t 水平制表(HT) （跳到下一个TAB位置）<br>
+\ 代表一个反斜线字符<br>
+' 代表一个单引号（撇号）字符<br>
+&quot; 代表一个双引号字符<br>
+\0 空字符(NULL)</p>
+<p>Lua中字符串操作api：<br>
+string.upper(argument) 字符串全部转为大写字母。<br>
+string.lower(argument) 字符串全部转为小写字母。<br>
+string.gsub(mainString,findString,replaceString,num) 在字符串中替换,mainString为要替换的字符串， findString 为被替换的字符，replaceString 要替换的字符，num 替换次数（可以忽略，则全部替换）<br>
+string.find (str, substr, [init, [end]]) 在一个指定的目标字符串中搜索指定的内容(第三个参数为索引),返回其具体位置。不存在则返回 nil。<br>
+string.reverse(arg) 字符串反转<br>
+string.format(...) 返回一个类似printf的格式化字符串<br>
+string.char(arg) 和 string.byte(arg[,int]) char 将整型数字转成字符并连接， byte 转换字符为整数值(可以指定某个字符，默认第一个字符)。<br>
+string.len(arg) 计算字符串长度。<br>
+string.rep(string, n) 返回字符串string的n个拷贝<br>
+.. 链接两个字符串<br>
+string.gmatch(str, pattern) 回一个迭代器函数，每一次调用这个函数，返回一个在字符串 str 找到的下一个符合 pattern 描述的子串。如果参数 pattern 描述的字符串没有找到，迭代函数返回nil。<br>
+string.match(str, pattern, init) string.match()只寻找源字串str中的第一个配对. 参数init可选, 指定搜寻过程的起点, 默认为1。<br>
+在成功配对时, 函数将返回配对表达式中的所有捕获结果; 如果没有设置捕获标记, 则返回整个配对字符串. 当没有成功的配对时, 返回nil。</p>
+<p>其中string.format()有以下转义码：</p>
+<pre><code>%c - 接受一个数字, 并将其转化为ASCII码表中对应的字符
+%d, %i - 接受一个数字并将其转化为有符号的整数格式
+%o - 接受一个数字并将其转化为八进制数格式
+%u - 接受一个数字并将其转化为无符号整数格式
+%x - 接受一个数字并将其转化为十六进制数格式, 使用小写字母
+%X - 接受一个数字并将其转化为十六进制数格式, 使用大写字母
+%e - 接受一个数字并将其转化为科学记数法格式, 使用小写字母e
+%E - 接受一个数字并将其转化为科学记数法格式, 使用大写字母E
+%f - 接受一个数字并将其转化为浮点数格式
+%g(%G) - 接受一个数字并将其转化为%e(%E, 对应%G)及%f中较短的一种格式
+%q - 接受一个字符串并将其转化为可安全被Lua编译器读入的格式
+%s - 接受一个字符串并按照给定的参数格式化该字符串
+</code></pre>
+<p>Lua的匹配模式：<br>
+.(点): 与任何字符配对<br>
+%a: 与任何字母配对<br>
+%c: 与任何控制符配对(例如\n)<br>
+%d: 与任何数字配对<br>
+%l: 与任何小写字母配对<br>
+%p: 与任何标点(punctuation)配对<br>
+%s: 与空白字符配对<br>
+%u: 与任何大写字母配对<br>
+%w: 与任何字母/数字配对<br>
+%x: 与任何十六进制数配对<br>
+%z: 与任何代表0的字符配对<br>
+%x(此处x是非字母非数字字符): 与字符x配对. 主要用来处理表达式中有功能的字符(^$()%.[]*+-?)的配对问题, 例如%%与%配对</p>
+<pre><code>[数个字符类]: 与任何[]中包含的字符类配对. 例如[%w_]与任何字母/数字, 或下划线符号(_)配对
+[^数个字符类]: 与任何不包含在[]中的字符类配对. 例如[^%s]与任何非空白字符配对
+单个字符类匹配该类别中任意单个字符；
+单个字符类跟一个 '*'， 将匹配零或多个该类的字符。 这个条目总是匹配尽可能长的串；
+单个字符类跟一个 '+'， 将匹配一或更多个该类的字符。 这个条目总是匹配尽可能长的串；
+单个字符类跟一个 '-'， 将匹配零或更多个该类的字符。 和 '*' 不同， 这个条目总是匹配尽可能短的串；
+单个字符类跟一个 '?'， 将匹配零或一个该类的字符。 只要有可能，它会匹配一个；
+%n， 这里的 n 可以从 1 到 9； 这个条目匹配一个等于 n 号捕获物（后面有描述）的子串。
+%bxy， 这里的 x 和 y 是两个明确的字符； 这个条目匹配以 x 开始 y 结束， 且其中 x 和 y 保持 平衡 的字符串。 意思是，如果从左到右读这个字符串，对每次读到一个 x 就 +1 ，读到一个 y 就 -1， 最终结束处的那个 y 是第一个记数到 0 的 y。 举个例子，条目 %b() 可以匹配到括号平衡的表达式。
+%f[set]， 指 边境模式； 这个条目会匹配到一个位于 set 内某个字符之前的一个空串， 且这个位置的前一个字符不属于 set 。 集合 set 的含义如前面所述。 匹配出的那个空串之开始和结束点的计算就看成该处有个字符 '\0' 一样。
+</code></pre>
+<p>常用正则(Lua中需要将\换成%)：</p>
+<pre><code>非负整数：^\d+$
+正整数：^[0-9]*[1-9][0-9]*$
+非正整数：^((-\d+)|(0+))$
+负整数：^-[0-9]*[1-9][0-9]*$
+整数：^-?\d+$
+非负浮点数：^\d+(\.\d+)?$
+正浮点数 : ^((0-9)+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)$
+非正浮点数：^((-\d+\.\d+)?)|(0+(\.0+)?))$
+负浮点数：^(-((正浮点数正则式)))$
+英文字符串：^[A-Za-z]+$
+英文大写串：^[A-Z]+$
+英文小写串：^[a-z]+$
+英文字符数字串：^[A-Za-z0-9]+$
+英数字加下划线串：^\w+$
+E-mail地址：^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$
+URL：^[a-zA-Z]+://(\w+(-\w+)*)(\.(\w+(-\w+)*))*(\?\s*)?$ 
+或：^http:\/\/[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&amp;_~`@[\]\':+!]*([^&lt;&gt;\&quot;\&quot;])*$
+邮政编码：^[1-9]\d{5}$
+中文：^[\u0391-\uFFE5]+$
+电话号码：^((\(\d{2,3}\))|(\d{3}\-))?(\(0\d{2,3}\)|0\d{2,3}-)?[1-9]\d{6,7}(\-\d{1,4})?$
+手机号码：^((\(\d{2,3}\))|(\d{3}\-))?13\d{9}$
+双字节字符(包括汉字在内)：^\x00-\xff
+匹配首尾空格：(^\s*)|(\s*$)（像vbscript那样的trim函数）
+匹配HTML标记：&lt;(.*)&gt;.*&lt;\/\1&gt;|&lt;(.*) \/&gt;
+匹配空行：\n[\s| ]*\r
+提取信息中的网络链接：(h|H)(r|R)(e|E)(f|F) *= *('|&quot;)?(\w|\\|\/|\.)+('|&quot;| *|&gt;)?
+提取信息中的邮件地址：\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*
+提取信息中的图片链接：(s|S)(r|R)(c|C) *= *('|&quot;)?(\w|\\|\/|\.)+('|&quot;| *|&gt;)?
+提取信息中的IP地址：(\d+)\.(\d+)\.(\d+)\.(\d+)
+提取信息中的中国手机号码：(86)*0*13\d{9}
+提取信息中的中国固定电话号码：(\(\d{3,4}\)|\d{3,4}-|\s)?\d{8}
+提取信息中的中国电话号码（包括移动和固定电话）：(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}
+提取信息中的中国邮政编码：[1-9]{1}(\d+){5}
+提取信息中的浮点数（即小数）：(-?\d*)\.?\d+
+提取信息中的任何数字 ：(-?\d*)(\.\d+)? 
+IP：(\d+)\.(\d+)\.(\d+)\.(\d+)
+电话区号：/^0\d{2,3}$/
+腾讯QQ号：^[1-9]*[1-9][0-9]*$
+帐号(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+中文、英文、数字及下划线：^[\u4e00-\u9fa5_a-zA-Z0-9]+$
+匹配中文字符的正则表达式： [\u4e00-\u9fa5]
+匹配双字节字符(包括汉字在内)：[^\x00-\xff]
+匹配空行的正则表达式：\n[\s| ]*\r
+匹配HTML标记的正则表达式：/&lt;(.*)&gt;.*&lt;\/\1&gt;|&lt;(.*) \/&gt;/
+sql语句：^(select|drop|delete|create|update|insert).*$
+匹配首尾空格的正则表达式：(^\s*)|(\s*$)
+匹配Email地址的正则表达式：\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*
+</code></pre>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/JrP5wj5Vk.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/post/MYF6BY39C/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2021-09-10">2021-09-10</time>
+                  <h4 class="title white no-margin">Soc杂谈：没有主题的乱说点</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://z3.ax1x.com/2021/08/11/fN8YSP.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/post/honkai/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2021-08-11">2021-08-11</time>
+                  <h4 class="title white no-margin">Honkai impact/Genshin</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+<div class="clear"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '841a616ad82c5f7b6d7e',
+    clientSecret: '7cda5b2dc31c3fc86101bf3d0f7f235e3bc76a6e',
+    repo: 'gitalkzn',
+    owner: 'znzsofficial',
+    admin: ['znzsofficial'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+                
+                
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/7DwW-reFA/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-10">2022-08-10</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/7DwW-reFA/">调用shizuku rish</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/iVxbhEYEo/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-09">2022-08-09</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/iVxbhEYEo/">判断程序处于后台</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/9VAeCFFaP/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-09">2022-08-09</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/9VAeCFFaP/">Activity部分函数</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
+                    
+                      <a href="https://znzsofficial.github.io/honkai/" class="ctag ctag-1 ctag-honkai" aria-label="">Honkai impact</a>
+                    
+                      <a href="https://znzsofficial.github.io/7-r0qcoCf/" class="ctag ctag-2 ctag-7-r0qcoCf" aria-label="">Nothing</a>
+                    
+                      <a href="https://znzsofficial.github.io/genshin/" class="ctag ctag-3 ctag-genshin" aria-label="">Genshin impact</a>
+                    
+                      <a href="https://znzsofficial.github.io/OyHo_QpLG/" class="ctag ctag-4 ctag-OyHo_QpLG" aria-label="">HIMEHINA</a>
+                    
+                      <a href="https://znzsofficial.github.io/JrP5wj5Vk/" class="ctag ctag-5 ctag-JrP5wj5Vk" aria-label="">Soc杂谈</a>
+                    
+                      <a href="https://znzsofficial.github.io/88F9GPb0a/" class="ctag ctag-6 ctag-88F9GPb0a" aria-label="">Java</a>
+                    
+                      <a href="https://znzsofficial.github.io/9x1P2joWe/" class="ctag ctag-7 ctag-9x1P2joWe" aria-label="">彩云AI</a>
+                    
+                      <a href="https://znzsofficial.github.io/ODVEX6ogD/" class="ctag ctag-8 ctag-ODVEX6ogD" aria-label="">Touhou Project</a>
+                    
+                      <a href="https://znzsofficial.github.io/rbE09UhyH/" class="ctag ctag-9 ctag-rbE09UhyH" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://znzsofficial.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">智商封印Official™</a></h4>
+                    <p class="founder">一个普普通通的学生...</p>
+                    <div class="social">
+                      
+                          
+                            <a href="https://github.com/znzsofficial" class="translate-effect" target="_blank"><i class="fa fa-github"></i></a>
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://znzsofficial.github.io"><img src="/media/images/gridea.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 48 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://znzsofficial.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

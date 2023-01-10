@@ -1,0 +1,609 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lua备份源码 | 智商封印Official™</title>
+<meta name="description" content="一个普普通通的学生..." />
+<link rel="shortcut icon" href="https://znzsofficial.github.io/favicon.ico">
+<link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
+
+<script src="https://znzsofficial.github.io/media/js/jquery.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/aos.js"></script>
+<script src="https://znzsofficial.github.io/media/js/pace.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/view-image.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="备份源码
+设置布局边框圆角
+import &quot;android.graphics.drawable.GradientDrawable&quot;
+function 边框(ID,粗细,颜色,内部颜色,radiu,虚线)
+  if (内部..." />
+    <meta name="keywords" content="" />
+    <script src="https://znzsofficial.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://znzsofficial.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://znzsofficial.github.io"><img src="\media\images\custom-headerLogo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://znzsofficial.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1673319284687" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2022-08-01"><i class="fa fa-calendar"></i><span class="lately">5 个月前</span></time>
+              
+              <a href="https://znzsofficial.github.io/post/wqPmTLalt/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/wqPmTLalt/"> </span>
+              </a>
+              <span id="/wqPmTLalt/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+              </div>
+              <h1 class="title ularge white bold">Lua备份源码</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>备份源码</p>
+<pre><code>设置布局边框圆角
+import &quot;android.graphics.drawable.GradientDrawable&quot;
+function 边框(ID,粗细,颜色,内部颜色,radiu,虚线)
+  if (内部颜色~=nil) and (ID~=nil and 粗细~=nil and radiu~=nil) then
+    local dr = GradientDrawable()
+    dr.setShape(GradientDrawable.RECTANGLE)
+    if 虚线~=nil and type(虚线)==&quot;number&quot; then
+      dr.setStroke(粗细,颜色 or 内部颜色,虚线,虚线)
+     else
+      dr.setStroke(粗细,颜色 or 内部颜色)
+    end
+    dr.setColor(内部颜色 or 颜色)
+    if type(radiu)==&quot;table&quot; then
+      dr.setCornerRadii({radiu[1],radiu[1],radiu[2],radiu[2],radiu[3],radiu[3],radiu[4],radiu[4]})
+     elseif type(radiu)==&quot;number&quot; then
+      dr.setCornerRadii({radiu,radiu,radiu,radiu,radiu,radiu,radiu,radiu})
+    end
+    ID.setBackgroundDrawable(dr)
+    return dr
+   else
+    return nil
+  end
+end
+边框(ab,5,0xff000000,0xffff0000,10)
+function 高亮(控件)
+  import &quot;android.text.SpannableString&quot;
+  import &quot;android.text.style.*&quot;
+  import &quot;android.text.Spannable&quot;
+  local str=&quot;文本&quot;
+  local str2=string.gfind(str,&quot;正则&quot;)
+  for a,b in str2
+    local spannable = SpannableString(str)
+    spannable.setSpan(ForegroundColorSpan(0xff1DA6DD)--如果要下划线效果改ForegroundColorSpan为UnderlineSpan
+    ,0,utf8.len(spannable),Spannable.SPAN_EXCLUSIVE_INCLUSIVE)--用utf8.len的原因是string.len检测中文长度是会识别成3个字符
+    控件.setText(spannable)
+  end
+end
+可以把local str=那改成local str = tostring(控件.getText())
+function 改变大小(id,z1,z2,z3,z4,z5,time)
+  import &quot;android.animation.ObjectAnimator&quot;
+  ObjectAnimator().ofFloat(id,&quot;scaleX&quot;,{z1,z2,z3,z4,z5}).setDuration(time).start()
+  ObjectAnimator().ofFloat(id,&quot;scaleY&quot;,{z1,z2,z3,z4,z5}).setDuration(time).start()
+end
+</code></pre>
+<h1 id="bot">bot</h1>
+<pre><code>local function range(a,b,c)
+ return function(v)    
+   if c then
+     --描定为0
+     local d = 0
+     if b &lt; a then
+       return (v &gt;= d and v &lt;= b) or
+       (v&gt;=a and v&lt;=c)
+      else
+       return v&gt;=b and v&lt;=a
+     end
+    else
+     if a &lt; b then
+       return v&gt;=a and v&lt;=b
+      else
+       return v&gt;=b and v&lt;=a
+     end
+   end
+ end
+end
+
+local function equals(k,v)
+ if k==v then
+   return true
+  elseif type(k) == &quot;function&quot; then
+   return k(v)
+  else
+   return false
+ end
+end
+
+local function switchTab(value)
+ return function(tab)
+   for k,v in pairs(tab) do
+     if equals(k,value) then
+       return v
+     end
+   end
+ end
+end
+
+local function randomArg(...)
+ local len = select(&quot;#&quot;,...)
+ local result = select(
+ math.random(1,len),...)
+ return result
+end
+
+local t = switchTab
+(tonumber(os.date(&quot;%H&quot;))) {
+ [range(6,9) ]= &quot;早上好~吃早饭了吗？&quot;,
+ [range(9,11)] = &quot;上午好~打算做什么？&quot;,
+ [range(12,13)] = &quot;中午好~要吃点什么？&quot;,
+ [range(14,18)] = &quot;下午好，中午吃了啥~&quot;,
+ [range(18,5,24)] = &quot;晚上好~为什么还不睡呢？&quot;
+}
+
+print(tonumber(os.date(&quot;%H&quot;)),t,randomArg(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;))
+</code></pre>
+<h1 id="悬浮窗">悬浮窗</h1>
+<pre><code>import &quot;android.net.Uri&quot;
+import &quot;android.content.Intent&quot;
+import &quot;android.provider.Settings&quot;
+function 获取悬浮窗权限()
+ intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+ intent.setData(Uri.parse(&quot;package:&quot; .. activity.getPackageName()));
+ activity.startActivityForResult(intent, 100);
+end
+
+--调用示例
+获取悬浮窗权限()
+</code></pre>
+<p>内置存储路径=Environment.getExternalStorageDirectory().toString()</p>
+<p>--获取网页内全部文字<br>
+import&quot;cjson&quot;<br>
+webView.evaluateJavascript(&quot;<em>=()=&gt;document.body.innerText;</em>()&quot;,{<br>
+onReceiveValue=function(content)<br>
+content=cjson.decode(content)<br>
+弹出消息(content)<br>
+end,<br>
+})</p>
+<p>打开开发者选项<br>
+import &quot;android.provider.Settings&quot;<br>
+intent = Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);<br>
+activity.startActivityForResult(intent, 100);</p>
+<h1 id="顶部提示">顶部提示</h1>
+<pre><code>require &quot;import&quot;
+import &quot;android.app.*&quot;
+import &quot;android.os.*&quot;
+import &quot;android.widget.*&quot;
+import &quot;android.view.*&quot;
+--import &quot;layout&quot;
+
+layout={
+  LinearLayout,
+  orientation=&quot;vertical&quot;,
+  layout_width=&quot;fill&quot;,
+  layout_height=&quot;fill&quot;,
+  {
+    LinearLayout,
+    layout_width=&quot;fill&quot;,
+    layout_height=&quot;56dp&quot;;
+    background=&quot;#ffffff&quot;;
+    elevation=&quot;2dp&quot;;
+    Visibility=&quot;invisible&quot;;
+    id=&quot;linear&quot;;
+    {
+      TextView;
+      text=&quot;仿QQ提示&quot;;
+      textColor=&quot;#009688&quot;;
+      layout_gravity=&quot;center&quot;;
+      textSize=&quot;14dp&quot;;
+      layout_marginLeft=&quot;16dp&quot;;
+    };
+  },
+  {
+    Button;
+    text=&quot;显示&quot;;
+    id=&quot;button&quot;;
+    layout_gravity=&quot;center&quot;;
+    layout_marginTop=&quot;100dp&quot;;
+  };
+};
+
+
+activity.setContentView(loadlayout(layout))
+
+button. onClick=function()
+  linear.setVisibility(View.VISIBLE)
+  import &quot;android.view.animation.*&quot;
+  linear.startAnimation(TranslateAnimation(0,0,-linear.height,0).setDuration(200))
+  --来源：Androlua官方二群
+  --作者：Paixs
+  task(1000,function()
+    linear.setVisibility(View.INVISIBLE)
+    --import &quot;android.view.animation.*&quot;
+    linear.startAnimation(TranslateAnimation(0,0,0,-linear.height).setDuration(200))
+  end)
+
+end
+</code></pre>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/KmpHfbHko.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/post/9VAeCFFaP/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2022-08-09">2022-08-09</time>
+                  <h4 class="title white no-margin">Activity部分函数</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/honkai.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/post/swhoGEeqw/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2022-08-01">2022-08-01</time>
+                  <h4 class="title white no-margin">只此一刀</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+<div class="clear"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '841a616ad82c5f7b6d7e',
+    clientSecret: '7cda5b2dc31c3fc86101bf3d0f7f235e3bc76a6e',
+    repo: 'gitalkzn',
+    owner: 'znzsofficial',
+    admin: ['znzsofficial'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+                
+                
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/7DwW-reFA/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-10">2022-08-10</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/7DwW-reFA/">调用shizuku rish</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/iVxbhEYEo/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-09">2022-08-09</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/iVxbhEYEo/">判断程序处于后台</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/9VAeCFFaP/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-09">2022-08-09</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/9VAeCFFaP/">Activity部分函数</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
+                    
+                      <a href="https://znzsofficial.github.io/honkai/" class="ctag ctag-1 ctag-honkai" aria-label="">Honkai impact</a>
+                    
+                      <a href="https://znzsofficial.github.io/7-r0qcoCf/" class="ctag ctag-2 ctag-7-r0qcoCf" aria-label="">Nothing</a>
+                    
+                      <a href="https://znzsofficial.github.io/genshin/" class="ctag ctag-3 ctag-genshin" aria-label="">Genshin impact</a>
+                    
+                      <a href="https://znzsofficial.github.io/OyHo_QpLG/" class="ctag ctag-4 ctag-OyHo_QpLG" aria-label="">HIMEHINA</a>
+                    
+                      <a href="https://znzsofficial.github.io/JrP5wj5Vk/" class="ctag ctag-5 ctag-JrP5wj5Vk" aria-label="">Soc杂谈</a>
+                    
+                      <a href="https://znzsofficial.github.io/88F9GPb0a/" class="ctag ctag-6 ctag-88F9GPb0a" aria-label="">Java</a>
+                    
+                      <a href="https://znzsofficial.github.io/9x1P2joWe/" class="ctag ctag-7 ctag-9x1P2joWe" aria-label="">彩云AI</a>
+                    
+                      <a href="https://znzsofficial.github.io/ODVEX6ogD/" class="ctag ctag-8 ctag-ODVEX6ogD" aria-label="">Touhou Project</a>
+                    
+                      <a href="https://znzsofficial.github.io/rbE09UhyH/" class="ctag ctag-9 ctag-rbE09UhyH" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://znzsofficial.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">智商封印Official™</a></h4>
+                    <p class="founder">一个普普通通的学生...</p>
+                    <div class="social">
+                      
+                          
+                            <a href="https://github.com/znzsofficial" class="translate-effect" target="_blank"><i class="fa fa-github"></i></a>
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://znzsofficial.github.io"><img src="/media/images/gridea.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 48 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://znzsofficial.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://znzsofficial.github.io</id>
+    <title>智商封印Official™</title>
+    <updated>2023-01-10T02:54:51.531Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://znzsofficial.github.io"/>
+    <link rel="self" href="https://znzsofficial.github.io/atom.xml"/>
+    <subtitle>一个普普通通的学生...</subtitle>
+    <logo>https://znzsofficial.github.io/images/avatar.png</logo>
+    <icon>https://znzsofficial.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, 智商封印Official™</rights>
+    <entry>
+        <title type="html"><![CDATA[调用shizuku rish]]></title>
+        <id>https://znzsofficial.github.io/post/7DwW-reFA/</id>
+        <link href="https://znzsofficial.github.io/post/7DwW-reFA/">
+        </link>
+        <updated>2022-08-10T07:56:32.000Z</updated>
+        <content type="html"><![CDATA[<p>第1种方法os.execute<br>
+os.execute(&quot;sh &quot;..activity.getLuaDir()..&quot;/rish -c '命令'&quot;)--先准备shizuku rish<br>
+第2种方法io.popen<br>
+io.popen(&quot;sh &quot;..activity.getLuaDir()..&quot;/rish -c '命令'&quot;)--非常建议使用这个<br>
+--[获取权限之后可以执行的名字命令]--<br>
+因设备而差异<br>
+重启 reboot<br>
+关机 reboot -p<br>
+重启rec reboot recovery<br>
+--请提前准备rish!<br>
+--rish PKG替换为软件包名<br>
+--需要先激活shizuku</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[判断程序处于后台]]></title>
+        <id>https://znzsofficial.github.io/post/iVxbhEYEo/</id>
+        <link href="https://znzsofficial.github.io/post/iVxbhEYEo/">
+        </link>
+        <updated>2022-08-09T11:38:42.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>function isAppBackground()
+  local Context = luajava.bindClass &quot;android.content.Context&quot;
+  local ActivityManager = luajava.bindClass &quot;android.app.ActivityManager&quot;
+  local activityManager = activity.getSystemService(Context.ACTIVITY_SERVICE)
+  --正在运行的应用信息列表
+  local runningAppProcesses = activityManager.getRunningAppProcesses()
+  for i=0,#runningAppProcesses-1 do
+    local appProcess = runningAppProcesses.get(i)
+    --包名一致
+    if activity.getPackageName()==appProcess.processName then
+      print(&quot;进程&quot;..appProcess.processName..&quot;优先级&quot;..appProcess.importance)
+      local appBackground
+      --是否后台
+      if appProcess.importance==ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND
+        or appProcess.importance==ActivityManager.RunningAppProcessInfo.IMPORTANCE_VISIBLE then
+        appBackground = false
+       else
+        appBackground = true
+      end
+      return appBackground
+    end
+  end
+end
+--进入activity会依次执行onStart，onResume，根据需要选择其中一个执行所需逻辑即可
+function onStart()
+  print(&quot;onStart&quot;)
+  print(isAppBackground())
+end
+function onResume()
+  print(&quot;onResume&quot;)
+  print(isAppBackground())
+end
+--离开activity依次执行onPause，onStop
+function onPause()
+  print(&quot;onPause&quot;)
+  print(isAppBackground())
+end
+function onStop()
+  print(&quot;onStop&quot;)
+  --判断是否进入后台需要在onStop中，所以这个肯定需要的
+  print(isAppBackground())
+end
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Activity部分函数]]></title>
+        <id>https://znzsofficial.github.io/post/9VAeCFFaP/</id>
+        <link href="https://znzsofficial.github.io/post/9VAeCFFaP/">
+        </link>
+        <updated>2022-08-09T11:38:04.000Z</updated>
+        <content type="html"><![CDATA[<p>activity.setTitle('Title')--设置窗口标题<br>
+activity.setContentView(loadlayout(layout))--设置窗口视图<br>
+activity.setTheme(android.R.style.Theme_DeviceDefault_Light)--设置窗口主题</p>
+<p>activity.newActivity(&quot;main&quot;)--跳转页面<br>
+activity.newActivity(&quot;窗口名&quot;,{参数})--载入窗口传参<br>
+--渐变动画效果的，中间是安卓跳转动画代码<br>
+activity.newActivity(&quot;窗口名&quot;,android.R.anim.fade_in,android.R.anim.fade_out,{参数})</p>
+<p>activity.finish()--关闭当前页面<br>
+activity.finishAffinity()--子页面退出程序</p>
+<p>activity.setSharedData(key,value)--存储应用数据<br>
+activity.getSharedData(key)--获取应用数据</p>
+<p>activity.getGlobalData()[key]=value--存储全局变量<br>
+activity.getGlobalData()[key]--获取全局变量</p>
+<p>activity.recreate()--重构activity</p>
+<p>activity.getLuaDir()--返回脚本当前目录</p>
+<p>activity.getLuaDir(name)--返回脚本当前目录的子目录</p>
+<p>activity.getLuaExtDir()--返回Androlua在SD的工作目录</p>
+<p>activity.getLuaExtDir(name)--返回Androlua在SD的工作目录的子目录</p>
+<p>activity.getWidth()--返回屏幕宽度</p>
+<p>activity.getHeight()--返回屏幕高度，不包括状态栏与导航栏</p>
+<p>activity.loadDex(path)--加载当前目录dex或jar，返回DexClassLoader</p>
+<p>activity.loadLib(path)--加载当前目录c模块，返回载入后模块的返回值(通常是包含模块函数的包)</p>
+<p>activity.registerReceiver(filter)--注册一个广播接收者，当再次调用该方法时将移除上次注册的过滤器</p>
+<p>activity.result(...)<br>
+--向来源activity返回数据，在源activity的onResult回调</p>
+<p>activity.newTask(func, update, callback)<br>
+--新建一个Task异步任务，在线程中执行func函数，其他两个参数可选，执行结束回调callback，在任务调用update函数时在UI线程回调该函数<br>
+--新建的Task在调用execute{}时通过表传入参数，在func以unpack形式接收，执行func可以返回多个值</p>
+<p>activity.newThread(func, arg)<br>
+--新建一个线程，在线程中运行func函数，可以以表的形式传入arg，在func以unpack形式接收<br>
+--新建的线程调用start()方法运行，线程为含有loop线程，在当前activity结束后自动结束loop</p>
+<p>activity.newTimer(func, arg)<br>
+--新建一个定时器，在线程中运行func函数，可以以表的形式传入arg，在func以unpack形式接收<br>
+--调用定时器的start(delay, period)开始定时器，stop()停止定时器，Enabled暂停恢复定时器，Period属性改变定时器间隔</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Lua备份源码]]></title>
+        <id>https://znzsofficial.github.io/post/wqPmTLalt/</id>
+        <link href="https://znzsofficial.github.io/post/wqPmTLalt/">
+        </link>
+        <updated>2022-08-01T04:20:29.000Z</updated>
+        <content type="html"><![CDATA[<p>备份源码</p>
+<pre><code>设置布局边框圆角
+import &quot;android.graphics.drawable.GradientDrawable&quot;
+function 边框(ID,粗细,颜色,内部颜色,radiu,虚线)
+  if (内部颜色~=nil) and (ID~=nil and 粗细~=nil and radiu~=nil) then
+    local dr = GradientDrawable()
+    dr.setShape(GradientDrawable.RECTANGLE)
+    if 虚线~=nil and type(虚线)==&quot;number&quot; then
+      dr.setStroke(粗细,颜色 or 内部颜色,虚线,虚线)
+     else
+      dr.setStroke(粗细,颜色 or 内部颜色)
+    end
+    dr.setColor(内部颜色 or 颜色)
+    if type(radiu)==&quot;table&quot; then
+      dr.setCornerRadii({radiu[1],radiu[1],radiu[2],radiu[2],radiu[3],radiu[3],radiu[4],radiu[4]})
+     elseif type(radiu)==&quot;number&quot; then
+      dr.setCornerRadii({radiu,radiu,radiu,radiu,radiu,radiu,radiu,radiu})
+    end
+    ID.setBackgroundDrawable(dr)
+    return dr
+   else
+    return nil
+  end
+end
+边框(ab,5,0xff000000,0xffff0000,10)
+function 高亮(控件)
+  import &quot;android.text.SpannableString&quot;
+  import &quot;android.text.style.*&quot;
+  import &quot;android.text.Spannable&quot;
+  local str=&quot;文本&quot;
+  local str2=string.gfind(str,&quot;正则&quot;)
+  for a,b in str2
+    local spannable = SpannableString(str)
+    spannable.setSpan(ForegroundColorSpan(0xff1DA6DD)--如果要下划线效果改ForegroundColorSpan为UnderlineSpan
+    ,0,utf8.len(spannable),Spannable.SPAN_EXCLUSIVE_INCLUSIVE)--用utf8.len的原因是string.len检测中文长度是会识别成3个字符
+    控件.setText(spannable)
+  end
+end
+可以把local str=那改成local str = tostring(控件.getText())
+function 改变大小(id,z1,z2,z3,z4,z5,time)
+  import &quot;android.animation.ObjectAnimator&quot;
+  ObjectAnimator().ofFloat(id,&quot;scaleX&quot;,{z1,z2,z3,z4,z5}).setDuration(time).start()
+  ObjectAnimator().ofFloat(id,&quot;scaleY&quot;,{z1,z2,z3,z4,z5}).setDuration(time).start()
+end
+</code></pre>
+<h1 id="bot">bot</h1>
+<pre><code>local function range(a,b,c)
+ return function(v)    
+   if c then
+     --描定为0
+     local d = 0
+     if b &lt; a then
+       return (v &gt;= d and v &lt;= b) or
+       (v&gt;=a and v&lt;=c)
+      else
+       return v&gt;=b and v&lt;=a
+     end
+    else
+     if a &lt; b then
+       return v&gt;=a and v&lt;=b
+      else
+       return v&gt;=b and v&lt;=a
+     end
+   end
+ end
+end
+
+local function equals(k,v)
+ if k==v then
+   return true
+  elseif type(k) == &quot;function&quot; then
+   return k(v)
+  else
+   return false
+ end
+end
+
+local function switchTab(value)
+ return function(tab)
+   for k,v in pairs(tab) do
+     if equals(k,value) then
+       return v
+     end
+   end
+ end
+end
+
+local function randomArg(...)
+ local len = select(&quot;#&quot;,...)
+ local result = select(
+ math.random(1,len),...)
+ return result
+end
+
+local t = switchTab
+(tonumber(os.date(&quot;%H&quot;))) {
+ [range(6,9) ]= &quot;早上好~吃早饭了吗？&quot;,
+ [range(9,11)] = &quot;上午好~打算做什么？&quot;,
+ [range(12,13)] = &quot;中午好~要吃点什么？&quot;,
+ [range(14,18)] = &quot;下午好，中午吃了啥~&quot;,
+ [range(18,5,24)] = &quot;晚上好~为什么还不睡呢？&quot;
+}
+
+print(tonumber(os.date(&quot;%H&quot;)),t,randomArg(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;))
+</code></pre>
+<h1 id="悬浮窗">悬浮窗</h1>
+<pre><code>import &quot;android.net.Uri&quot;
+import &quot;android.content.Intent&quot;
+import &quot;android.provider.Settings&quot;
+function 获取悬浮窗权限()
+ intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+ intent.setData(Uri.parse(&quot;package:&quot; .. activity.getPackageName()));
+ activity.startActivityForResult(intent, 100);
+end
+
+--调用示例
+获取悬浮窗权限()
+</code></pre>
+<p>内置存储路径=Environment.getExternalStorageDirectory().toString()</p>
+<p>--获取网页内全部文字<br>
+import&quot;cjson&quot;<br>
+webView.evaluateJavascript(&quot;<em>=()=&gt;document.body.innerText;</em>()&quot;,{<br>
+onReceiveValue=function(content)<br>
+content=cjson.decode(content)<br>
+弹出消息(content)<br>
+end,<br>
+})</p>
+<p>打开开发者选项<br>
+import &quot;android.provider.Settings&quot;<br>
+intent = Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);<br>
+activity.startActivityForResult(intent, 100);</p>
+<h1 id="顶部提示">顶部提示</h1>
+<pre><code>require &quot;import&quot;
+import &quot;android.app.*&quot;
+import &quot;android.os.*&quot;
+import &quot;android.widget.*&quot;
+import &quot;android.view.*&quot;
+--import &quot;layout&quot;
+
+layout={
+  LinearLayout,
+  orientation=&quot;vertical&quot;,
+  layout_width=&quot;fill&quot;,
+  layout_height=&quot;fill&quot;,
+  {
+    LinearLayout,
+    layout_width=&quot;fill&quot;,
+    layout_height=&quot;56dp&quot;;
+    background=&quot;#ffffff&quot;;
+    elevation=&quot;2dp&quot;;
+    Visibility=&quot;invisible&quot;;
+    id=&quot;linear&quot;;
+    {
+      TextView;
+      text=&quot;仿QQ提示&quot;;
+      textColor=&quot;#009688&quot;;
+      layout_gravity=&quot;center&quot;;
+      textSize=&quot;14dp&quot;;
+      layout_marginLeft=&quot;16dp&quot;;
+    };
+  },
+  {
+    Button;
+    text=&quot;显示&quot;;
+    id=&quot;button&quot;;
+    layout_gravity=&quot;center&quot;;
+    layout_marginTop=&quot;100dp&quot;;
+  };
+};
+
+
+activity.setContentView(loadlayout(layout))
+
+button. onClick=function()
+  linear.setVisibility(View.VISIBLE)
+  import &quot;android.view.animation.*&quot;
+  linear.startAnimation(TranslateAnimation(0,0,-linear.height,0).setDuration(200))
+  --来源：Androlua官方二群
+  --作者：Paixs
+  task(1000,function()
+    linear.setVisibility(View.INVISIBLE)
+    --import &quot;android.view.animation.*&quot;
+    linear.startAnimation(TranslateAnimation(0,0,0,-linear.height).setDuration(200))
+  end)
+
+end
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[只此一刀]]></title>
+        <id>https://znzsofficial.github.io/post/swhoGEeqw/</id>
+        <link href="https://znzsofficial.github.io/post/swhoGEeqw/">
+        </link>
+        <updated>2022-08-01T04:19:28.000Z</updated>
+        <content type="html"><![CDATA[<p>1长空市第三次崩坏<br>
+2手术副作用零下30度体温<br>
+3黛丝多比亚，痕夫妇阵亡<br>
+4约束的残局，战友几乎全灭<br>
+5樱的妹妹死了，人类三大都市灭亡<br>
+6看着樱咽气，带着樱回到故乡却看见故乡已经是废墟<br>
+7凯文亲手杀死爱莉希雅<br>
+8终焉降临，十三英桀一分钟死了五个<br>
+9大地燃尽，梅死亡<br>
+10伊甸放弃进入下一个纪元，走向荒芜的大地<br>
+11从休眠仓醒来，最不可能死亡的梅比乌斯不在<br>
+12火种计划初步失败，丹朱苍玄死亡<br>
+13方舟计划失去联络，格蕾修失联<br>
+14恒河沙计划结束，苏死亡<br>
+15西琳失去人类好友贝拉<br>
+16贝纳勒斯被西琳赐予人形和人类名称，贝拉<br>
+17虫虫展现出守护他人的意志，被齐格飞赐予琪亚娜的名字<br>
+18贝拉失去人形，西琳，塞西莉亚，姬子冲锋队除她以外全部死亡<br>
+19芽衣因为关心年龄更小的布洛妮娅，琪亚娜为了保护她被圣殿级崩坏兽攻击后濒死<br>
+20只要有芽衣在，就等于有一百个人的力量了<br>
+21琪亚娜，当你醒来你会发现一切都变了，世界已经不再美好，那些平凡的日常也都一去不会但是不要放弃，琪亚娜，抬起头继续前进吧，去把这个不完美的故事变成你所期望的样子，这便是最后一课了<br>
+22如果拯救你是一种罪，那就让我来当这个罪人，我将坠入黑暗，换你回到光明<br>
+23拯救世界的道理我也懂，但是在我心里，比起这个世界，你更重要！<br>
+24布洛妮娅被困量子之海，曾经的约定历历在目，坚强的姐姐一直在保护，这一次姐姐换我来守护<br>
+25约阿西姆的人生的三次考验，琪亚娜和鸭鸭经历过的三次考验，<br>
+第一次，是明白事情的对错<br>
+第二次，是明白有些事不只有对与错<br>
+第三次，是在明白有些事没有对与错之后，依然坚定地去做自己相信的事，并为之负起责任<br>
+26血压律者诞生，拿出疾疫宝石，残酷的告诉琪亚娜，无量塔姬子，已经死掉了……<br>
+27德丽莎怕琪亚娜逃学加高三次围墙后怕她摔坏就不再加高了<br>
+28姬子的老师兼队长拉格纳说过我们秉持信念所做的工作，不管结果是否如愿，都绝不会是无意义的事。正如信中所说，拉格纳队长虽已凋零，但她传递爱与善的信念却像是一粒种子会继续传递下去。<br>
+29姬子温柔的注视着你，不再言语<br>
+30孤发现不认识丽塔了，因为丽塔的眼睛会笑，她一直都是笑着的，可是孤再也看不见她的眼睛了<br>
+31刺客先生，我要那个，给我买……​</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[修好了修好了]]></title>
+        <id>https://znzsofficial.github.io/post/oMi30NdFJ/</id>
+        <link href="https://znzsofficial.github.io/post/oMi30NdFJ/">
+        </link>
+        <updated>2022-08-01T04:18:29.000Z</updated>
+        <content type="html"><![CDATA[<p>好耶</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[测试同步]]></title>
+        <id>https://znzsofficial.github.io/post/vgNaN9n2E/</id>
+        <link href="https://znzsofficial.github.io/post/vgNaN9n2E/">
+        </link>
+        <updated>2022-06-05T12:24:49.000Z</updated>
+        <content type="html"><![CDATA[<p>如题</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Lua-Math和Date]]></title>
+        <id>https://znzsofficial.github.io/post/Zt0ziDqQe/</id>
+        <link href="https://znzsofficial.github.io/post/Zt0ziDqQe/">
+        </link>
+        <updated>2022-01-22T01:38:55.000Z</updated>
+        <content type="html"><![CDATA[<p>函数名	 描述	 示例	 结果<br>
+pi	 圆周率	 math.pi	 3.1415926535898<br>
+abs	 取绝对值	 math.abs(-2012)	 2012<br>
+ceil	 向上取整	 math.ceil(9.1)	 10<br>
+floor	 向下取整	 math.floor(9.9)	 9<br>
+max	 取参数最大值	 math.max(2,4,6,8)	 8<br>
+min	 取参数最小值	 math.min(2,4,6,8)	 2<br>
+pow	 计算x的y次幂	 math.pow(2,16)	 65536<br>
+sqrt	 开平方	 math.sqrt(65536)	 256<br>
+mod	 取模	 math.mod(65535,2)	 1<br>
+modf	 取整数和小数部分	 math.modf(20.12)	 20   0.12<br>
+randomseed	 设随机数种子	 math.randomseed(os.time())	<br>
+random	 取随机数	 math.random(5,90)	 5~90<br>
+rad	 角度转弧度	 math.rad(180)	 3.1415926535898<br>
+deg	 弧度转角度	 math.deg(math.pi)	 180<br>
+exp	 e的x次方	 math.exp(4)	 54.598150033144<br>
+log	 计算x的自然对数	 math.log(54.598150033144)	 4<br>
+log10	 计算10为底，x的对数	 math.log10(1000)	 3<br>
+frexp	 将参数拆成x * (2 ^ y)的形式	 math.frexp(160)	 0.625    8<br>
+ldexp	 计算x * (2 ^ y)	 math.ldexp(0.625,8)	 160<br>
+sin	 正弦	 math.sin(math.rad(30))	 0.5<br>
+cos	 余弦	 math.cos(math.rad(60))	 0.5<br>
+tan	 正切	 math.tan(math.rad(45))	 1<br>
+asin	 反正弦	 math.deg(math.asin(0.5))	 30<br>
+acos	 反余弦	 math.deg(math.acos(0.5))	 60<br>
+atan	 反正切	 math.deg(math.atan(1))	 45<br>
+Lua中的时间戳<br>
+实现的功能：</p>
+<p>获取Mac OS系统的毫秒数<br>
+获取秒数<br>
+秒数/毫秒数与日期格式的转换</p>
+<p>知识点：</p>
+<p>用Lua自带的函数os.time（）获取秒数<br>
+Lua自带的函数只能获取到秒，要获取到毫秒，需使用lzmq.timer，或者是socket（两个都需要使用luarocks安装）<br>
+os.clock返回一个程序使用CPU时间的一个近似值<br>
+os.date格式化日期：</p>
+<pre><code>local zmq_timer = require(&quot;lzmq.timer&quot;)
+local ms = zmq_timer.absolute_time()
+print(&quot;ms: &quot;..ms)
+--milliseconds: 1573537133261.0
+local s = os.time()
+print(&quot;s: &quot;..s)
+--second: 1573537133
+local time2date = os.date(&quot;%x&quot;, os.time())
+print(&quot;time2date: &quot;..time2date)
+--time2date: 11/12/19
+local date = os.date(&quot;%Y-%m-%d-%H-%M-%S&quot;)
+print(&quot;date: &quot;..date)
+--date: 2019-11-12-13-38-53
+function time_stamp_from_ms(t_ms)
+    local s_from_ms = math.floor(t_ms/1000)
+    local s_to_ms = 1000 * math.floor(t_ms/1000)
+    local ms_number = t_ms - s_to_ms
+    return os.date(&quot;%Y-%m-%d %H:%M:%S.&quot;, s_from_ms)..string.format(&quot;%03d&quot;, ms_number)
+end
+local ms2str = time_stamp_from_ms(ms)
+print(&quot;ms2timestamp: &quot;..ms2str)
+--ms2timestamp: 2019-11-12 13:38:53.261
+function time_stamp()
+    local ms = zmq_timer.absolute_time() -- use lzmq
+    local s = os.time()
+    return os.date(&quot;%Y-%m-%d %H:%M:%S.&quot;, s)..string.format(&quot;%03d&quot;, (ms-s*1000))
+end
+local c_ms2str = time_stamp()
+print(&quot;current_ms_2_timestamp: &quot;..c_ms2str)
+--current_ms_2_timestamp: 2019-11-12 13:38:53.262
+local socket = require(&quot;socket&quot;)
+local sms = socket.gettime()
+print(&quot;socket ms: &quot;..sms)
+--socket ms: 1573537133.2631
+print(os.clock())
+--0.005693
+</code></pre>
+<p>os.date()中的时间格式</p>
+<p>%a : abbreviated weekday name (e.g., Wed)<br>
+%A : full weekday name (e.g., Wednesday)<br>
+%b : abbreviated month name (e.g., Sep)<br>
+%B : full month name (e.g., September)<br>
+%c : date and time (e.g., 09/16/98 23:48:10)<br>
+%d : day of the month (16) [01-31]<br>
+%H : hour, using a 24-hour clock (23) [00-23]<br>
+%I : hour, using a 12-hour clock (11) [01-12]<br>
+%M : minute (48) [00-59]<br>
+%m : month (09) [01-12]<br>
+%p : either &quot;am&quot; or &quot;pm&quot; (pm)<br>
+%S : second (10) [00-61]<br>
+%w : weekday (3) [0-6 = Sunday-Saturday]<br>
+%x : date (e.g., 09/16/98)<br>
+%X : time (e.g., 23:48:10)<br>
+%Y : full year (1998)<br>
+%y : two-digit year (98) [00-99]<br>
+%% : the character '%'</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[硫的所有含氧酸]]></title>
+        <id>https://znzsofficial.github.io/post/WeytGTkpD/</id>
+        <link href="https://znzsofficial.github.io/post/WeytGTkpD/">
+        </link>
+        <updated>2022-01-02T07:33:47.000Z</updated>
+        <content type="html"><![CDATA[<p>正酸系列：次硫酸H2SO2、亚硫酸H2SO3、硫酸H2SO4<br>
+过酸系列：过硫酸H2SO5、过二硫酸H2S2O8<br>
+焦酸系列：焦亚硫酸H2S2O5、焦硫酸H2S2O7<br>
+硫代硫酸系列：硫代亚硫酸H2S2O2、硫代硫酸H2S2O3<br>
+连酸系列：连二亚硫酸H2S2O4 连多硫酸H2S(2-6)O6</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[五年相伴：我和崩坏三的故事]]></title>
+        <id>https://znzsofficial.github.io/post/fYf2Rl22/</id>
+        <link href="https://znzsofficial.github.io/post/fYf2Rl22/">
+        </link>
+        <updated>2021-12-31T14:19:17.000Z</updated>
+        <content type="html"><![CDATA[<p>先摘录一段我在7月22日的话</p>
+<blockquote>
+<p>虽然登录天数不多，但是tm的已经五年了啊<br>
+现在的人怎么会知道开服的时候玩这个游戏有多么困难<br>
+17年春节活动的时候，为了拿到绯红皮肤，每天要肝指定关卡七八次，少肝一天都没有[doge]<br>
+再后来，很多人人的皮肤兑换券白攒了[受虐滑稽]，不得已又开放了那个关卡<br>
+还有最开始的升级进阶材料，每种装备都有指定的材料，不能混用，曜日活动每天只有一种材料，给武器升星通常需要好几个星期[汗]<br>
+那时候的主线真的是噩梦，能用的只有御三家，第二章的黑鸭我用御三家肝了一下午才过。<br>
+至于0.98%(0.4%)的血色我就不说了，毕竟我当时单抽出了<br>
+还有最开始的基地，那时候经常要肝材料给设备升级，指定角色可以获得buff（那时候buff是真的强啊[受虐滑稽]<br>
+而且每天去逛逛还有对话可以看<br>
+宿舍刚出的时候，入住宿舍的要求真的难的离谱，现在只需要解锁角色或者圣痕就能入住<br>
+以前八重村的代笔多的眼花，每周都要把八十个垃圾捡完才能保证多换点炎八碎片<br>
+以前三十三层肝到死的深渊也没了，虽然现在凹分也能肝一个小时[doge]<br>
+无论是圣痕升变还是武器锻造，可肝至少给了玩家很多选择...<br>
+直白点讲，崩三这五年来做的小活动、小功能、优化改变数都数不过来（主线关精简，配装，做了很久的词缀锁，隔几个版本变换的主线任务方式等等）<br>
+能说的其实还有很多，但是也不想说了，就这样吧。<br>
+姬子：它看不到人们自己的选择，它容不下那些美好的微光。<br>
+琪亚娜：它们只看见人心的暗面，却蒙起眼睛对美好视而不见。</p>
+</blockquote>
+<p>最开始玩崩崩崩，我只是想玩玩舰桥互动(就像l2c3只是想玩玩宿舍)，顺便测试下手机性能<br>
+毕竟那时候崩崩崩画质还真是移动端无敌，战斗系统到现在也很难被超越(只狼和鬼泣能上手机🐎？)<br>
+结果玩着玩着就出了月光,血色...慢慢的开始注重强度<br>
+曾经33级的深渊最高到了低级区苦痛，量子奇点还上过高级区红莲，现在终极区超弦空间只能苦痛摸鱼<br>
+毕竟这年头零氪（指氪金量低于账号价值）玩家上红莲实在是对肝要求很高<br>
+说起来这游戏低于1k的氪金都是洒洒水，充个大月卡月卡什么的也就算了（我氪金量还没我领的付费皮肤券多）<br>
+崩三的黑历史我也知道不少，但是我是真的,本当に，不想再谈了<br>
+什么凤枪凰剑啊，绝版服装，限量圣痕，绝版材料都有（l2c3我很怀疑你把我的试做分了，后来还得自己再买）<br>
+也不是没对它失望过，但是依然不离不弃<br>
+说回强度，有段时间我也是够肝的，一天三四个小时，玩游戏像上班，真够恶心的<br>
+（相反现在原神一天三四个小时还没感觉恶心，应该是因为还没世界等级8）<br>
+当我的强度已经稳居高级区苦痛的时候，我开始关注剧情了<br>
+（2.0版本reburn把主线第一章改了改，也不错吧）<br>
+<s>也不知道米哈游删了多少黑历史</s><br>
+但也仅限于研究世界观，主线人物实在是没太关心，看看小说看看漫画看看外传，直到<strong>薪炎永燃</strong><br>
+今年暑假刚开始的时候，l2c3问我薪炎是谁，我真的没关心，就我看来还是老套路，律者该抽的时候抽就行了（后来居然有一个人和我那时候的简介略同，不过他可能一直没打主线二十五章）<br>
+暑假闲的没事，我就开始补主线，补着补着就到了主线二十五章--<strong>点燃明日的火焰</strong><br>
+好吧，我中途内心毫无波澜，直到薪炎永燃开始放的时候<br>
+我真的，哭了</p>
+<blockquote>
+<p>Let out the cries imprisoned for so long<br>
+--MoonHalo</p>
+</blockquote>
+<h2 id="米哈游告诉我二次元角色的塑造和成长怎样才算成功薪炎永燃不只是很燃ud称之为伟大的艺术品话说mhy还在顺便致敬eva50版本的bbb营收毫无疑问的干过了原神然后mzr就开始学会拿这骂人了属实">米哈游告诉我二次元角色的塑造和成长怎样才算成功<br>
+...<br>
+薪炎永燃，不只是很燃（UD称之为伟大的艺术品）（话说MHY还在顺便致敬EVA）<br>
+（5.0版本的BBB营收毫无疑问的干过了原神）<br>
+（然后mzr就开始学会拿这骂人了，属实🐂）</h2>
+<p>崩坏三主线二十五章，《点燃明日的火焰》，游戏时长约四个小时，可以算是一次完美的，沉浸式的游戏体验<br>
+压抑许久的情感得到释放，大概没人扛得住<br>
+这是五年来MHY带给我最大的感动<br>
+（总之就是不玩很亏）<br>
+但这终究要过去<br>
+薪炎永燃只是标志着崩崩崩主线第二阶段的结束<br>
+而崩崩崩现在已经距离灭世不远了（其实是后崩坏书）<br>
+后面不知道还有多少次薪炎永燃...</p>
+<h2 id="崩三三个主角的成长我愿称之为永燃的薪火罪人的挽歌世界的传承">崩三三个主角的成长，我愿称之为<br>
+永燃的薪火<br>
+罪人的挽歌<br>
+世界的传承<br>
+<img src="https://znzsofficial.github.io/post-images/1643465189023.jpg" alt="" loading="lazy"><br>
+<img src="https://znzsofficial.github.io/post-images/1643465195279.jpg" alt="" loading="lazy"><br>
+<img src="https://znzsofficial.github.io/post-images/1642560897628.jpg" alt="" loading="lazy"></h2>
+<hr>
+<p>##注：<br>
+写这么少感觉对不住五年的感情，但是总不能让我详细说说二十五章吧</p>
+<hr>
+<p>##外传：<br>
+我和批站的故事<br>
+2015/10/8我注册了我的批站账号<br>
+从那开始我一直是个坚定的二刺螈<br>
+从入TH开始，我就感觉二次元把我开除了，或者说我怎么都融不进去二刺螈这个群体了<br>
+但是我貌似还是个老二次元<br>
+整不明白，不想整<br>
+曾经舞蹈区（仅mmd），音乐区，鬼畜区，科技区，生活区，游戏区，我都当家住<br>
+番剧一部又一部<br>
+粉过主播看过vtb，那时候的批站还算是净土<br>
+到了17年极乐净土血洗批站的时候还真是歌舞升平<br>
+到现在我都能记得那威风堂堂和某司机的asmr<br>
+大概19年拜年祭的时候，好，变味了<br>
+去年拜年寄，更好了，搁着给我玩<strong>呢<br>
+好一个</strong>***<br>
+不过现在你睿站当个普通视频网站看看还是<br>
+就是入站考试太简单了，不如直接取消得了（笑）</p>
+]]></content>
+    </entry>
+</feed>

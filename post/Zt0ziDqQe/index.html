@@ -1,0 +1,516 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lua-Math和Date | 智商封印Official™</title>
+<meta name="description" content="一个普普通通的学生..." />
+<link rel="shortcut icon" href="https://znzsofficial.github.io/favicon.ico">
+<link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
+
+<script src="https://znzsofficial.github.io/media/js/jquery.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/aos.js"></script>
+<script src="https://znzsofficial.github.io/media/js/pace.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/view-image.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="函数名	 描述	 示例	 结果
+pi	 圆周率	 math.pi	 3.1415926535898
+abs	 取绝对值	 math.abs(-2012)	 2012
+ceil	 向上取整	 math.ceil(9.1)	 10
+floor	..." />
+    <meta name="keywords" content="Lua" />
+    <script src="https://znzsofficial.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://znzsofficial.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://znzsofficial.github.io"><img src="\media\images\custom-headerLogo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://znzsofficial.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1673319284687" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2022-01-22"><i class="fa fa-calendar"></i><span class="lately">1 年前</span></time>
+              
+              <a href="https://znzsofficial.github.io/post/Zt0ziDqQe/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/Zt0ziDqQe/"> </span>
+              </a>
+              <span id="/Zt0ziDqQe/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Lua-Math和Date</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>函数名	 描述	 示例	 结果<br>
+pi	 圆周率	 math.pi	 3.1415926535898<br>
+abs	 取绝对值	 math.abs(-2012)	 2012<br>
+ceil	 向上取整	 math.ceil(9.1)	 10<br>
+floor	 向下取整	 math.floor(9.9)	 9<br>
+max	 取参数最大值	 math.max(2,4,6,8)	 8<br>
+min	 取参数最小值	 math.min(2,4,6,8)	 2<br>
+pow	 计算x的y次幂	 math.pow(2,16)	 65536<br>
+sqrt	 开平方	 math.sqrt(65536)	 256<br>
+mod	 取模	 math.mod(65535,2)	 1<br>
+modf	 取整数和小数部分	 math.modf(20.12)	 20   0.12<br>
+randomseed	 设随机数种子	 math.randomseed(os.time())	<br>
+random	 取随机数	 math.random(5,90)	 5~90<br>
+rad	 角度转弧度	 math.rad(180)	 3.1415926535898<br>
+deg	 弧度转角度	 math.deg(math.pi)	 180<br>
+exp	 e的x次方	 math.exp(4)	 54.598150033144<br>
+log	 计算x的自然对数	 math.log(54.598150033144)	 4<br>
+log10	 计算10为底，x的对数	 math.log10(1000)	 3<br>
+frexp	 将参数拆成x * (2 ^ y)的形式	 math.frexp(160)	 0.625    8<br>
+ldexp	 计算x * (2 ^ y)	 math.ldexp(0.625,8)	 160<br>
+sin	 正弦	 math.sin(math.rad(30))	 0.5<br>
+cos	 余弦	 math.cos(math.rad(60))	 0.5<br>
+tan	 正切	 math.tan(math.rad(45))	 1<br>
+asin	 反正弦	 math.deg(math.asin(0.5))	 30<br>
+acos	 反余弦	 math.deg(math.acos(0.5))	 60<br>
+atan	 反正切	 math.deg(math.atan(1))	 45<br>
+Lua中的时间戳<br>
+实现的功能：</p>
+<p>获取Mac OS系统的毫秒数<br>
+获取秒数<br>
+秒数/毫秒数与日期格式的转换</p>
+<p>知识点：</p>
+<p>用Lua自带的函数os.time（）获取秒数<br>
+Lua自带的函数只能获取到秒，要获取到毫秒，需使用lzmq.timer，或者是socket（两个都需要使用luarocks安装）<br>
+os.clock返回一个程序使用CPU时间的一个近似值<br>
+os.date格式化日期：</p>
+<pre><code>local zmq_timer = require(&quot;lzmq.timer&quot;)
+local ms = zmq_timer.absolute_time()
+print(&quot;ms: &quot;..ms)
+--milliseconds: 1573537133261.0
+local s = os.time()
+print(&quot;s: &quot;..s)
+--second: 1573537133
+local time2date = os.date(&quot;%x&quot;, os.time())
+print(&quot;time2date: &quot;..time2date)
+--time2date: 11/12/19
+local date = os.date(&quot;%Y-%m-%d-%H-%M-%S&quot;)
+print(&quot;date: &quot;..date)
+--date: 2019-11-12-13-38-53
+function time_stamp_from_ms(t_ms)
+    local s_from_ms = math.floor(t_ms/1000)
+    local s_to_ms = 1000 * math.floor(t_ms/1000)
+    local ms_number = t_ms - s_to_ms
+    return os.date(&quot;%Y-%m-%d %H:%M:%S.&quot;, s_from_ms)..string.format(&quot;%03d&quot;, ms_number)
+end
+local ms2str = time_stamp_from_ms(ms)
+print(&quot;ms2timestamp: &quot;..ms2str)
+--ms2timestamp: 2019-11-12 13:38:53.261
+function time_stamp()
+    local ms = zmq_timer.absolute_time() -- use lzmq
+    local s = os.time()
+    return os.date(&quot;%Y-%m-%d %H:%M:%S.&quot;, s)..string.format(&quot;%03d&quot;, (ms-s*1000))
+end
+local c_ms2str = time_stamp()
+print(&quot;current_ms_2_timestamp: &quot;..c_ms2str)
+--current_ms_2_timestamp: 2019-11-12 13:38:53.262
+local socket = require(&quot;socket&quot;)
+local sms = socket.gettime()
+print(&quot;socket ms: &quot;..sms)
+--socket ms: 1573537133.2631
+print(os.clock())
+--0.005693
+</code></pre>
+<p>os.date()中的时间格式</p>
+<p>%a : abbreviated weekday name (e.g., Wed)<br>
+%A : full weekday name (e.g., Wednesday)<br>
+%b : abbreviated month name (e.g., Sep)<br>
+%B : full month name (e.g., September)<br>
+%c : date and time (e.g., 09/16/98 23:48:10)<br>
+%d : day of the month (16) [01-31]<br>
+%H : hour, using a 24-hour clock (23) [00-23]<br>
+%I : hour, using a 12-hour clock (11) [01-12]<br>
+%M : minute (48) [00-59]<br>
+%m : month (09) [01-12]<br>
+%p : either &quot;am&quot; or &quot;pm&quot; (pm)<br>
+%S : second (10) [00-61]<br>
+%w : weekday (3) [0-6 = Sunday-Saturday]<br>
+%x : date (e.g., 09/16/98)<br>
+%X : time (e.g., 23:48:10)<br>
+%Y : full year (1998)<br>
+%y : two-digit year (98) [00-99]<br>
+%% : the character '%'</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/post/vgNaN9n2E/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2022-06-05">2022-06-05</time>
+                  <h4 class="title white no-margin">测试同步</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/7-r0qcoCf.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/post/WeytGTkpD/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2022-01-02">2022-01-02</time>
+                  <h4 class="title white no-margin">硫的所有含氧酸</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+<div class="clear"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '841a616ad82c5f7b6d7e',
+    clientSecret: '7cda5b2dc31c3fc86101bf3d0f7f235e3bc76a6e',
+    repo: 'gitalkzn',
+    owner: 'znzsofficial',
+    admin: ['znzsofficial'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+                
+                
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/7DwW-reFA/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-10">2022-08-10</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/7DwW-reFA/">调用shizuku rish</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/iVxbhEYEo/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-09">2022-08-09</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/iVxbhEYEo/">判断程序处于后台</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/9VAeCFFaP/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-09">2022-08-09</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/9VAeCFFaP/">Activity部分函数</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
+                    
+                      <a href="https://znzsofficial.github.io/honkai/" class="ctag ctag-1 ctag-honkai" aria-label="">Honkai impact</a>
+                    
+                      <a href="https://znzsofficial.github.io/7-r0qcoCf/" class="ctag ctag-2 ctag-7-r0qcoCf" aria-label="">Nothing</a>
+                    
+                      <a href="https://znzsofficial.github.io/genshin/" class="ctag ctag-3 ctag-genshin" aria-label="">Genshin impact</a>
+                    
+                      <a href="https://znzsofficial.github.io/OyHo_QpLG/" class="ctag ctag-4 ctag-OyHo_QpLG" aria-label="">HIMEHINA</a>
+                    
+                      <a href="https://znzsofficial.github.io/JrP5wj5Vk/" class="ctag ctag-5 ctag-JrP5wj5Vk" aria-label="">Soc杂谈</a>
+                    
+                      <a href="https://znzsofficial.github.io/88F9GPb0a/" class="ctag ctag-6 ctag-88F9GPb0a" aria-label="">Java</a>
+                    
+                      <a href="https://znzsofficial.github.io/9x1P2joWe/" class="ctag ctag-7 ctag-9x1P2joWe" aria-label="">彩云AI</a>
+                    
+                      <a href="https://znzsofficial.github.io/ODVEX6ogD/" class="ctag ctag-8 ctag-ODVEX6ogD" aria-label="">Touhou Project</a>
+                    
+                      <a href="https://znzsofficial.github.io/rbE09UhyH/" class="ctag ctag-9 ctag-rbE09UhyH" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://znzsofficial.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">智商封印Official™</a></h4>
+                    <p class="founder">一个普普通通的学生...</p>
+                    <div class="social">
+                      
+                          
+                            <a href="https://github.com/znzsofficial" class="translate-effect" target="_blank"><i class="fa fa-github"></i></a>
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://znzsofficial.github.io"><img src="/media/images/gridea.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 48 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://znzsofficial.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

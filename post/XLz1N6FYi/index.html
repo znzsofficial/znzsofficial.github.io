@@ -1,0 +1,643 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lua读写数据（二）-SQlite数据库 | 智商封印Official™</title>
+<meta name="description" content="一个普普通通的学生..." />
+<link rel="shortcut icon" href="https://znzsofficial.github.io/favicon.ico">
+<link rel="stylesheet" href="https://znzsofficial.github.io/styles/main.css">
+
+<script src="https://znzsofficial.github.io/media/js/jquery.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/aos.js"></script>
+<script src="https://znzsofficial.github.io/media/js/pace.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/view-image.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://znzsofficial.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content=" require &quot;import&quot;
+import &quot;android.app.*&quot;
+import &quot;android.os.*&quot;
+import &quot;android.widget..." />
+    <meta name="keywords" content="Lua" />
+    <script src="https://znzsofficial.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://znzsofficial.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://znzsofficial.github.io"><img src="\media\images\custom-headerLogo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://znzsofficial.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1673319284687" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2021-04-16"><i class="fa fa-calendar"></i><span class="lately">2 年前</span></time>
+              
+              <a href="https://znzsofficial.github.io/post/XLz1N6FYi/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/XLz1N6FYi/"> </span>
+              </a>
+              <span id="/XLz1N6FYi/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Lua读写数据（二）-SQlite数据库</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <pre><code> require &quot;import&quot;
+import &quot;android.app.*&quot;
+import &quot;android.os.*&quot;
+import &quot;android.widget.*&quot;
+import &quot;android.view.*&quot;
+activity.setTitle('sqlite数据库操作')
+activity.setTheme(android.R.style.Theme_Holo_Light)
+--本篇来自nirenr，用于研究和扩展。
+bj={
+  LinearLayout;
+  orientation=&quot;vertical&quot;;
+  layout_height=&quot;fill&quot;;
+  layout_width=&quot;fill&quot;;
+  {
+    HorizontalScrollView;
+    {
+      LinearLayout;
+      {
+        Button;
+        text=&quot;创建表&quot;;
+        id=&quot;btn1&quot;;
+      };
+      {
+        Button;
+        text=&quot;添加列&quot;;
+        id=&quot;btn2&quot;;
+      };
+      {
+        Button;
+        text=&quot;查询表内所有数据&quot;;
+        id=&quot;btn3&quot;;
+      };
+    };
+  };
+  {
+    TextView;
+    layout_width=&quot;fill&quot;;
+    text=&quot;hello AndroLua+&quot;;
+  };
+};
+
+
+activity.setContentView(loadlayout(bj))
+</code></pre>
+<p>--[[</p>
+<p>【常用SQL语句】</p>
+<p>1.数据类型：<br>
+整型：int<br>
+字符：char(6)<br>
+varchar(24)<br>
+文本：text<br>
+布尔：bit</p>
+<p>日期：smalldatetime</p>
+<p>2.删除表：<br>
+drop table 表名</p>
+<p>3.修改表：<br>
+alter table 表名 add 字段 类型<br>
+//加约束<br>
+alter table 表名 add constraint 约束</p>
+<p>4.创建表：<br>
+create table 表名(<br>
+字段 类型 primary key,<br>
+字段 类型 default'值1' check(字段 in('值1','值2'))<br>
+)<br>
+//多个主键在最后面：<br>
+primary key(字段1,字段2)<br>
+//参照：<br>
+后面加：references 表名(字段)<br>
+//条件：<br>
+不为空：not null<br>
+唯一性：unique<br>
+//约束：<br>
+check(字段&gt;=值 and 字段&lt;=值)<br>
+check(字段 in('值1','值2'))</p>
+<p>5.查询语句：<br>
+select * from 表名 where 条件语句</p>
+<p>6.插入数据：<br>
+insert into 表名(字段列表) values(值列表)</p>
+<p>7.更新语句：<br>
+update 表名 set 字段名 = 值 where 条件</p>
+<p>8.删除语句：<br>
+delete from 表名 where 条件</p>
+<p>9.分页查询：<br>
+select * from Account limit 3,5<br>
+(获取5条记录，跳过前面3条)</p>
+<p>--一一一一一一一一一一一一一一一一一一一一</p>
+<p>【常用SQL语句2】</p>
+<p>1.子查询：<br>
+例：<br>
+select 学号,成绩 from xs_kc<br>
+where 课程号=(select 课程号 from kc where 课程名='计算机基础')</p>
+<p>2.连接查询：<br>
+例：<br>
+select 学号,成绩 from xs_kc，kc<br>
+where xs_kc.课程号=kc.课程号<br>
+add 课程名='计算机基础'</p>
+<p>3.创建存储过程：<br>
+//根据名字查询平均成绩，输入参数，输出参数</p>
+<pre><code>create proc pxs_avgByName(
+	@name char(8) ,@avg float output
+)
+as
+	set @avg=(select avg(成绩) 
+	from xs,xs_kc 
+	where xs.学号=xs_kc.学号 
+	and xs.姓名=@name)
+go
+//执行存储过程
+declare @ag float
+exec pxs_avgByName '李林',@avg output
+select '平均分' =@ag
+</code></pre>
+<p>4.创建触发器：<br>
+//如果在XS表中添加或修改的学生学号不是以“08”开头，<br>
+//则使用RAISERROR语句向客户端显示一条信息“学号必修以08开头”。</p>
+<pre><code>create trigger tri_n
+on xs
+for insert,update
+as 
+	declare @i char(6)
+	select @i=学号 from inserted
+	if @i not like '08%'
+	begin
+		ROLLBACK  TRANSACTION 
+		RAISERROR ('学号必修以08开头，操作已经撤消！', 16, 10)
+	end
+go
+
+--一一一一一一一一一一一一一一一一一一一一一
+
+//插入数据
+public void insertData(SQLiteDatabase db,String table,Article article){
+	ContentValues values = new ContentValues();
+	values.put(&quot;title&quot;,article.getTitle());
+	values.put(&quot;author&quot;, article.getAuthor());
+
+	db.insert(table, null, values);
+}
+
+//删除数据
+public void deletData(SQLiteDatabase db,String table,Integer id){
+	db.delete(table, &quot;_id=?&quot;, new String[]{id.toString()});
+}
+
+//根据id修改数据
+public void updataData(SQLiteDatabase db,String table,Integer id,Article article){
+	ContentValues values = new ContentValues();
+	values.put(&quot;title&quot;,article.getTitle());
+	values.put(&quot;author&quot;, article.getAuthor());
+	db.update(table, values, &quot;_id=?&quot;, new String[]{id.toString()});
+}
+
+//根据id查询数据库
+public Article selectData(SQLiteDatabase db,String table,Integer id){
+	Cursor cursor = db.query(table,null, &quot;_id=?&quot;, new String[]{id.toString()}, null, null, null);
+	if(cursor.moveToFirst()){
+		String title = cursor.getString(cursor.getColumnIndex(&quot;title&quot;));
+		String author = cursor.getString(cursor.getColumnIndex(&quot;author&quot;));
+		return new Article(title,author);
+	}
+	return null;
+}
+
+//查询数据库所有数据
+public List&lt;Article&gt; selectDatas(SQLiteDatabase db,String table){
+	List&lt;Article&gt; articles = new ArrayList&lt;Article&gt;();
+	Cursor cursor = db.query(table,null, null, null, null, null, null);
+	while(cursor.moveToNext()){
+		int id = cursor.getInt(cursor.getColumnIndex(&quot;_id&quot;));
+		String title = cursor.getString(cursor.getColumnIndex(&quot;title&quot;));
+         
+		articles.add(new Article(id,title));
+	}
+	return articles;
+}
+</code></pre>
+<p>]]</p>
+<p>--导入包<br>
+import &quot;android.database.sqlite.*&quot;</p>
+<p>--打开数据库(没有自动创建)<br>
+db = SQLiteDatabase.openOrCreateDatabase(this.getLuaDir() .. &quot;/test.db&quot;,MODE_PRIVATE, nil);</p>
+<p>--execSQL()方法可以执行insert、delete、update和CREATE TABLE之类有更改行为的SQL语句<br>
+function exec(sql)<br>
+db.execSQL(sql);<br>
+end</p>
+<p>--rawQuery()方法用于执行select语句。<br>
+function raw(sql,text)<br>
+cursor=db.rawQuery(sql,text)<br>
+end</p>
+<p>btn1.onClick=function()<br>
+CreatrTableSql=&quot;create table user(id integer primary key,name varchar(20),age int)&quot;<br>
+if pcall(exec,CreatrTableSql) then<br>
+--创建user表，integer类型为自动增长<br>
+print(&quot;创建成功&quot;)<br>
+else<br>
+print(&quot;创建失败&quot;)<br>
+end<br>
+end</p>
+<p>btn2.onClick=function()<br>
+if pcall(exec,&quot;insert into user(name,age) values('泥人',60)&quot;) then<br>
+print(&quot;添加列成功&quot;)<br>
+else<br>
+print(&quot;添加列失败&quot;)<br>
+end<br>
+end</p>
+<p>btn3.onClick=function()<br>
+sql=&quot;select * from user&quot;<br>
+if pcall(raw,sql,nil) then<br>
+print(&quot;查询成功，共&quot;..cursor.getCount()..&quot;行&quot;)<br>
+while (cursor.moveToNext()) do<br>
+userid = cursor.getInt(0); --获取第一列的值,第一列的索引从0开始<br>
+name = cursor.getString(1);--获取第二列的值<br>
+age = cursor.getInt(2);--获取第三列的值<br>
+print(&quot;Id:&quot;..userid..&quot;，Name:&quot;..name..&quot;，Age&quot;..age)<br>
+end<br>
+cursor.close()<br>
+else<br>
+print(&quot;查询失败&quot;)<br>
+end<br>
+end</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/KmpHfbHko.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/post/AgfevEFUk/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2021-04-16">2021-04-16</time>
+                  <h4 class="title white no-margin">Lua文件I/O</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://znzsofficial.github.io/media/images/KmpHfbHko.jpg');"></div>
+                 <a href="https://znzsofficial.github.io/post/wsKO23FNA/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2021-04-16">2021-04-16</time>
+                  <h4 class="title white no-margin">Lua数据加密存储</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://znzsofficial.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+<div class="clear"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '841a616ad82c5f7b6d7e',
+    clientSecret: '7cda5b2dc31c3fc86101bf3d0f7f235e3bc76a6e',
+    repo: 'gitalkzn',
+    owner: 'znzsofficial',
+    admin: ['znzsofficial'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+                
+                
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/7DwW-reFA/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-10">2022-08-10</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/7DwW-reFA/">调用shizuku rish</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/iVxbhEYEo/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-09">2022-08-09</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/iVxbhEYEo/">判断程序处于后台</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://znzsofficial.github.io/post/9VAeCFFaP/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2022-08-09">2022-08-09</time>
+                      <h4 class="title usmall">
+                        <a href="https://znzsofficial.github.io/post/9VAeCFFaP/">Activity部分函数</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://znzsofficial.github.io/KmpHfbHko/" class="ctag ctag-0 ctag-KmpHfbHko" aria-label="">Lua</a>
+                    
+                      <a href="https://znzsofficial.github.io/honkai/" class="ctag ctag-1 ctag-honkai" aria-label="">Honkai impact</a>
+                    
+                      <a href="https://znzsofficial.github.io/7-r0qcoCf/" class="ctag ctag-2 ctag-7-r0qcoCf" aria-label="">Nothing</a>
+                    
+                      <a href="https://znzsofficial.github.io/genshin/" class="ctag ctag-3 ctag-genshin" aria-label="">Genshin impact</a>
+                    
+                      <a href="https://znzsofficial.github.io/OyHo_QpLG/" class="ctag ctag-4 ctag-OyHo_QpLG" aria-label="">HIMEHINA</a>
+                    
+                      <a href="https://znzsofficial.github.io/JrP5wj5Vk/" class="ctag ctag-5 ctag-JrP5wj5Vk" aria-label="">Soc杂谈</a>
+                    
+                      <a href="https://znzsofficial.github.io/88F9GPb0a/" class="ctag ctag-6 ctag-88F9GPb0a" aria-label="">Java</a>
+                    
+                      <a href="https://znzsofficial.github.io/9x1P2joWe/" class="ctag ctag-7 ctag-9x1P2joWe" aria-label="">彩云AI</a>
+                    
+                      <a href="https://znzsofficial.github.io/ODVEX6ogD/" class="ctag ctag-8 ctag-ODVEX6ogD" aria-label="">Touhou Project</a>
+                    
+                      <a href="https://znzsofficial.github.io/rbE09UhyH/" class="ctag ctag-9 ctag-rbE09UhyH" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://znzsofficial.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">智商封印Official™</a></h4>
+                    <p class="founder">一个普普通通的学生...</p>
+                    <div class="social">
+                      
+                          
+                            <a href="https://github.com/znzsofficial" class="translate-effect" target="_blank"><i class="fa fa-github"></i></a>
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://znzsofficial.github.io"><img src="/media/images/gridea.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 48 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://znzsofficial.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>
